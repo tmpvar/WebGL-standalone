@@ -24,9 +24,9 @@
 
 #include "HTMLCanvasElement.h"
 #include "WebGLContextAttributes.h"
+#include "DOMString.h"
 #include "WebGLProgram.h"
 #include "WebGLShader.h"
-#include "DOMString.h"
 #include "WebGLBuffer.h"
 #include "WebGLFramebuffer.h"
 #include "WebGLRenderbuffer.h"
@@ -350,7 +350,7 @@ class WebGLRenderingContext {
 HTMLCanvasElement getCanvas();
     WebGLContextAttributes getContextAttributes();
     bool isContextLost();
-    DOMString[ ] getSupportedExtensions();
+    DOMString** getSupportedExtensions();
     void* getExtension(DOMString name);
     void activeTexture(GLenum texture);
     void attachShader(WebGLProgram program, WebGLShader shader);
@@ -409,7 +409,7 @@ HTMLCanvasElement getCanvas();
     void generateMipmap(GLenum target);
     WebGLActiveInfo getActiveAttrib(WebGLProgram program, GLuint index);
     WebGLActiveInfo getActiveUniform(WebGLProgram program, GLuint index);
-    WebGLShader[ ] getAttachedShaders(WebGLProgram program);
+    WebGLShader** getAttachedShaders(WebGLProgram program);
     GLint getAttribLocation(WebGLProgram program, DOMString name);
     void* getParameter(GLenum pname);
     void* getBufferParameter(GLenum target, GLenum pname);
@@ -463,48 +463,48 @@ HTMLCanvasElement getCanvas();
     void texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLVideoElement video);
     void uniform1f(WebGLUniformLocation location, GLfloat x);
     void uniform1fv(WebGLUniformLocation location, FloatArray v);
-    void uniform1fv(WebGLUniformLocation location, sequence<float> v);
+    void uniform1fv(WebGLUniformLocation location, float** v);
     void uniform1i(WebGLUniformLocation location, GLint x);
     void uniform1iv(WebGLUniformLocation location, Int32Array v);
-    void uniform1iv(WebGLUniformLocation location, sequence<long> v);
+    void uniform1iv(WebGLUniformLocation location, long** v);
     void uniform2f(WebGLUniformLocation location, GLfloat x, GLfloat y);
     void uniform2fv(WebGLUniformLocation location, FloatArray v);
-    void uniform2fv(WebGLUniformLocation location, sequence<float> v);
+    void uniform2fv(WebGLUniformLocation location, float** v);
     void uniform2i(WebGLUniformLocation location, GLint x, GLint y);
     void uniform2iv(WebGLUniformLocation location, Int32Array v);
-    void uniform2iv(WebGLUniformLocation location, sequence<long> v);
+    void uniform2iv(WebGLUniformLocation location, long** v);
     void uniform3f(WebGLUniformLocation location, GLfloat x, GLfloat y, GLfloat z);
     void uniform3fv(WebGLUniformLocation location, FloatArray v);
-    void uniform3fv(WebGLUniformLocation location, sequence<float> v);
+    void uniform3fv(WebGLUniformLocation location, float** v);
     void uniform3i(WebGLUniformLocation location, GLint x, GLint y, GLint z);
     void uniform3iv(WebGLUniformLocation location, Int32Array v);
-    void uniform3iv(WebGLUniformLocation location, sequence<long> v);
+    void uniform3iv(WebGLUniformLocation location, long** v);
     void uniform4f(WebGLUniformLocation location, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
     void uniform4fv(WebGLUniformLocation location, FloatArray v);
-    void uniform4fv(WebGLUniformLocation location, sequence<float> v);
+    void uniform4fv(WebGLUniformLocation location, float** v);
     void uniform4i(WebGLUniformLocation location, GLint x, GLint y, GLint z, GLint w);
     void uniform4iv(WebGLUniformLocation location, Int32Array v);
-    void uniform4iv(WebGLUniformLocation location, sequence<long> v);
+    void uniform4iv(WebGLUniformLocation location, long** v);
     void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value);
-    void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, sequence<float> value);
+    void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, float** value);
     void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value);
-    void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, sequence<float> value);
+    void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, float** value);
     void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value);
-    void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, sequence<float> value);
+    void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, float** value);
     void useProgram(WebGLProgram program);
     void validateProgram(WebGLProgram program);
     void vertexAttrib1f(GLuint indx, GLfloat x);
     void vertexAttrib1fv(GLuint indx, FloatArray values);
-    void vertexAttrib1fv(GLuint indx, sequence<float> values);
+    void vertexAttrib1fv(GLuint indx, float** values);
     void vertexAttrib2f(GLuint indx, GLfloat x, GLfloat y);
     void vertexAttrib2fv(GLuint indx, FloatArray values);
-    void vertexAttrib2fv(GLuint indx, sequence<float> values);
+    void vertexAttrib2fv(GLuint indx, float** values);
     void vertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z);
     void vertexAttrib3fv(GLuint indx, FloatArray values);
-    void vertexAttrib3fv(GLuint indx, sequence<float> values);
+    void vertexAttrib3fv(GLuint indx, float** values);
     void vertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
     void vertexAttrib4fv(GLuint indx, FloatArray values);
-    void vertexAttrib4fv(GLuint indx, sequence<float> values);
+    void vertexAttrib4fv(GLuint indx, float** values);
     void vertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLintptr offset);
     void viewport(GLint x, GLint y, GLsizei width, GLsizei height);
 };

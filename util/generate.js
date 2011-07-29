@@ -13,14 +13,24 @@ var files = {};
 var includes = [];
 
 
-var skip = ['void', 'void*', 'bool', 'int', 'float', 'float*', 'long*', 'double', 'long', 'GLfloat', 'GLenum', 'GLboolean', 'GLint', 'GLsizeiptr', 'GLclampf', 'GLsizei', 'GLuint', 'GLbitfield', 'GLintptr', 'GLclampf', 'GLboolean'];
+var skip = [
+  'void', 'void*', 'bool', 'int', 'float', 'long',
+  'double', 'long', 'GLfloat', 'GLenum', 'GLboolean', 'GLint',
+  'GLsizeiptr', 'GLclampf', 'GLsizei', 'GLuint', 'GLbitfield',
+  'GLintptr', 'GLclampf', 'GLboolean'
+];
 
 idl = idl.replace(/readonly attribute/g, 'readonly');
 idl = idl.replace(/attribute boolean/g, 'bool');
 idl = idl.replace(/ boolean/g, ' bool');
+idl = idl.replace(/\[[ ]*\]/g, '\*\*');
+
+idl = idl.replace(/sequence<(.*)>/g, '$1\*\*');
 
 function addInclude(file, addLine) {
-  include = '#include "' + file + '.h"';
+  file = file.replace(/\*/g, '');
+  var include = '#include "' + file + '.h"';
+  
   if (file && includes.indexOf(include) < 0 && skip.indexOf(file) === -1) {
     includes.push(include);
     if (addLine !== false && !files[file]) {
@@ -126,7 +136,7 @@ while(1) {
             
             
             attributeMatch = prop.match(/readonly (.*) (.*);/);
-            console.log(attributeMatch)
+
             if (attributeMatch) {
               addInclude(attributeMatch[1]);
               var titleCase = attributeMatch[2].substring(0,1).toUpperCase() + attributeMatch[2].substring(1);

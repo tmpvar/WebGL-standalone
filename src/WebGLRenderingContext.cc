@@ -19,11 +19,7 @@ WebGLRenderingContext::~WebGLRenderingContext() {
 
 HTMLCanvasElement getCanvas() {
   
-}DOMString[ ] getSupportedExtensions() {
-  
-}
-
-void* getExtension(DOMString name) {
+}void* getExtension(DOMString name) {
   
 }
 
@@ -227,7 +223,7 @@ WebGLActiveInfo getActiveUniform(WebGLProgram program, GLuint index) {
   
 }
 
-WebGLShader[ ] getAttachedShaders(WebGLProgram program) {
+WebGLShader** getAttachedShaders(WebGLProgram program) {
   
 }
 
@@ -439,7 +435,7 @@ void uniform1fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform1fv(WebGLUniformLocation location, float* v) {
+void uniform1fv(WebGLUniformLocation location, float** v) {
   
 }
 
@@ -451,7 +447,7 @@ void uniform1iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform1iv(WebGLUniformLocation location, long* v) {
+void uniform1iv(WebGLUniformLocation location, long** v) {
   
 }
 
@@ -463,7 +459,7 @@ void uniform2fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform2fv(WebGLUniformLocation location, float* v) {
+void uniform2fv(WebGLUniformLocation location, float** v) {
   
 }
 
@@ -475,7 +471,7 @@ void uniform2iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform2iv(WebGLUniformLocation location, long* v) {
+void uniform2iv(WebGLUniformLocation location, long** v) {
   
 }
 
@@ -487,7 +483,7 @@ void uniform3fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform3fv(WebGLUniformLocation location, float* v) {
+void uniform3fv(WebGLUniformLocation location, float** v) {
   
 }
 
@@ -499,7 +495,7 @@ void uniform3iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform3iv(WebGLUniformLocation location, long* v) {
+void uniform3iv(WebGLUniformLocation location, long** v) {
   
 }
 
@@ -511,7 +507,7 @@ void uniform4fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform4fv(WebGLUniformLocation location, float* v) {
+void uniform4fv(WebGLUniformLocation location, float** v) {
   
 }
 
@@ -523,7 +519,7 @@ void uniform4iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform4iv(WebGLUniformLocation location, long* v) {
+void uniform4iv(WebGLUniformLocation location, long** v) {
   
 }
 
@@ -531,7 +527,7 @@ void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, FloatA
   
 }
 
-void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, float* value) {
+void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
   
 }
 
@@ -539,7 +535,7 @@ void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, FloatA
   
 }
 
-void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, float* value) {
+void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
   
 }
 
@@ -547,7 +543,7 @@ void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, FloatA
   
 }
 
-void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, float* value) {
+void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
   
 }
 
@@ -567,7 +563,7 @@ void vertexAttrib1fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib1fv(GLuint indx, float* values) {
+void vertexAttrib1fv(GLuint indx, float** values) {
   
 }
 
@@ -579,7 +575,7 @@ void vertexAttrib2fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib2fv(GLuint indx, float* values) {
+void vertexAttrib2fv(GLuint indx, float** values) {
   
 }
 
@@ -591,7 +587,7 @@ void vertexAttrib3fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib3fv(GLuint indx, float* values) {
+void vertexAttrib3fv(GLuint indx, float** values) {
   
 }
 
@@ -603,7 +599,7 @@ void vertexAttrib4fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib4fv(GLuint indx, float* values) {
+void vertexAttrib4fv(GLuint indx, float** values) {
   
 }
 
