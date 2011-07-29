@@ -9,11 +9,23 @@
 #ifndef _INCLUDED_WebGLFramebuffer_
 #define _INCLUDED_WebGLFramebuffer_
 
-#include <gl/gl.h>
-#include "WebGLObject .h"
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#else
+#ifdef _WIN32
+  #include <windows.h>
+#endif
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#endif
+
+#include "WebGLObject.h"
 
 
-class WebGLFramebuffer : WebGLObject  {
+class WebGLFramebuffer : WebGLObject {
   public:
     WebGLFramebuffer();
     ~WebGLFramebuffer();

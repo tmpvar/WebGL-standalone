@@ -9,17 +9,30 @@
 #ifndef _INCLUDED_WebGLContextEvent_
 #define _INCLUDED_WebGLContextEvent_
 
-#include <gl/gl.h>
-#include "Event .h"
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#else
+#ifdef _WIN32
+  #include <windows.h>
+#endif
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#endif
+
+#include "Event.h"
+#include "DOMString.h"
 
 
-class WebGLContextEvent : Event  {
+class WebGLContextEvent : Event {
   public:
     WebGLContextEvent();
     ~WebGLContextEvent();
 
-    readonly attribute DOMString statusMessage;
-    void initWebGLContextEvent(DOMString typeArg, boolean canBubbleArg, boolean cancelableArg, DOMString statusMessageArg);
+DOMString getStatusMessage();
+    void initWebGLContextEvent(DOMString typeArg, bool canBubbleArg, bool cancelableArg, DOMString statusMessageArg);
 };
 
 #endif
