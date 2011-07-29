@@ -10,16 +10,16 @@
 #define _INCLUDED_WebGLRenderingContext_
 
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
+  #include <OpenGL/gl.h>
+  #include <OpenGL/glu.h>
+  #include <GLUT/glut.h>
 #else
 #ifdef _WIN32
   #include <windows.h>
 #endif
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
+  #include <GL/gl.h>
+  #include <GL/glu.h>
+  #include <GL/glut.h>
 #endif
 
 #include "HTMLCanvasElement.h"
@@ -44,9 +44,6 @@
 
 class WebGLRenderingContext {
   public:
-    WebGLRenderingContext();
-    ~WebGLRenderingContext();
-
     static const GLenum DEPTH_BUFFER_BIT = 0x00000100;;
     static const GLenum STENCIL_BUFFER_BIT = 0x00000400;;
     static const GLenum COLOR_BUFFER_BIT = 0x00004000;;
@@ -347,7 +344,7 @@ class WebGLRenderingContext {
     static const GLenum CONTEXT_LOST_WEBGL = 0x9242;;
     static const GLenum UNPACK_COLORSPACE_CONVERSION_WEBGL = 0x9243;;
     static const GLenum BROWSER_DEFAULT_WEBGL = 0x9244;;
-HTMLCanvasElement getCanvas();
+    HTMLCanvasElement getCanvas();
     WebGLContextAttributes getContextAttributes();
     bool isContextLost();
     DOMString** getSupportedExtensions();
@@ -507,6 +504,9 @@ HTMLCanvasElement getCanvas();
     void vertexAttrib4fv(GLuint indx, float** values);
     void vertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLintptr offset);
     void viewport(GLint x, GLint y, GLsizei width, GLsizei height);
+
+    WebGLRenderingContext();
+    ~WebGLRenderingContext();
 };
 
 #endif

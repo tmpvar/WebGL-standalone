@@ -78,8 +78,6 @@ while(1) {
     cc += name + '::~' + name + '() {\n  \n}\n\n';
 
     currentProperties = [
-      '    ' + name + '();',
-      '    ~' + name + '();\n'
     ];
 
   // Handle the end of an interface
@@ -101,7 +99,7 @@ while(1) {
             //propParts[2] = current + '::' + propParts[2];
             prop = propParts.join(' ').replace(';', ' {');
             // calculate extra includes
-            var matches = prop.match(/^([a-z]+) (.*)\((.*)\)/i);
+            var matches = prop.match(/^(.+) (.*)\((.*)\)/i);
             if (matches && matches.length === 4) {
               addInclude(matches[1]);
               
@@ -117,12 +115,15 @@ while(1) {
                 addInclude(type);
               });
 
-              prop = matches[1] + ' ' + matches[2] + '(' + args.join(', ') + ') {';
+              cc += matches[1] + ' ' + current + '::' + matches[2] + '(' + args.join(', ') + ') {\n  \n}\n\n';
+            } else {
+              console.log('miss', prop, matches);
             }
-            
-            cc += prop + '\n  \n}\n\n';
-          } else if (propParts.length === 2) {
+          }
+          
+          if (propParts.length === 2) {
             addInclude(propParts[0]);
+            cc += propParts[0] + ' ' + current + '::' + propParts[1].replace(';', ' {\n  \n}\n\n') + '\n';
           }
 
         } else {
@@ -141,10 +142,10 @@ while(1) {
               addInclude(attributeMatch[1]);
               var titleCase = attributeMatch[2].substring(0,1).toUpperCase() + attributeMatch[2].substring(1);
               prop = attributeMatch[1] + ' get' + titleCase + '();'
-              cc += attributeMatch[1] + ' get' + titleCase + '() {\n  \n}';
-            };
+              cc += attributeMatch[1] + ' ' + current + '::get' + titleCase + '() {\n  \n}\n\n';
+            }
 
-            h_props.push(prop);
+            h_props.push('    ' + prop.replace(/^\W*/, ''));
           }
         }
       });
@@ -153,6 +154,7 @@ while(1) {
     }
 
     h = h.replace(/%PARENT_INCLUDE%/, includes.join('\n') + '\n');
+    h = h.replace(/%PUBLIC%/, '\n  public:\n');
     includes = [];
 
     fs.writeFileSync(__dirname + '/../src/' + current + '.h', h);

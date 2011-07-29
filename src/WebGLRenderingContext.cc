@@ -10,604 +10,661 @@
 #include "WebGLRenderingContext.h"
 
 WebGLRenderingContext::WebGLRenderingContext() {
-  
 }
 
 WebGLRenderingContext::~WebGLRenderingContext() {
   
 }
 
-HTMLCanvasElement getCanvas() {
+HTMLCanvasElement WebGLRenderingContext::getCanvas() {
   
-}void* getExtension(DOMString name) {
+}
+
+WebGLContextAttributes WebGLRenderingContext::getContextAttributes() {
+  
+}
+
+
+bool WebGLRenderingContext::isContextLost() {
+  
+}
+
+
+DOMString** WebGLRenderingContext::getSupportedExtensions() {
+  
+}
+
+
+void* WebGLRenderingContext::getExtension(DOMString name) {
+  
+}
+
+void WebGLRenderingContext::activeTexture(GLenum texture) {
+  
+}
+
+void WebGLRenderingContext::attachShader(WebGLProgram program, WebGLShader shader) {
   
 }
 
-void activeTexture(GLenum texture) {
+void WebGLRenderingContext::bindAttribLocation(WebGLProgram program, GLuint index, DOMString name) {
   
 }
 
-void attachShader(WebGLProgram program, WebGLShader shader) {
+void WebGLRenderingContext::bindBuffer(GLenum target, WebGLBuffer buffer) {
   
 }
 
-void bindAttribLocation(WebGLProgram program, GLuint index, DOMString name) {
+void WebGLRenderingContext::bindFramebuffer(GLenum target, WebGLFramebuffer framebuffer) {
   
 }
 
-void bindBuffer(GLenum target, WebGLBuffer buffer) {
+void WebGLRenderingContext::bindRenderbuffer(GLenum target, WebGLRenderbuffer renderbuffer) {
   
 }
 
-void bindFramebuffer(GLenum target, WebGLFramebuffer framebuffer) {
+void WebGLRenderingContext::bindTexture(GLenum target, WebGLTexture texture) {
+  texture.bind(target);
+}
+
+void WebGLRenderingContext::blendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
+  
+}
+
+void WebGLRenderingContext::blendEquation(GLenum mode) {
   
 }
 
-void bindRenderbuffer(GLenum target, WebGLRenderbuffer renderbuffer) {
+void WebGLRenderingContext::blendEquationSeparate(GLenum modeRGB, GLenum modeAlpha) {
   
 }
 
-void bindTexture(GLenum target, WebGLTexture texture) {
+void WebGLRenderingContext::blendFunc(GLenum sfactor, GLenum dfactor) {
   
 }
 
-void blendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
+void WebGLRenderingContext::blendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha) {
   
 }
 
-void blendEquation(GLenum mode) {
+void WebGLRenderingContext::bufferData(GLenum target, GLsizeiptr size, GLenum usage) {
   
 }
 
-void blendEquationSeparate(GLenum modeRGB, GLenum modeAlpha) {
+void WebGLRenderingContext::bufferData(GLenum target, ArrayBufferView data, GLenum usage) {
   
 }
 
-void blendFunc(GLenum sfactor, GLenum dfactor) {
+void WebGLRenderingContext::bufferData(GLenum target, ArrayBuffer data, GLenum usage) {
   
 }
 
-void blendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha) {
+void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBufferView data) {
   
 }
 
-void bufferData(GLenum target, GLsizeiptr size, GLenum usage) {
+void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBuffer data) {
   
 }
 
-void bufferData(GLenum target, ArrayBufferView data, GLenum usage) {
+GLenum WebGLRenderingContext::checkFramebufferStatus(GLenum target) {
   
 }
 
-void bufferData(GLenum target, ArrayBuffer data, GLenum usage) {
+void WebGLRenderingContext::clear(GLbitfield mask) {
   
 }
 
-void bufferSubData(GLenum target, GLintptr offset, ArrayBufferView data) {
+void WebGLRenderingContext::clearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
   
 }
 
-void bufferSubData(GLenum target, GLintptr offset, ArrayBuffer data) {
+void WebGLRenderingContext::clearDepth(GLclampf depth) {
   
 }
 
-GLenum checkFramebufferStatus(GLenum target) {
+void WebGLRenderingContext::clearStencil(GLint s) {
   
 }
 
-void clear(GLbitfield mask) {
+void WebGLRenderingContext::colorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) {
   
 }
 
-void clearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
+void WebGLRenderingContext::compileShader(WebGLShader shader) {
   
 }
 
-void clearDepth(GLclampf depth) {
+void WebGLRenderingContext::copyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) {
   
 }
 
-void clearStencil(GLint s) {
+void WebGLRenderingContext::copyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height) {
   
 }
 
-void colorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) {
+WebGLBuffer WebGLRenderingContext::createBuffer() {
+}
+
+
+WebGLFramebuffer WebGLRenderingContext::createFramebuffer() {
   
 }
 
-void compileShader(WebGLShader shader) {
+
+WebGLProgram WebGLRenderingContext::createProgram() {
   
 }
+
 
-void copyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) {
+WebGLRenderbuffer WebGLRenderingContext::createRenderbuffer() {
   
 }
 
-void copyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height) {
+WebGLShader WebGLRenderingContext::createShader(GLenum type) {
+  WebGLShader a;
+
+  a.id = glCreateShader(type);
+  return a;
+}
+
+WebGLTexture WebGLRenderingContext::createTexture() {
+  WebGLTexture *texture = new WebGLTexture();
+  return *texture;
+}
+
+
+void WebGLRenderingContext::cullFace(GLenum mode) {
   
 }
 
-WebGLShader createShader(GLenum type) {
+void WebGLRenderingContext::deleteBuffer(WebGLBuffer buffer) {
   
 }
 
-void cullFace(GLenum mode) {
+void WebGLRenderingContext::deleteFramebuffer(WebGLFramebuffer framebuffer) {
   
 }
 
-void deleteBuffer(WebGLBuffer buffer) {
+void WebGLRenderingContext::deleteProgram(WebGLProgram program) {
   
 }
 
-void deleteFramebuffer(WebGLFramebuffer framebuffer) {
+void WebGLRenderingContext::deleteRenderbuffer(WebGLRenderbuffer renderbuffer) {
   
 }
 
-void deleteProgram(WebGLProgram program) {
+void WebGLRenderingContext::deleteShader(WebGLShader shader) {
   
 }
 
-void deleteRenderbuffer(WebGLRenderbuffer renderbuffer) {
+void WebGLRenderingContext::deleteTexture(WebGLTexture texture) {
   
 }
 
-void deleteShader(WebGLShader shader) {
+void WebGLRenderingContext::depthFunc(GLenum func) {
   
 }
 
-void deleteTexture(WebGLTexture texture) {
+void WebGLRenderingContext::depthMask(GLboolean flag) {
   
 }
 
-void depthFunc(GLenum func) {
+void WebGLRenderingContext::depthRange(GLclampf zNear, GLclampf zFar) {
   
 }
 
-void depthMask(GLboolean flag) {
+void WebGLRenderingContext::detachShader(WebGLProgram program, WebGLShader shader) {
   
 }
 
-void depthRange(GLclampf zNear, GLclampf zFar) {
+void WebGLRenderingContext::disable(GLenum cap) {
   
 }
 
-void detachShader(WebGLProgram program, WebGLShader shader) {
+void WebGLRenderingContext::disableVertexAttribArray(GLuint index) {
   
 }
 
-void disable(GLenum cap) {
+void WebGLRenderingContext::drawArrays(GLenum mode, GLint first, GLsizei count) {
   
 }
 
-void disableVertexAttribArray(GLuint index) {
+void WebGLRenderingContext::drawElements(GLenum mode, GLsizei count, GLenum type, GLintptr offset) {
   
 }
 
-void drawArrays(GLenum mode, GLint first, GLsizei count) {
+void WebGLRenderingContext::enable(GLenum cap) {
   
 }
 
-void drawElements(GLenum mode, GLsizei count, GLenum type, GLintptr offset) {
+void WebGLRenderingContext::enableVertexAttribArray(GLuint index) {
   
 }
 
-void enable(GLenum cap) {
+void WebGLRenderingContext::finish() {
   
 }
 
-void enableVertexAttribArray(GLuint index) {
+
+void WebGLRenderingContext::flush() {
   
 }
+
 
-void framebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, WebGLRenderbuffer renderbuffer) {
+void WebGLRenderingContext::framebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, WebGLRenderbuffer renderbuffer) {
   
 }
 
-void framebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, WebGLTexture texture, GLint level) {
+void WebGLRenderingContext::framebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, WebGLTexture texture, GLint level) {
   
 }
 
-void frontFace(GLenum mode) {
+void WebGLRenderingContext::frontFace(GLenum mode) {
   
 }
 
-void generateMipmap(GLenum target) {
+void WebGLRenderingContext::generateMipmap(GLenum target) {
   
 }
 
-WebGLActiveInfo getActiveAttrib(WebGLProgram program, GLuint index) {
+WebGLActiveInfo WebGLRenderingContext::getActiveAttrib(WebGLProgram program, GLuint index) {
   
 }
 
-WebGLActiveInfo getActiveUniform(WebGLProgram program, GLuint index) {
+WebGLActiveInfo WebGLRenderingContext::getActiveUniform(WebGLProgram program, GLuint index) {
   
 }
 
-WebGLShader** getAttachedShaders(WebGLProgram program) {
+WebGLShader** WebGLRenderingContext::getAttachedShaders(WebGLProgram program) {
   
 }
 
-GLint getAttribLocation(WebGLProgram program, DOMString name) {
+GLint WebGLRenderingContext::getAttribLocation(WebGLProgram program, DOMString name) {
   
 }
 
-void* getParameter(GLenum pname) {
+void* WebGLRenderingContext::getParameter(GLenum pname) {
   
 }
 
-void* getBufferParameter(GLenum target, GLenum pname) {
+void* WebGLRenderingContext::getBufferParameter(GLenum target, GLenum pname) {
   
 }
 
-void* getFramebufferAttachmentParameter(GLenum target, GLenum attachment, GLenum pname) {
+GLenum WebGLRenderingContext::getError() {
   
 }
 
-void* getProgramParameter(WebGLProgram program, GLenum pname) {
+
+void* WebGLRenderingContext::getFramebufferAttachmentParameter(GLenum target, GLenum attachment, GLenum pname) {
   
 }
 
-DOMString getProgramInfoLog(WebGLProgram program) {
+void* WebGLRenderingContext::getProgramParameter(WebGLProgram program, GLenum pname) {
   
 }
 
-void* getRenderbufferParameter(GLenum target, GLenum pname) {
+DOMString WebGLRenderingContext::getProgramInfoLog(WebGLProgram program) {
   
 }
 
-void* getShaderParameter(WebGLShader shader, GLenum pname) {
+void* WebGLRenderingContext::getRenderbufferParameter(GLenum target, GLenum pname) {
   
 }
 
-DOMString getShaderInfoLog(WebGLShader shader) {
+void* WebGLRenderingContext::getShaderParameter(WebGLShader shader, GLenum pname) {
   
 }
 
-DOMString getShaderSource(WebGLShader shader) {
+DOMString WebGLRenderingContext::getShaderInfoLog(WebGLShader shader) {
   
 }
 
-void* getTexParameter(GLenum target, GLenum pname) {
+DOMString WebGLRenderingContext::getShaderSource(WebGLShader shader) {
   
 }
 
-void* getUniform(WebGLProgram program, WebGLUniformLocation location) {
+void* WebGLRenderingContext::getTexParameter(GLenum target, GLenum pname) {
   
 }
 
-WebGLUniformLocation getUniformLocation(WebGLProgram program, DOMString name) {
+void* WebGLRenderingContext::getUniform(WebGLProgram program, WebGLUniformLocation location) {
   
 }
 
-void* getVertexAttrib(GLuint index, GLenum pname) {
+WebGLUniformLocation WebGLRenderingContext::getUniformLocation(WebGLProgram program, DOMString name) {
   
 }
 
-GLsizeiptr getVertexAttribOffset(GLuint index, GLenum pname) {
+void* WebGLRenderingContext::getVertexAttrib(GLuint index, GLenum pname) {
   
 }
 
-void hint(GLenum target, GLenum mode) {
+GLsizeiptr WebGLRenderingContext::getVertexAttribOffset(GLuint index, GLenum pname) {
   
 }
 
-GLboolean isBuffer(WebGLBuffer buffer) {
+void WebGLRenderingContext::hint(GLenum target, GLenum mode) {
   
 }
 
-GLboolean isEnabled(GLenum cap) {
+GLboolean WebGLRenderingContext::isBuffer(WebGLBuffer buffer) {
   
 }
 
-GLboolean isFramebuffer(WebGLFramebuffer framebuffer) {
+GLboolean WebGLRenderingContext::isEnabled(GLenum cap) {
   
 }
 
-GLboolean isProgram(WebGLProgram program) {
+GLboolean WebGLRenderingContext::isFramebuffer(WebGLFramebuffer framebuffer) {
   
 }
 
-GLboolean isRenderbuffer(WebGLRenderbuffer renderbuffer) {
+GLboolean WebGLRenderingContext::isProgram(WebGLProgram program) {
   
 }
 
-GLboolean isShader(WebGLShader shader) {
+GLboolean WebGLRenderingContext::isRenderbuffer(WebGLRenderbuffer renderbuffer) {
   
 }
 
-GLboolean isTexture(WebGLTexture texture) {
+GLboolean WebGLRenderingContext::isShader(WebGLShader shader) {
   
 }
 
-void lineWidth(GLfloat width) {
+GLboolean WebGLRenderingContext::isTexture(WebGLTexture texture) {
   
 }
 
-void linkProgram(WebGLProgram program) {
+void WebGLRenderingContext::lineWidth(GLfloat width) {
   
 }
 
-void pixelStorei(GLenum pname, GLint param) {
+void WebGLRenderingContext::linkProgram(WebGLProgram program) {
   
 }
 
-void polygonOffset(GLfloat factor, GLfloat units) {
+void WebGLRenderingContext::pixelStorei(GLenum pname, GLint param) {
   
 }
 
-void readPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, ArrayBufferView pixels) {
+void WebGLRenderingContext::polygonOffset(GLfloat factor, GLfloat units) {
   
 }
 
-void renderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height) {
+void WebGLRenderingContext::readPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, ArrayBufferView pixels) {
   
 }
 
-void sampleCoverage(GLclampf value, GLboolean invert) {
+void WebGLRenderingContext::renderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height) {
   
 }
 
-void scissor(GLint x, GLint y, GLsizei width, GLsizei height) {
+void WebGLRenderingContext::sampleCoverage(GLclampf value, GLboolean invert) {
   
 }
 
-void shaderSource(WebGLShader shader, DOMString source) {
+void WebGLRenderingContext::scissor(GLint x, GLint y, GLsizei width, GLsizei height) {
   
 }
 
-void stencilFunc(GLenum func, GLint ref, GLuint mask) {
+void WebGLRenderingContext::shaderSource(WebGLShader shader, DOMString source) {
   
 }
 
-void stencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask) {
+void WebGLRenderingContext::stencilFunc(GLenum func, GLint ref, GLuint mask) {
   
 }
 
-void stencilMask(GLuint mask) {
+void WebGLRenderingContext::stencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask) {
   
 }
 
-void stencilMaskSeparate(GLenum face, GLuint mask) {
+void WebGLRenderingContext::stencilMask(GLuint mask) {
   
 }
 
-void stencilOp(GLenum fail, GLenum zfail, GLenum zpass) {
+void WebGLRenderingContext::stencilMaskSeparate(GLenum face, GLuint mask) {
   
 }
 
-void stencilOpSeparate(GLenum face, GLenum fail, GLenum zfail, GLenum zpass) {
+void WebGLRenderingContext::stencilOp(GLenum fail, GLenum zfail, GLenum zpass) {
   
 }
 
-void texImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, ArrayBufferView pixels) {
+void WebGLRenderingContext::stencilOpSeparate(GLenum face, GLenum fail, GLenum zfail, GLenum zpass) {
   
 }
 
-void texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, ImageData pixels) {
+void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, ArrayBufferView pixels) {
   
 }
 
-void texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLImageElement image) {
+void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, ImageData pixels) {
   
 }
 
-void texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLCanvasElement canvas) {
+void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLImageElement image) {
   
 }
 
-void texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLVideoElement video) {
+void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLCanvasElement canvas) {
   
 }
 
-void texParameterf(GLenum target, GLenum pname, GLfloat param) {
+void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLVideoElement video) {
   
 }
 
-void texParameteri(GLenum target, GLenum pname, GLint param) {
+void WebGLRenderingContext::texParameterf(GLenum target, GLenum pname, GLfloat param) {
   
 }
 
-void texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, ArrayBufferView pixels) {
+void WebGLRenderingContext::texParameteri(GLenum target, GLenum pname, GLint param) {
   
 }
 
-void texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, ImageData pixels) {
+void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, ArrayBufferView pixels) {
   
 }
 
-void texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLImageElement image) {
+void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, ImageData pixels) {
   
 }
 
-void texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLCanvasElement canvas) {
+void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLImageElement image) {
   
 }
 
-void texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLVideoElement video) {
+void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLCanvasElement canvas) {
   
 }
 
-void uniform1f(WebGLUniformLocation location, GLfloat x) {
+void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLVideoElement video) {
   
 }
 
-void uniform1fv(WebGLUniformLocation location, FloatArray v) {
+void WebGLRenderingContext::uniform1f(WebGLUniformLocation location, GLfloat x) {
   
 }
 
-void uniform1fv(WebGLUniformLocation location, float** v) {
+void WebGLRenderingContext::uniform1fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform1i(WebGLUniformLocation location, GLint x) {
+void WebGLRenderingContext::uniform1fv(WebGLUniformLocation location, float** v) {
   
 }
 
-void uniform1iv(WebGLUniformLocation location, Int32Array v) {
+void WebGLRenderingContext::uniform1i(WebGLUniformLocation location, GLint x) {
   
 }
 
-void uniform1iv(WebGLUniformLocation location, long** v) {
+void WebGLRenderingContext::uniform1iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform2f(WebGLUniformLocation location, GLfloat x, GLfloat y) {
+void WebGLRenderingContext::uniform1iv(WebGLUniformLocation location, long** v) {
   
 }
 
-void uniform2fv(WebGLUniformLocation location, FloatArray v) {
+void WebGLRenderingContext::uniform2f(WebGLUniformLocation location, GLfloat x, GLfloat y) {
   
 }
 
-void uniform2fv(WebGLUniformLocation location, float** v) {
+void WebGLRenderingContext::uniform2fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform2i(WebGLUniformLocation location, GLint x, GLint y) {
+void WebGLRenderingContext::uniform2fv(WebGLUniformLocation location, float** v) {
   
 }
 
-void uniform2iv(WebGLUniformLocation location, Int32Array v) {
+void WebGLRenderingContext::uniform2i(WebGLUniformLocation location, GLint x, GLint y) {
   
 }
 
-void uniform2iv(WebGLUniformLocation location, long** v) {
+void WebGLRenderingContext::uniform2iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform3f(WebGLUniformLocation location, GLfloat x, GLfloat y, GLfloat z) {
+void WebGLRenderingContext::uniform2iv(WebGLUniformLocation location, long** v) {
   
 }
 
-void uniform3fv(WebGLUniformLocation location, FloatArray v) {
+void WebGLRenderingContext::uniform3f(WebGLUniformLocation location, GLfloat x, GLfloat y, GLfloat z) {
   
 }
 
-void uniform3fv(WebGLUniformLocation location, float** v) {
+void WebGLRenderingContext::uniform3fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform3i(WebGLUniformLocation location, GLint x, GLint y, GLint z) {
+void WebGLRenderingContext::uniform3fv(WebGLUniformLocation location, float** v) {
   
 }
 
-void uniform3iv(WebGLUniformLocation location, Int32Array v) {
+void WebGLRenderingContext::uniform3i(WebGLUniformLocation location, GLint x, GLint y, GLint z) {
   
 }
 
-void uniform3iv(WebGLUniformLocation location, long** v) {
+void WebGLRenderingContext::uniform3iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniform4f(WebGLUniformLocation location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
+void WebGLRenderingContext::uniform3iv(WebGLUniformLocation location, long** v) {
   
 }
 
-void uniform4fv(WebGLUniformLocation location, FloatArray v) {
+void WebGLRenderingContext::uniform4f(WebGLUniformLocation location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
   
 }
 
-void uniform4fv(WebGLUniformLocation location, float** v) {
+void WebGLRenderingContext::uniform4fv(WebGLUniformLocation location, FloatArray v) {
   
 }
 
-void uniform4i(WebGLUniformLocation location, GLint x, GLint y, GLint z, GLint w) {
+void WebGLRenderingContext::uniform4fv(WebGLUniformLocation location, float** v) {
   
 }
 
-void uniform4iv(WebGLUniformLocation location, Int32Array v) {
+void WebGLRenderingContext::uniform4i(WebGLUniformLocation location, GLint x, GLint y, GLint z, GLint w) {
   
 }
 
-void uniform4iv(WebGLUniformLocation location, long** v) {
+void WebGLRenderingContext::uniform4iv(WebGLUniformLocation location, Int32Array v) {
   
 }
 
-void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value) {
+void WebGLRenderingContext::uniform4iv(WebGLUniformLocation location, long** v) {
   
 }
 
-void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
+void WebGLRenderingContext::uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value) {
   
 }
 
-void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value) {
+void WebGLRenderingContext::uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
   
 }
 
-void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
+void WebGLRenderingContext::uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value) {
   
 }
 
-void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value) {
+void WebGLRenderingContext::uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
   
 }
 
-void uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
+void WebGLRenderingContext::uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, FloatArray value) {
   
 }
 
-void useProgram(WebGLProgram program) {
+void WebGLRenderingContext::uniformMatrix4fv(WebGLUniformLocation location, GLboolean transpose, float** value) {
   
 }
 
-void validateProgram(WebGLProgram program) {
+void WebGLRenderingContext::useProgram(WebGLProgram program) {
   
 }
 
-void vertexAttrib1f(GLuint indx, GLfloat x) {
+void WebGLRenderingContext::validateProgram(WebGLProgram program) {
   
 }
 
-void vertexAttrib1fv(GLuint indx, FloatArray values) {
+void WebGLRenderingContext::vertexAttrib1f(GLuint indx, GLfloat x) {
   
 }
 
-void vertexAttrib1fv(GLuint indx, float** values) {
+void WebGLRenderingContext::vertexAttrib1fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib2f(GLuint indx, GLfloat x, GLfloat y) {
+void WebGLRenderingContext::vertexAttrib1fv(GLuint indx, float** values) {
   
 }
 
-void vertexAttrib2fv(GLuint indx, FloatArray values) {
+void WebGLRenderingContext::vertexAttrib2f(GLuint indx, GLfloat x, GLfloat y) {
   
 }
 
-void vertexAttrib2fv(GLuint indx, float** values) {
+void WebGLRenderingContext::vertexAttrib2fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z) {
+void WebGLRenderingContext::vertexAttrib2fv(GLuint indx, float** values) {
   
 }
 
-void vertexAttrib3fv(GLuint indx, FloatArray values) {
+void WebGLRenderingContext::vertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z) {
   
 }
 
-void vertexAttrib3fv(GLuint indx, float** values) {
+void WebGLRenderingContext::vertexAttrib3fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
+void WebGLRenderingContext::vertexAttrib3fv(GLuint indx, float** values) {
   
 }
 
-void vertexAttrib4fv(GLuint indx, FloatArray values) {
+void WebGLRenderingContext::vertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
   
 }
 
-void vertexAttrib4fv(GLuint indx, float** values) {
+void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, FloatArray values) {
   
 }
 
-void vertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLintptr offset) {
+void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, float** values) {
   
 }
 
-void viewport(GLint x, GLint y, GLsizei width, GLsizei height) {
+void WebGLRenderingContext::vertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLintptr offset) {
   
 }
 
+void WebGLRenderingContext::viewport(GLint x, GLint y, GLsizei width, GLsizei height) {
+  
+}

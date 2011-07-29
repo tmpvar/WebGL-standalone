@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06C7CCA413E27BA30086CCBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7CCA313E27BA30086CCBB /* Cocoa.framework */; };
+		06C7CCAE13E27BA30086CCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C7CCAC13E27BA30086CCBB /* InfoPlist.strings */; };
+		06C7CCB113E27BA30086CCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C7CCB013E27BA30086CCBB /* main.m */; };
+		06C7CCB413E27BA30086CCBB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06C7CCB213E27BA30086CCBB /* Credits.rtf */; };
+		06C7CCB713E27BA30086CCBB /* osx_webglAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C7CCB613E27BA30086CCBB /* osx_webglAppDelegate.m */; };
+		06C7CCBA13E27BA30086CCBB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06C7CCB813E27BA30086CCBB /* MainMenu.xib */; };
+		06C7CCC113E27BA30086CCBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7CCA313E27BA30086CCBB /* Cocoa.framework */; };
+		06C7CCC913E27BA30086CCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C7CCC713E27BA30086CCBB /* InfoPlist.strings */; };
+		06C7CCCC13E27BA30086CCBB /* osx_webglTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 06C7CCCB13E27BA30086CCBB /* osx_webglTests.h */; };
+		06C7CCCE13E27BA30086CCBB /* osx_webglTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C7CCCD13E27BA30086CCBB /* osx_webglTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06C7CCC213E27BA30086CCBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06C7CC9613E27BA20086CCBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06C7CC9E13E27BA30086CCBB;
+			remoteInfo = "osx-webgl";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06C7CC9F13E27BA30086CCBB /* osx-webgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "osx-webgl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06C7CCA313E27BA30086CCBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		06C7CCA613E27BA30086CCBB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		06C7CCA713E27BA30086CCBB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		06C7CCA813E27BA30086CCBB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		06C7CCAB13E27BA30086CCBB /* osx-webgl-Info.plist */ = {isa = PBXFileReference; path = "osx-webgl-Info.plist"; sourceTree = "<group>"; };
+		06C7CCAD13E27BA30086CCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06C7CCAF13E27BA30086CCBB /* osx-webgl-Prefix.pch */ = {isa = PBXFileReference; path = "osx-webgl-Prefix.pch"; sourceTree = "<group>"; };
+		06C7CCB013E27BA30086CCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		06C7CCB313E27BA30086CCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		06C7CCB513E27BA30086CCBB /* osx_webglAppDelegate.h */ = {isa = PBXFileReference; path = osx_webglAppDelegate.h; sourceTree = "<group>"; };
+		06C7CCB613E27BA30086CCBB /* osx_webglAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = osx_webglAppDelegate.m; sourceTree = "<group>"; };
+		06C7CCB913E27BA30086CCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		06C7CCC013E27BA30086CCBB /* osx-webglTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "osx-webglTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06C7CCC613E27BA30086CCBB /* osx-webglTests-Info.plist */ = {isa = PBXFileReference; path = "osx-webglTests-Info.plist"; sourceTree = "<group>"; };
+		06C7CCC813E27BA30086CCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06C7CCCA13E27BA30086CCBB /* osx-webglTests-Prefix.pch */ = {isa = PBXFileReference; path = "osx-webglTests-Prefix.pch"; sourceTree = "<group>"; };
+		06C7CCCB13E27BA30086CCBB /* osx_webglTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = osx_webglTests.h; sourceTree = "<group>"; };
+		06C7CCCD13E27BA30086CCBB /* osx_webglTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = osx_webglTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06C7CC9C13E27BA30086CCBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C7CCA413E27BA30086CCBB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06C7CCBC13E27BA30086CCBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C7CCC113E27BA30086CCBB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06C7CC9413E27BA20086CCBB = {
+			isa = PBXGroup;
+			children = (
+				06C7CCA913E27BA30086CCBB /* osx-webgl */,
+				06C7CCC413E27BA30086CCBB /* osx-webglTests */,
+				06C7CCA213E27BA30086CCBB /* Frameworks */,
+				06C7CCA013E27BA30086CCBB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		06C7CCA013E27BA30086CCBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CC9F13E27BA30086CCBB /* osx-webgl.app */,
+				06C7CCC013E27BA30086CCBB /* osx-webglTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06C7CCA213E27BA30086CCBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CCA313E27BA30086CCBB /* Cocoa.framework */,
+				06C7CCA513E27BA30086CCBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06C7CCA513E27BA30086CCBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CCA613E27BA30086CCBB /* AppKit.framework */,
+				06C7CCA713E27BA30086CCBB /* CoreData.framework */,
+				06C7CCA813E27BA30086CCBB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		06C7CCA913E27BA30086CCBB /* osx-webgl */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CCB513E27BA30086CCBB /* osx_webglAppDelegate.h */,
+				06C7CCB613E27BA30086CCBB /* osx_webglAppDelegate.m */,
+				06C7CCB813E27BA30086CCBB /* MainMenu.xib */,
+				06C7CCAA13E27BA30086CCBB /* Supporting Files */,
+			);
+			path = "osx-webgl";
+			sourceTree = "<group>";
+		};
+		06C7CCAA13E27BA30086CCBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CCAB13E27BA30086CCBB /* osx-webgl-Info.plist */,
+				06C7CCAC13E27BA30086CCBB /* InfoPlist.strings */,
+				06C7CCAF13E27BA30086CCBB /* osx-webgl-Prefix.pch */,
+				06C7CCB013E27BA30086CCBB /* main.m */,
+				06C7CCB213E27BA30086CCBB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		06C7CCC413E27BA30086CCBB /* osx-webglTests */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CCCB13E27BA30086CCBB /* osx_webglTests.h */,
+				06C7CCCD13E27BA30086CCBB /* osx_webglTests.m */,
+				06C7CCC513E27BA30086CCBB /* Supporting Files */,
+			);
+			path = "osx-webglTests";
+			sourceTree = "<group>";
+		};
+		06C7CCC513E27BA30086CCBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06C7CCC613E27BA30086CCBB /* osx-webglTests-Info.plist */,
+				06C7CCC713E27BA30086CCBB /* InfoPlist.strings */,
+				06C7CCCA13E27BA30086CCBB /* osx-webglTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		06C7CC9E13E27BA30086CCBB /* osx-webgl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06C7CCD113E27BA30086CCBB /* Build configuration list for PBXNativeTarget "osx-webgl" */;
+			buildPhases = (
+				06C7CC9B13E27BA30086CCBB /* Sources */,
+				06C7CC9C13E27BA30086CCBB /* Frameworks */,
+				06C7CC9D13E27BA30086CCBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "osx-webgl";
+			productName = "osx-webgl";
+			productReference = 06C7CC9F13E27BA30086CCBB /* osx-webgl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		06C7CCBF13E27BA30086CCBB /* osx-webglTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06C7CCD413E27BA30086CCBB /* Build configuration list for PBXNativeTarget "osx-webglTests" */;
+			buildPhases = (
+				06C7CCBB13E27BA30086CCBB /* Sources */,
+				06C7CCBC13E27BA30086CCBB /* Frameworks */,
+				06C7CCBD13E27BA30086CCBB /* Resources */,
+				06C7CCBE13E27BA30086CCBB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06C7CCC313E27BA30086CCBB /* PBXTargetDependency */,
+			);
+			name = "osx-webglTests";
+			productName = "osx-webglTests";
+			productReference = 06C7CCC013E27BA30086CCBB /* osx-webglTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06C7CC9613E27BA20086CCBB /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 06C7CC9913E27BA20086CCBB /* Build configuration list for PBXProject "osx-webgl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 06C7CC9413E27BA20086CCBB;
+			productRefGroup = 06C7CCA013E27BA30086CCBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06C7CC9E13E27BA30086CCBB /* osx-webgl */,
+				06C7CCBF13E27BA30086CCBB /* osx-webglTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06C7CC9D13E27BA30086CCBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C7CCAE13E27BA30086CCBB /* InfoPlist.strings in Resources */,
+				06C7CCB413E27BA30086CCBB /* Credits.rtf in Resources */,
+				06C7CCBA13E27BA30086CCBB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06C7CCBD13E27BA30086CCBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C7CCC913E27BA30086CCBB /* InfoPlist.strings in Resources */,
+				06C7CCCC13E27BA30086CCBB /* osx_webglTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06C7CCBE13E27BA30086CCBB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06C7CC9B13E27BA30086CCBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C7CCB113E27BA30086CCBB /* main.m in Sources */,
+				06C7CCB713E27BA30086CCBB /* osx_webglAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06C7CCBB13E27BA30086CCBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C7CCCE13E27BA30086CCBB /* osx_webglTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06C7CCC313E27BA30086CCBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06C7CC9E13E27BA30086CCBB /* osx-webgl */;
+			targetProxy = 06C7CCC213E27BA30086CCBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		06C7CCAC13E27BA30086CCBB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06C7CCAD13E27BA30086CCBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		06C7CCB213E27BA30086CCBB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06C7CCB313E27BA30086CCBB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		06C7CCB813E27BA30086CCBB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06C7CCB913E27BA30086CCBB /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		06C7CCC713E27BA30086CCBB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06C7CCC813E27BA30086CCBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		06C7CCCF13E27BA30086CCBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		06C7CCD013E27BA30086CCBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		06C7CCD213E27BA30086CCBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx-webgl/osx-webgl-Prefix.pch";
+				INFOPLIST_FILE = "osx-webgl/osx-webgl-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		06C7CCD313E27BA30086CCBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx-webgl/osx-webgl-Prefix.pch";
+				INFOPLIST_FILE = "osx-webgl/osx-webgl-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		06C7CCD513E27BA30086CCBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/osx-webgl.app/Contents/MacOS/osx-webgl";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx-webglTests/osx-webglTests-Prefix.pch";
+				INFOPLIST_FILE = "osx-webglTests/osx-webglTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		06C7CCD613E27BA30086CCBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/osx-webgl.app/Contents/MacOS/osx-webgl";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx-webglTests/osx-webglTests-Prefix.pch";
+				INFOPLIST_FILE = "osx-webglTests/osx-webglTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06C7CC9913E27BA20086CCBB /* Build configuration list for PBXProject "osx-webgl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06C7CCCF13E27BA30086CCBB /* Debug */,
+				06C7CCD013E27BA30086CCBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06C7CCD113E27BA30086CCBB /* Build configuration list for PBXNativeTarget "osx-webgl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06C7CCD213E27BA30086CCBB /* Debug */,
+				06C7CCD313E27BA30086CCBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		06C7CCD413E27BA30086CCBB /* Build configuration list for PBXNativeTarget "osx-webglTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06C7CCD513E27BA30086CCBB /* Debug */,
+				06C7CCD613E27BA30086CCBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06C7CC9613E27BA20086CCBB /* Project object */;
+}

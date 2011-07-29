@@ -17,10 +17,15 @@ WebGLActiveInfo::~WebGLActiveInfo() {
   
 }
 
-GLint getSize() {
-  
-}GLenum getType() {
-  
-}DOMString getName() {
+GLint WebGLActiveInfo::getSize() {
   
 }
+
+GLenum WebGLActiveInfo::getType() {
+  
+}
+
+DOMString WebGLActiveInfo::getName() {
+  
+}
+

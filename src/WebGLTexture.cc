@@ -10,10 +10,14 @@
 #include "WebGLTexture.h"
 
 WebGLTexture::WebGLTexture() {
-  
+  glGenTextures(1, &this->texture);
 }
 
 WebGLTexture::~WebGLTexture() {
   
+}
+
+void WebGLTexture::bind(GLenum type) {
+  glBindTexture(type, this->texture);
 }
 

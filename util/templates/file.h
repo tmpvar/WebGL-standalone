@@ -10,20 +10,23 @@
 #define _INCLUDED_%FILE%_
 
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
+  #include <OpenGL/gl.h>
+  #include <OpenGL/glu.h>
+  #include <GLUT/glut.h>
 #else
 #ifdef _WIN32
   #include <windows.h>
 #endif
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
+  #include <GL/gl.h>
+  #include <GL/glu.h>
+  #include <GL/glut.h>
 #endif
 
 %PARENT_INCLUDE%
 
-class %FILE%%PARENT_CLASS% {%PUBLIC%};
+class %FILE%%PARENT_CLASS% {%PUBLIC%
+    %FILE%();
+    ~%FILE%();
+};
 
 #endif
