@@ -4,7 +4,7 @@
 int main() {
   WebGLRenderingContext *context = new WebGLRenderingContext();
 
-  WebGLProgram shader = context->createProgram();
+  //WebGLProgram shader = context->createProgram();
 
 /*  function shaderProgram(gl, vs, fs) {
   	var prog = gl.createProgram();
