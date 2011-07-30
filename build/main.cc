@@ -7,7 +7,7 @@ void addShader(WebGLRenderingContext *gl, WebGLProgram *program, GLenum type, DO
   gl->shaderSource(shader, source);
   gl->compileShader(shader);
 
-  assert(gl->getShaderParameter(shader, gl->COMPILE_STATUS));
+  assert(gl->getShaderParameter(shader, WebGLRenderingContext::COMPILE_STATUS));
 
   gl->attachShader(program, shader);
 }
@@ -30,8 +30,8 @@ int main() {
   "  gl_FragColor = vec4(0.5, 0.5, 1.0, 1.0);"+
   "}"*/
 
-  addShader(gl, program, gl->VERTEX_SHADER, vertex_shader);
-  addShader(gl, program, gl->FRAGMENT_SHADER, fragment_shader);
+  addShader(gl, program, WebGLRenderingContext::VERTEX_SHADER, vertex_shader);
+  addShader(gl, program, WebGLRenderingContext::FRAGMENT_SHADER, fragment_shader);
   
   gl->linkProgram(program);
   
