@@ -29,7 +29,7 @@
 class WebGLContextEvent : Event {
   public:
     DOMString getStatusMessage();
-    void initWebGLContextEvent(DOMString typeArg, bool canBubbleArg, bool cancelableArg, DOMString statusMessageArg);
+    void initWebGLContextEvent(DOMString *typeArg, bool canBubbleArg, bool cancelableArg, DOMString *statusMessageArg);
 
     WebGLContextEvent();
     ~WebGLContextEvent();

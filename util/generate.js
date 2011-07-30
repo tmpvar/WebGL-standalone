@@ -42,6 +42,15 @@ function addInclude(file, addLine) {
   }
 }
 
+function addPointer(type, value) {
+  value = value || '';
+  // Add a pointer if needed
+  if (type.indexOf('*') < 0 && skip.indexOf(type) < 0) {
+    return '*' + value;
+  }
+  return value;
+}
+
 var lines = idl.split('\n');
 var line;
 var i = 0;
@@ -92,7 +101,7 @@ while(1) {
       currentProperties.forEach(function(prop) {
         // only function calls
         if (prop.indexOf('(') > -1) {
-          h_props.push(prop);
+         
 
           var propParts = prop.replace(/^ +/, '').split(' ');
           if (propParts.length > 2) {
@@ -109,13 +118,21 @@ while(1) {
   
                 arg = arg.replace(/sequence<(.*)>/, '$1\*');
                 arg = arg.replace(/^boolean$/, 'bool');
-
+                var argParts = arg.split(' ');
+                var type = argParts[0];
+                
+                argParts[1] = addPointer(type, argParts[1]);
+                
+                var arg = argParts.join(' ');
+                
                 args.push(arg);
-                var type = arg.split(' ')[0];
+                
+                 
+                
                 addInclude(type);
               });
-
-              cc += matches[1] + ' ' + current + '::' + matches[2] + '(' + args.join(', ') + ') {\n  \n}\n\n';
+              h_props.push('    ' + matches[1] + addPointer(matches[1], ' ') + matches[2] + '(' + args.join(', ') + ');');
+              cc += matches[1] + addPointer(matches[1], ' ') + current + '::' + matches[2] + '(' + args.join(', ') + ') {\n  \n}\n\n';
             } else {
               console.log('miss', prop, matches);
             }
@@ -123,7 +140,8 @@ while(1) {
           
           if (propParts.length === 2) {
             addInclude(propParts[0]);
-            cc += propParts[0] + ' ' + current + '::' + propParts[1].replace(';', ' {\n  \n}\n\n') + '\n';
+            cc += propParts[0] + addPointer(propParts[0], ' ') + current + '::' + propParts[1].replace(';', ' {\n  \n}\n\n') + '\n';
+            h_props.push('    ' + propParts[0] + addPointer(propParts[0], ' ') + propParts[1]);
           }
 
         } else {

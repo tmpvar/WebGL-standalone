@@ -27,7 +27,7 @@
 
 class WebGLShader : WebGLObject {
   public:
-    GLuint id;
+
     WebGLShader();
     ~WebGLShader();
 };

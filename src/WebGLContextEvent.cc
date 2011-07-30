@@ -21,7 +21,7 @@ DOMString WebGLContextEvent::getStatusMessage() {
   
 }
 
-void WebGLContextEvent::initWebGLContextEvent(DOMString typeArg, bool canBubbleArg, bool cancelableArg, DOMString statusMessageArg) {
+void WebGLContextEvent::initWebGLContextEvent(DOMString *typeArg, bool canBubbleArg, bool cancelableArg, DOMString *statusMessageArg) {
   
 }
 

@@ -30,11 +30,6 @@ class WebGLTexture : WebGLObject {
 
     WebGLTexture();
     ~WebGLTexture();
-
-    void bind(GLenum type);
-
-  protected:
-    GLuint texture;
 };
 
 #endif

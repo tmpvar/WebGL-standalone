@@ -2,9 +2,9 @@
 #include <iostream>
 #include <assert.h>
 
-void addShader(WebGLRenderingContext *gl, WebGLProgram program, GLenum type, DOMString *source) {
-  WebGLShader shader = gl->createShader(type);
-  gl->shaderSource(shader, *source);
+void addShader(WebGLRenderingContext *gl, WebGLProgram *program, GLenum type, DOMString *source) {
+  WebGLShader *shader = gl->createShader(type);
+  gl->shaderSource(shader, source);
   gl->compileShader(shader);
 
   assert(gl->getShaderParameter(shader, gl->COMPILE_STATUS));
@@ -15,7 +15,7 @@ void addShader(WebGLRenderingContext *gl, WebGLProgram program, GLenum type, DOM
 int main() {
   WebGLRenderingContext *gl = new WebGLRenderingContext();
 
-  WebGLProgram program = gl->createProgram();
+  WebGLProgram *program = gl->createProgram();
 
   DOMString *vertex_shader = new DOMString();
   /*
