@@ -98,7 +98,7 @@ void WebGLRenderingContext::bufferData(GLenum target, ArrayBufferView *data, GLe
 }
 
 void WebGLRenderingContext::bufferData(GLenum target, ArrayBuffer *data, GLenum usage) {
-  glBufferData(target, data->length, (void *)&data, usage);
+  glBufferData(target, sizeof(GLfloat) * 12, (void *)&data->data, usage);
 }
 
 void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBufferView *data) {
@@ -553,11 +553,11 @@ void WebGLRenderingContext::uniform2i(WebGLUniformLocation *location, GLint x, G
 }
 
 void WebGLRenderingContext::uniform2iv(WebGLUniformLocation *location, Int32Array *v) {
-  glUniform2fiv(location->id, v->length, (GLint *)&v);
+  glUniform2iv(location->id, v->length, (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform2iv(WebGLUniformLocation *location, long** v) {
-  glUniform2fiv(location->id, sizeof(v), (GLint *)&v);
+  glUniform2iv(location->id, sizeof(v), (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform3f(WebGLUniformLocation *location, GLfloat x, GLfloat y, GLfloat z) {
@@ -577,11 +577,11 @@ void WebGLRenderingContext::uniform3i(WebGLUniformLocation *location, GLint x, G
 }
 
 void WebGLRenderingContext::uniform3iv(WebGLUniformLocation *location, Int32Array *v) {
-  glUniform3i(location->id, v->length, (GLint *)&v);
+  glUniform3iv(location->id, v->length, (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform3iv(WebGLUniformLocation *location, long** v) {
-  glUniform3iv(glUniform3i(location->id, sizeof(v), (GLint *)&v);
+  glUniform3iv(location->id, sizeof(v), (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform4f(WebGLUniformLocation *location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
@@ -685,7 +685,7 @@ void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, FloatArray *values) {
 }
 
 void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, float** values) {
-  glVertexAttrib(indx, values[0], values[1], values[2], values[3]);
+  
 }
 
 void WebGLRenderingContext::vertexAttribPointer(GLuint indx,
@@ -695,7 +695,7 @@ void WebGLRenderingContext::vertexAttribPointer(GLuint indx,
                                                 GLsizei stride,
                                                 GLintptr offset)
 {
-  glVertexAttribPointer(indx, size, type, normalized, stride, (GLvoid *)&offset)
+  glVertexAttribPointer(indx, size, type, normalized, stride, (GLvoid *)&offset);
 }
 
 void WebGLRenderingContext::viewport(GLint x, GLint y, GLsizei width, GLsizei height) {

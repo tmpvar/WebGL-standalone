@@ -10,7 +10,7 @@
 #define _INCLUDED_FloatArray_
 
 #include "../arch/wrapper.h"
-
+#include "ArrayBuffer.h"
 
 
 
@@ -20,5 +20,13 @@ class FloatArray {
     FloatArray();
     ~FloatArray();
 };
+
+class Float32Array : public ArrayBuffer {
+  public:
+    Float32Array(unsigned int length);
+    ~Float32Array();
+};
+
+
 
 #endif

@@ -41,20 +41,33 @@ CGDirectDisplayID getDisplay(unsigned int index) {
   return onlineDisplays[index];
 }
 
-void draw(WebGLRenderingContext *gl, WebGLProgram *program, ArrayBuffer *array) {
-  gl->clearColor(0.8, 0.8, 0.8, 1);
+void draw(WebGLRenderingContext *gl, WebGLProgram *program, Float32Array *array) {
+  gl->clearColor(1, 0, 1, 1);
+  cout << "clear color: " << gluErrorString(glGetError()) << endl;
+
   gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT);
-  /*gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, gl->createBuffer());
+  cout << "clear: " << gluErrorString(glGetError()) << endl;
+
+  gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, gl->createBuffer());
+  cout << "bind buffer: " << gluErrorString(glGetError()) << endl;
+  
   gl->bufferData(WebGLRenderingContext::ARRAY_BUFFER, array, WebGLRenderingContext::STATIC_DRAW);
+  cout << "buffer data: " << gluErrorString(glGetError()) << endl;
 
   DOMString *pos = new DOMString();
   pos->value = "pos";
 
   GLint attr = gl->getAttribLocation(program, pos);
   gl->enableVertexAttribArray(attr);
+  cout << "enable vertex attribute array: " << gluErrorString(glGetError()) << endl;
+
   gl->vertexAttribPointer(attr, 3, WebGLRenderingContext::FLOAT, false, 0, 0);
+  
+  cout << "vertex attribute pointer: " << gluErrorString(glGetError()) << endl;
+  
   gl->drawArrays(WebGLRenderingContext::TRIANGLE_STRIP, 0, 4);
-  */
+  cout << "draw arrays: " << gluErrorString(glGetError()) << endl;
+  
 }
 
 int main() {
@@ -97,23 +110,24 @@ int main() {
 
   gl->useProgram(program);
 
-  ArrayBuffer *array = new ArrayBuffer();
-
-/*  Float32Array *array new Float32Array({
+  Float32Array *array = new Float32Array(12);
+  GLfloat tmp[12] = {
     -1, 0, 0,
     0, 1, 0,
     0, -1, 0,
     1, 0, 0
-  });*/
-
+  };
+  
+  // I'm not proud of this.
+  memcpy(tmp, array->data, array->size);
+  
   // 5 frames for now
   int a = 5;
   while(a--) {
     draw(gl, program, array);
-    usleep(1000000);
+    usleep(100000);
   }
 
-  
   cout << "Done!" << endl;
   return 0;
 }

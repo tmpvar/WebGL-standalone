@@ -10,7 +10,7 @@
 #include "WebGLBuffer.h"
 
 WebGLBuffer::WebGLBuffer() {
-  
+  glGenBuffers(1, &this->id);
 }
 
 WebGLBuffer::~WebGLBuffer() {

@@ -16,7 +16,11 @@
 
 class ArrayBuffer {
   public:
+
     GLuint length;
+    GLfloat *data;
+    unsigned int size;
+
     ArrayBuffer();
     ~ArrayBuffer();
 };
