@@ -9,7 +9,7 @@
 #ifndef _INCLUDED_HTMLCanvasElement_
 #define _INCLUDED_HTMLCanvasElement_
 
-#include "arch/wrapper.h"
+#include "../arch/wrapper.h"
 
 
 

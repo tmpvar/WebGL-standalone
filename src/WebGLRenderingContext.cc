@@ -147,26 +147,24 @@ void WebGLRenderingContext::copyTexSubImage2D(GLenum target, GLint level, GLint 
 }
 
 WebGLBuffer* WebGLRenderingContext::createBuffer() {
-  
+  // TODO: manage this memory
+  return new WebGLBuffer();
 }
-
 
 WebGLFramebuffer* WebGLRenderingContext::createFramebuffer() {
-  
+  // TODO: manage this memory
+  return new WebGLFramebuffer();
 }
-
 
 WebGLProgram* WebGLRenderingContext::createProgram() {
   // TODO: manage this memory
   return new WebGLProgram();
 }
 
-
 WebGLRenderbuffer* WebGLRenderingContext::createRenderbuffer() {
   // TODO: manage this memory
   return new WebGLRenderbuffer();
 }
-
 
 WebGLShader* WebGLRenderingContext::createShader(GLenum type) {
   // TODO: manage this memory
@@ -675,3 +673,6 @@ void WebGLRenderingContext::viewport(GLint x, GLint y, GLsizei width, GLsizei he
   
 }
 
+GLint WebGLRenderingContext::getAttribLocation(WebGLProgram program, DOMString name) {
+  
+}

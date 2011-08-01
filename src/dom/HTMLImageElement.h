@@ -9,7 +9,7 @@
 #ifndef _INCLUDED_HTMLImageElement_
 #define _INCLUDED_HTMLImageElement_
 
-#include "arch/wrapper.h"
+#include "../arch/wrapper.h"
 
 
 

@@ -3,6 +3,7 @@ rm -rf *.o
 
 echo "Building new objects"
 g++ -g -c ../src/*.cc
+g++ -g -c ../src/*/*.cc
 g++ -g -c *.cc
 
 echo "Link object together into test binary"

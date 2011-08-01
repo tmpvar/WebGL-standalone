@@ -11,7 +11,7 @@
 
 #include "arch/wrapper.h"
 
-#include "DOMString.h"
+#include "dom/DOMString.h"
 
 
 class WebGLActiveInfo {

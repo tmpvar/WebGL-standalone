@@ -4,12 +4,10 @@
   #include <assert.h>
   using namespace std;
 
-
   #ifdef __APPLE__
     #include <OpenGL/OpenGL.h>
     #include <OpenGL/gl.h>
     #include <OpenGL/glu.h>
-    #include <GLUT/glut.h>
   #else
     #ifdef _WIN32
       #include <windows.h>

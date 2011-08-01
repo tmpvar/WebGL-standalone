@@ -11,24 +11,24 @@
 
 #include "arch/wrapper.h"
 
-#include "HTMLCanvasElement.h"
+#include "dom/HTMLCanvasElement.h"
 #include "WebGLContextAttributes.h"
-#include "DOMString.h"
+#include "dom/DOMString.h"
 #include "WebGLProgram.h"
 #include "WebGLShader.h"
 #include "WebGLBuffer.h"
 #include "WebGLFramebuffer.h"
 #include "WebGLRenderbuffer.h"
 #include "WebGLTexture.h"
-#include "ArrayBufferView.h"
-#include "ArrayBuffer.h"
+#include "typedarray/ArrayBufferView.h"
+#include "typedarray/ArrayBuffer.h"
 #include "WebGLActiveInfo.h"
 #include "WebGLUniformLocation.h"
 #include "ImageData.h"
-#include "HTMLImageElement.h"
-#include "HTMLVideoElement.h"
-#include "FloatArray.h"
-#include "Int32Array.h"
+#include "dom/HTMLImageElement.h"
+#include "dom/HTMLVideoElement.h"
+#include "typedarray/FloatArray.h"
+#include "typedarray/Int32Array.h"
 
 
 class WebGLRenderingContext {
@@ -495,6 +495,8 @@ class WebGLRenderingContext {
     void vertexAttrib4fv(GLuint indx, float** values);
     void vertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLintptr offset);
     void viewport(GLint x, GLint y, GLsizei width, GLsizei height);
+
+    GLint getAttribLocation(WebGLProgram program, DOMString name);
 
     WebGLRenderingContext();
     ~WebGLRenderingContext();

@@ -9,7 +9,7 @@
 #ifndef _INCLUDED_DOMString_
 #define _INCLUDED_DOMString_
 
-#include "arch/wrapper.h"
+#include "../arch/wrapper.h"
 
 #include <string>
 

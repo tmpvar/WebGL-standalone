@@ -12,7 +12,7 @@
 #include "arch/wrapper.h"
 
 #include "Event.h"
-#include "DOMString.h"
+#include "dom/DOMString.h"
 
 
 class WebGLContextEvent : Event {

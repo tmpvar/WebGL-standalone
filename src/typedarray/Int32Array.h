@@ -9,7 +9,7 @@
 #ifndef _INCLUDED_Int32Array_
 #define _INCLUDED_Int32Array_
 
-#include "arch/wrapper.h"
+#include "../arch/wrapper.h"
 
 
 
