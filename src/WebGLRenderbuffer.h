@@ -16,7 +16,7 @@
 
 class WebGLRenderbuffer : WebGLObject {
   public:
-
+    GLuint id;
     WebGLRenderbuffer();
     ~WebGLRenderbuffer();
 };

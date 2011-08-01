@@ -27,7 +27,7 @@ WebGLContextAttributes* WebGLRenderingContext::getContextAttributes() {
 
 
 bool WebGLRenderingContext::isContextLost() {
-  
+  return false;
 }
 
 
@@ -51,15 +51,14 @@ void WebGLRenderingContext::attachShader(WebGLProgram *program, WebGLShader *sha
 }
 
 void WebGLRenderingContext::bindAttribLocation(WebGLProgram *program, GLuint index, DOMString *name) {
-  
+  glBindAttribLocation(program->id, index, name->value.c_str());
 }
 
 void WebGLRenderingContext::bindBuffer(GLenum target, WebGLBuffer *buffer) {
-  
+  glBindBuffer(target, buffer->id);
 }
 
 void WebGLRenderingContext::bindFramebuffer(GLenum target, WebGLFramebuffer *framebuffer) {
-  
 }
 
 void WebGLRenderingContext::bindRenderbuffer(GLenum target, WebGLRenderbuffer *renderbuffer) {
@@ -67,39 +66,39 @@ void WebGLRenderingContext::bindRenderbuffer(GLenum target, WebGLRenderbuffer *r
 }
 
 void WebGLRenderingContext::bindTexture(GLenum target, WebGLTexture *texture) {
-  
+  glBindTexture(target, texture->id);
 }
 
 void WebGLRenderingContext::blendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
-  
+  glBlendColor(red, green, blue, alpha);
 }
 
 void WebGLRenderingContext::blendEquation(GLenum mode) {
-  
+  glBlendEquation(mode);
 }
 
 void WebGLRenderingContext::blendEquationSeparate(GLenum modeRGB, GLenum modeAlpha) {
-  
+  glBlendEquationSeparate(modeRGB, modeAlpha);
 }
 
 void WebGLRenderingContext::blendFunc(GLenum sfactor, GLenum dfactor) {
-  
+  glBlendFunc(sfactor, dfactor);
 }
 
 void WebGLRenderingContext::blendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha) {
-  
+  glBlendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
 
 void WebGLRenderingContext::bufferData(GLenum target, GLsizeiptr size, GLenum usage) {
-  
+  glBufferData(target, size, 0, usage);
 }
 
 void WebGLRenderingContext::bufferData(GLenum target, ArrayBufferView *data, GLenum usage) {
-  
+  glBufferData(target, data->length, (void *)&data, usage);
 }
 
 void WebGLRenderingContext::bufferData(GLenum target, ArrayBuffer *data, GLenum usage) {
-  
+  glBufferData(target, data->length, (void *)&data, usage);
 }
 
 void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBufferView *data) {
@@ -115,23 +114,23 @@ GLenum WebGLRenderingContext::checkFramebufferStatus(GLenum target) {
 }
 
 void WebGLRenderingContext::clear(GLbitfield mask) {
-  
+  glClear(mask);
 }
 
 void WebGLRenderingContext::clearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
-  
+  glClearColor(red, green, blue, alpha);
 }
 
 void WebGLRenderingContext::clearDepth(GLclampf depth) {
-  
+  glClearDepth(depth);
 }
 
 void WebGLRenderingContext::clearStencil(GLint s) {
-  
+  glClearStencil(s);
 }
 
 void WebGLRenderingContext::colorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) {
-  
+  glColorMask(red, green, blue, alpha);
 }
 
 void WebGLRenderingContext::compileShader(WebGLShader *shader) {
@@ -139,11 +138,11 @@ void WebGLRenderingContext::compileShader(WebGLShader *shader) {
 }
 
 void WebGLRenderingContext::copyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) {
-  
+  glCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
 }
 
 void WebGLRenderingContext::copyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height) {
-  
+  glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
 }
 
 WebGLBuffer* WebGLRenderingContext::createBuffer() {
@@ -178,7 +177,7 @@ WebGLTexture* WebGLRenderingContext::createTexture() {
 
 
 void WebGLRenderingContext::cullFace(GLenum mode) {
-  
+  glCullFace(mode);
 }
 
 void WebGLRenderingContext::deleteBuffer(WebGLBuffer *buffer) {
@@ -206,52 +205,52 @@ void WebGLRenderingContext::deleteTexture(WebGLTexture *texture) {
 }
 
 void WebGLRenderingContext::depthFunc(GLenum func) {
-  
+  glDepthFunc(func);
 }
 
 void WebGLRenderingContext::depthMask(GLboolean flag) {
-  
+  glDepthMask(flag);
 }
 
 void WebGLRenderingContext::depthRange(GLclampf zNear, GLclampf zFar) {
-  
+  glDepthRange(zNear, zFar);
 }
 
 void WebGLRenderingContext::detachShader(WebGLProgram *program, WebGLShader *shader) {
-  
+  glDetachShader(program->id, shader->id);
 }
 
 void WebGLRenderingContext::disable(GLenum cap) {
-  
+  glDisable(cap);
 }
 
 void WebGLRenderingContext::disableVertexAttribArray(GLuint index) {
-  
+  glDisableVertexAttribArray(index);
 }
 
 void WebGLRenderingContext::drawArrays(GLenum mode, GLint first, GLsizei count) {
-  
+  glDrawArrays(mode, first, count);
 }
 
 void WebGLRenderingContext::drawElements(GLenum mode, GLsizei count, GLenum type, GLintptr offset) {
-  
+  glDrawElements(mode, count, type, (GLvoid *)&offset);
 }
 
 void WebGLRenderingContext::enable(GLenum cap) {
-  
+  glEnable(cap);
 }
 
 void WebGLRenderingContext::enableVertexAttribArray(GLuint index) {
-  
+  glEnableVertexAttribArray(index);
 }
 
 void WebGLRenderingContext::finish() {
-  
+  glFinish();
 }
 
 
 void WebGLRenderingContext::flush() {
-  
+  glFlush();
 }
 
 
@@ -264,7 +263,7 @@ void WebGLRenderingContext::framebufferTexture2D(GLenum target, GLenum attachmen
 }
 
 void WebGLRenderingContext::frontFace(GLenum mode) {
-  
+  glFrontFace(mode);
 }
 
 void WebGLRenderingContext::generateMipmap(GLenum target) {
@@ -284,7 +283,7 @@ WebGLShader** WebGLRenderingContext::getAttachedShaders(WebGLProgram *program) {
 }
 
 GLint WebGLRenderingContext::getAttribLocation(WebGLProgram *program, DOMString *name) {
-  
+  return glGetAttribLocation(program->id, name->value.c_str());
 }
 
 void* WebGLRenderingContext::getParameter(GLenum pname) {
@@ -296,7 +295,7 @@ void* WebGLRenderingContext::getBufferParameter(GLenum target, GLenum pname) {
 }
 
 GLenum WebGLRenderingContext::getError() {
-  
+  return glGetError();
 }
 
 
@@ -353,35 +352,59 @@ void WebGLRenderingContext::hint(GLenum target, GLenum mode) {
 }
 
 GLboolean WebGLRenderingContext::isBuffer(WebGLBuffer *buffer) {
-  
+  if (buffer) {
+    return glIsBuffer(buffer->id);
+  } else {
+    
+  }
 }
 
 GLboolean WebGLRenderingContext::isEnabled(GLenum cap) {
-  
+  return glIsEnabled(cap);
 }
 
 GLboolean WebGLRenderingContext::isFramebuffer(WebGLFramebuffer *framebuffer) {
-  
+  if (framebuffer) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 GLboolean WebGLRenderingContext::isProgram(WebGLProgram *program) {
-  
+  if (program) {
+    return glIsProgram(program->id);
+  } else {
+    return false;
+  }
 }
 
 GLboolean WebGLRenderingContext::isRenderbuffer(WebGLRenderbuffer *renderbuffer) {
-  
+  if (renderbuffer) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 GLboolean WebGLRenderingContext::isShader(WebGLShader *shader) {
-  
+  if (shader) {
+    return glIsShader(shader->id);
+  } else {
+    return false;
+  }
 }
 
 GLboolean WebGLRenderingContext::isTexture(WebGLTexture *texture) {
-  
+  if (texture) {
+    return glIsTexture(texture->id);
+  } else {
+    return false;
+  }
 }
 
 void WebGLRenderingContext::lineWidth(GLfloat width) {
-  
+  glLineWidth(width); 
 }
 
 void WebGLRenderingContext::linkProgram(WebGLProgram *program) {
@@ -670,9 +693,5 @@ void WebGLRenderingContext::vertexAttribPointer(GLuint indx, GLint size, GLenum 
 }
 
 void WebGLRenderingContext::viewport(GLint x, GLint y, GLsizei width, GLsizei height) {
-  
-}
-
-GLint WebGLRenderingContext::getAttribLocation(WebGLProgram program, DOMString name) {
   
 }

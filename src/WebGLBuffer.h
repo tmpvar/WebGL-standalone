@@ -16,7 +16,7 @@
 
 class WebGLBuffer : WebGLObject {
   public:
-
+    GLuint id;
     WebGLBuffer();
     ~WebGLBuffer();
 };

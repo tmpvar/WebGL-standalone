@@ -16,7 +16,7 @@
 
 class ArrayBufferView {
   public:
-
+    GLuint length;
     ArrayBufferView();
     ~ArrayBufferView();
 };

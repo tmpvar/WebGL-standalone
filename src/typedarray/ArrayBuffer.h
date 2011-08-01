@@ -16,7 +16,7 @@
 
 class ArrayBuffer {
   public:
-
+    GLuint length;
     ArrayBuffer();
     ~ArrayBuffer();
 };

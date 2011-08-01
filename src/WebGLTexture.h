@@ -16,7 +16,7 @@
 
 class WebGLTexture : WebGLObject {
   public:
-
+    GLuint id;
     WebGLTexture();
     ~WebGLTexture();
 };

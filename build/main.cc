@@ -44,8 +44,8 @@ CGDirectDisplayID getDisplay(unsigned int index) {
 void draw(WebGLRenderingContext *gl, WebGLProgram *program, ArrayBuffer *array) {
   gl->clearColor(0.8, 0.8, 0.8, 1);
   gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT);
-  gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, gl->createBuffer());
-  gl->bufferData(WebGLRenderingContext::ARRAY_BUFFER, array,WebGLRenderingContext::STATIC_DRAW);
+  /*gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, gl->createBuffer());
+  gl->bufferData(WebGLRenderingContext::ARRAY_BUFFER, array, WebGLRenderingContext::STATIC_DRAW);
 
   DOMString *pos = new DOMString();
   pos->value = "pos";
@@ -54,6 +54,7 @@ void draw(WebGLRenderingContext *gl, WebGLProgram *program, ArrayBuffer *array) 
   gl->enableVertexAttribArray(attr);
   gl->vertexAttribPointer(attr, 3, WebGLRenderingContext::FLOAT, false, 0, 0);
   gl->drawArrays(WebGLRenderingContext::TRIANGLE_STRIP, 0, 4);
+  */
 }
 
 int main() {

@@ -16,7 +16,7 @@
 
 class WebGLFramebuffer : WebGLObject {
   public:
-
+    GLuint id;
     WebGLFramebuffer();
     ~WebGLFramebuffer();
 };
