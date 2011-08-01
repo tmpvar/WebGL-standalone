@@ -9,18 +9,7 @@
 #ifndef _INCLUDED_WebGLRenderingContext_
 #define _INCLUDED_WebGLRenderingContext_
 
-#ifdef __APPLE__
-  #include <OpenGL/gl.h>
-  #include <OpenGL/glu.h>
-  #include <GLUT/glut.h>
-#else
-#ifdef _WIN32
-  #include <windows.h>
-#endif
-  #include <GL/gl.h>
-  #include <GL/glu.h>
-  #include <GL/glut.h>
-#endif
+#include "arch/wrapper.h"
 
 #include "HTMLCanvasElement.h"
 #include "WebGLContextAttributes.h"
@@ -412,7 +401,9 @@ class WebGLRenderingContext {
     void* getBufferParameter(GLenum target, GLenum pname);
     GLenum getError();
     void* getFramebufferAttachmentParameter(GLenum target, GLenum attachment, GLenum pname);
-    void* getProgramParameter(WebGLProgram *program, GLenum pname);
+    // TODO: figure out what other types this returns
+    //void* getProgramParameter(WebGLProgram *program, GLenum pname);
+    bool getProgramParameter(WebGLProgram *program, GLenum pname);
     DOMString* getProgramInfoLog(WebGLProgram *program);
     void* getRenderbufferParameter(GLenum target, GLenum pname);
     void* getShaderParameter(WebGLShader *shader, GLenum pname);

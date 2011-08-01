@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'osx-webgl' target in the 'osx-webgl' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif

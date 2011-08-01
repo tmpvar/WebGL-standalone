@@ -2,8 +2,11 @@ echo "Removing old stuff"
 rm -rf *.o
 
 echo "Building new objects"
-g++ -c ../src/*.cc
-g++ -c *.cc
+g++ -g -c ../src/*.cc
+g++ -g -c *.cc
 
 echo "Link object together into test binary"
-g++ -o test *.o -framework GLUT -framework OpenGL
+echo "DONE BUILDING"
+echo "--------------------------------------"
+echo ""
+g++ -g -o test *.o -framework OpenGL -framework Cocoa

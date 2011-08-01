@@ -9,25 +9,15 @@
 #ifndef _INCLUDED_DOMString_
 #define _INCLUDED_DOMString_
 
-#ifdef __APPLE__
-  #include <OpenGL/gl.h>
-  #include <OpenGL/glu.h>
-  #include <GLUT/glut.h>
-#else
-#ifdef _WIN32
-  #include <windows.h>
-#endif
-  #include <GL/gl.h>
-  #include <GL/glu.h>
-  #include <GL/glut.h>
-#endif
+#include "arch/wrapper.h"
 
+#include <string>
 
-
+using namespace std;
 
 class DOMString {
   public:
-
+    string value;
     DOMString();
     ~DOMString();
 };

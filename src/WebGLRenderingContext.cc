@@ -45,7 +45,9 @@ void WebGLRenderingContext::activeTexture(GLenum texture) {
 }
 
 void WebGLRenderingContext::attachShader(WebGLProgram *program, WebGLShader *shader) {
-  
+  assert(program);
+  assert(shader);
+  program->attach(shader);
 }
 
 void WebGLRenderingContext::bindAttribLocation(WebGLProgram *program, GLuint index, DOMString *name) {
@@ -133,7 +135,7 @@ void WebGLRenderingContext::colorMask(GLboolean red, GLboolean green, GLboolean 
 }
 
 void WebGLRenderingContext::compileShader(WebGLShader *shader) {
-  
+  shader->compile();
 }
 
 void WebGLRenderingContext::copyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) {
@@ -155,21 +157,25 @@ WebGLFramebuffer* WebGLRenderingContext::createFramebuffer() {
 
 
 WebGLProgram* WebGLRenderingContext::createProgram() {
-  
+  // TODO: manage this memory
+  return new WebGLProgram();
 }
 
 
 WebGLRenderbuffer* WebGLRenderingContext::createRenderbuffer() {
-  
+  // TODO: manage this memory
+  return new WebGLRenderbuffer();
 }
 
 
 WebGLShader* WebGLRenderingContext::createShader(GLenum type) {
-  
+  // TODO: manage this memory
+  return new WebGLShader(type);
 }
 
 WebGLTexture* WebGLRenderingContext::createTexture() {
-  
+  // TODO: manage this memory
+  return new WebGLTexture();
 }
 
 
@@ -300,8 +306,8 @@ void* WebGLRenderingContext::getFramebufferAttachmentParameter(GLenum target, GL
   
 }
 
-void* WebGLRenderingContext::getProgramParameter(WebGLProgram *program, GLenum pname) {
-  
+bool WebGLRenderingContext::getProgramParameter(WebGLProgram *program, GLenum pname) {
+  return program->status(pname);
 }
 
 DOMString* WebGLRenderingContext::getProgramInfoLog(WebGLProgram *program) {
@@ -321,7 +327,7 @@ DOMString* WebGLRenderingContext::getShaderInfoLog(WebGLShader *shader) {
 }
 
 DOMString* WebGLRenderingContext::getShaderSource(WebGLShader *shader) {
-  
+ 
 }
 
 void* WebGLRenderingContext::getTexParameter(GLenum target, GLenum pname) {
@@ -381,7 +387,7 @@ void WebGLRenderingContext::lineWidth(GLfloat width) {
 }
 
 void WebGLRenderingContext::linkProgram(WebGLProgram *program) {
-  
+  program->link();
 }
 
 void WebGLRenderingContext::pixelStorei(GLenum pname, GLint param) {
@@ -409,7 +415,8 @@ void WebGLRenderingContext::scissor(GLint x, GLint y, GLsizei width, GLsizei hei
 }
 
 void WebGLRenderingContext::shaderSource(WebGLShader *shader, DOMString *source) {
-  
+  const char *cstring = source->value.c_str();
+  glShaderSource(shader->id, 1, &cstring, NULL);
 }
 
 void WebGLRenderingContext::stencilFunc(GLenum func, GLint ref, GLuint mask) {
@@ -605,7 +612,7 @@ void WebGLRenderingContext::uniformMatrix4fv(WebGLUniformLocation *location, GLb
 }
 
 void WebGLRenderingContext::useProgram(WebGLProgram *program) {
-  
+  program->use();
 }
 
 void WebGLRenderingContext::validateProgram(WebGLProgram *program) {

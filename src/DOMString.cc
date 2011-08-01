@@ -10,10 +10,9 @@
 #include "DOMString.h"
 
 DOMString::DOMString() {
-  
 }
 
 DOMString::~DOMString() {
-  
+
 }
 

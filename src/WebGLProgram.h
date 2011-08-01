@@ -9,27 +9,24 @@
 #ifndef _INCLUDED_WebGLProgram_
 #define _INCLUDED_WebGLProgram_
 
-#ifdef __APPLE__
-  #include <OpenGL/gl.h>
-  #include <OpenGL/glu.h>
-  #include <GLUT/glut.h>
-#else
-#ifdef _WIN32
-  #include <windows.h>
-#endif
-  #include <GL/gl.h>
-  #include <GL/glu.h>
-  #include <GL/glut.h>
-#endif
+#include "arch/wrapper.h"
 
 #include "WebGLObject.h"
+#include "WebGLShader.h"
 
 
 class WebGLProgram : WebGLObject {
   public:
-
+    GLuint id;
     WebGLProgram();
     ~WebGLProgram();
+    
+    void link();
+    bool status(GLenum type);
+    void use();
+    void attach(WebGLShader *shader);
+  protected:
+    bool linked;
 };
 
 #endif
