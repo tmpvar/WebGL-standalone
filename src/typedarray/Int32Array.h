@@ -16,7 +16,7 @@
 
 class Int32Array {
   public:
-
+    GLuint length;
     Int32Array();
     ~Int32Array();
 };

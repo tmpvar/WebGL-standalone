@@ -16,7 +16,7 @@
 
 class FloatArray {
   public:
-
+    GLuint length;
     FloatArray();
     ~FloatArray();
 };

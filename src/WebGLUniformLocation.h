@@ -16,7 +16,7 @@
 
 class WebGLUniformLocation {
   public:
-
+    GLuint id;
     WebGLUniformLocation();
     ~WebGLUniformLocation();
 };

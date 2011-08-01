@@ -348,14 +348,14 @@ GLsizeiptr WebGLRenderingContext::getVertexAttribOffset(GLuint index, GLenum pna
 }
 
 void WebGLRenderingContext::hint(GLenum target, GLenum mode) {
-  
+  glHint(target, mode);
 }
 
 GLboolean WebGLRenderingContext::isBuffer(WebGLBuffer *buffer) {
   if (buffer) {
     return glIsBuffer(buffer->id);
   } else {
-    
+    return false;
   }
 }
 
@@ -404,7 +404,7 @@ GLboolean WebGLRenderingContext::isTexture(WebGLTexture *texture) {
 }
 
 void WebGLRenderingContext::lineWidth(GLfloat width) {
-  glLineWidth(width); 
+  glLineWidth(width);
 }
 
 void WebGLRenderingContext::linkProgram(WebGLProgram *program) {
@@ -412,15 +412,15 @@ void WebGLRenderingContext::linkProgram(WebGLProgram *program) {
 }
 
 void WebGLRenderingContext::pixelStorei(GLenum pname, GLint param) {
-  
+  glPixelStorei(pname, param);
 }
 
 void WebGLRenderingContext::polygonOffset(GLfloat factor, GLfloat units) {
-  
+  glPolygonOffset(factor, units);
 }
 
 void WebGLRenderingContext::readPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, ArrayBufferView *pixels) {
-  
+  glReadPixels(x, y, width, height, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::renderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height) {
@@ -428,11 +428,11 @@ void WebGLRenderingContext::renderbufferStorage(GLenum target, GLenum internalfo
 }
 
 void WebGLRenderingContext::sampleCoverage(GLclampf value, GLboolean invert) {
-  
+  glSampleCoverage(value, invert);
 }
 
 void WebGLRenderingContext::scissor(GLint x, GLint y, GLsizei width, GLsizei height) {
-  
+  glScissor(x, y, width, height);
 }
 
 void WebGLRenderingContext::shaderSource(WebGLShader *shader, DOMString *source) {
@@ -441,147 +441,147 @@ void WebGLRenderingContext::shaderSource(WebGLShader *shader, DOMString *source)
 }
 
 void WebGLRenderingContext::stencilFunc(GLenum func, GLint ref, GLuint mask) {
-  
+  glStencilFunc(func, ref, mask);
 }
 
 void WebGLRenderingContext::stencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask) {
-  
+  glStencilFuncSeparate(face, func, ref, mask);
 }
 
 void WebGLRenderingContext::stencilMask(GLuint mask) {
-  
+  glStencilMask(mask);
 }
 
 void WebGLRenderingContext::stencilMaskSeparate(GLenum face, GLuint mask) {
-  
+  glStencilMaskSeparate(face, mask);
 }
 
 void WebGLRenderingContext::stencilOp(GLenum fail, GLenum zfail, GLenum zpass) {
-  
+  glStencilOp(fail, zfail, zpass);
 }
 
 void WebGLRenderingContext::stencilOpSeparate(GLenum face, GLenum fail, GLenum zfail, GLenum zpass) {
-  
+  glStencilOpSeparate(face, fail, zfail, zpass);
 }
 
 void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, ArrayBufferView *pixels) {
-  
+  glTexImage2D(target, level, internalformat, width, height, border, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, ImageData *pixels) {
-  
+  // glTexImage2D(target, level, internalformat, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLImageElement *image) {
-  
+  // glTexImage2D(target, level, internalformat, format, type, (GLvoid *)&image);
 }
 
 void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLCanvasElement *canvas) {
-  
+  // glTexImage2D(target, level, internalformat, format, type, (GLvoid *)&canvas);
 }
 
 void WebGLRenderingContext::texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HTMLVideoElement *video) {
-  
+  // glTexImage2D(target, level, internalformat, format, type, (GLvoid *)&video);
 }
 
 void WebGLRenderingContext::texParameterf(GLenum target, GLenum pname, GLfloat param) {
-  
+  glTexParameterf(target, pname, param);
 }
 
 void WebGLRenderingContext::texParameteri(GLenum target, GLenum pname, GLint param) {
-  
+  glTexParameteri(target, pname, param);
 }
 
 void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, ArrayBufferView *pixels) {
-  
+  glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, ImageData *pixels) {
-  
+  //glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLImageElement *image) {
-  
+  //glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLCanvasElement *canvas) {
-  
+  //glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::texSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLenum format, GLenum type, HTMLVideoElement *video) {
-  
+  //glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, (GLvoid *)&pixels);
 }
 
 void WebGLRenderingContext::uniform1f(WebGLUniformLocation *location, GLfloat x) {
-  
+  glUniform1f(location->id, x);
 }
 
 void WebGLRenderingContext::uniform1fv(WebGLUniformLocation *location, FloatArray *v) {
-  
+  glUniform1fv(location->id, v->length, (GLfloat *)&v);
 }
 
 void WebGLRenderingContext::uniform1fv(WebGLUniformLocation *location, float** v) {
-  
+  glUniform1fv(location->id, sizeof(v), (GLfloat *)&v);
 }
 
 void WebGLRenderingContext::uniform1i(WebGLUniformLocation *location, GLint x) {
-  
+  glUniform1i(location->id, x);
 }
 
 void WebGLRenderingContext::uniform1iv(WebGLUniformLocation *location, Int32Array *v) {
-  
+  glUniform1iv(location->id, v->length, (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform1iv(WebGLUniformLocation *location, long** v) {
-  
+  glUniform1iv(location->id, sizeof(v), (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform2f(WebGLUniformLocation *location, GLfloat x, GLfloat y) {
-  
+  glUniform2f(location->id, x, y);
 }
 
 void WebGLRenderingContext::uniform2fv(WebGLUniformLocation *location, FloatArray *v) {
-  
+  glUniform2fv(location->id, v->length, (GLfloat *)&v);
 }
 
 void WebGLRenderingContext::uniform2fv(WebGLUniformLocation *location, float** v) {
-  
+  glUniform2fv(location->id, sizeof(v), (GLfloat *)&v);
 }
 
 void WebGLRenderingContext::uniform2i(WebGLUniformLocation *location, GLint x, GLint y) {
-  
+  glUniform2i(location->id, x, y);
 }
 
 void WebGLRenderingContext::uniform2iv(WebGLUniformLocation *location, Int32Array *v) {
-  
+  glUniform2fiv(location->id, v->length, (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform2iv(WebGLUniformLocation *location, long** v) {
-  
+  glUniform2fiv(location->id, sizeof(v), (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform3f(WebGLUniformLocation *location, GLfloat x, GLfloat y, GLfloat z) {
-  
+  glUniform3f(location->id, x, y, z);
 }
 
 void WebGLRenderingContext::uniform3fv(WebGLUniformLocation *location, FloatArray *v) {
-  
+  glUniform3fv(location->id, v->length, (GLfloat *)&v);
 }
 
 void WebGLRenderingContext::uniform3fv(WebGLUniformLocation *location, float** v) {
-  
+  glUniform3fv(location->id, sizeof(v), (GLfloat *)&v);
 }
 
 void WebGLRenderingContext::uniform3i(WebGLUniformLocation *location, GLint x, GLint y, GLint z) {
-  
+  glUniform3i(location->id, x, y, z);
 }
 
 void WebGLRenderingContext::uniform3iv(WebGLUniformLocation *location, Int32Array *v) {
-  
+  glUniform3i(location->id, v->length, (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform3iv(WebGLUniformLocation *location, long** v) {
-  
+  glUniform3iv(glUniform3i(location->id, sizeof(v), (GLint *)&v);
 }
 
 void WebGLRenderingContext::uniform4f(WebGLUniformLocation *location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
@@ -685,13 +685,19 @@ void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, FloatArray *values) {
 }
 
 void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, float** values) {
-  
+  glVertexAttrib(indx, values[0], values[1], values[2], values[3]);
 }
 
-void WebGLRenderingContext::vertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLintptr offset) {
-  
+void WebGLRenderingContext::vertexAttribPointer(GLuint indx,
+                                                GLint size,
+                                                GLenum type,
+                                                GLboolean normalized,
+                                                GLsizei stride,
+                                                GLintptr offset)
+{
+  glVertexAttribPointer(indx, size, type, normalized, stride, (GLvoid *)&offset)
 }
 
 void WebGLRenderingContext::viewport(GLint x, GLint y, GLsizei width, GLsizei height) {
-  
+  glViewport(x, y, width, height);
 }
