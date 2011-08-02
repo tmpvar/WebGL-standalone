@@ -94,11 +94,11 @@ void WebGLRenderingContext::bufferData(GLenum target, GLsizeiptr size, GLenum us
 }
 
 void WebGLRenderingContext::bufferData(GLenum target, ArrayBufferView *data, GLenum usage) {
-  glBufferData(target, data->length, (void *)&data, usage);
+  glBufferData(target, data->length, (GLvoid *)&data, usage);
 }
 
 void WebGLRenderingContext::bufferData(GLenum target, ArrayBuffer *data, GLenum usage) {
-  glBufferData(target, sizeof(GLfloat) * 12, (void *)&data->data, usage);
+  glBufferData(target, data->size, data->data, usage);
 }
 
 void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBufferView *data) {

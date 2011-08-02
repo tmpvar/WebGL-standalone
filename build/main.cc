@@ -3,11 +3,6 @@
 #include <assert.h>
 #include <unistd.h>
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <IOKit/graphics/IOGraphicsLib.h>
-#include <Accelerate/Accelerate.h>
-#include <ApplicationServices/ApplicationServices.h>
-
 #include "../src/typedarray/ArrayBuffer.h"
 
 using namespace std;
@@ -41,33 +36,25 @@ CGDirectDisplayID getDisplay(unsigned int index) {
   return onlineDisplays[index];
 }
 
-void draw(WebGLRenderingContext *gl, WebGLProgram *program, Float32Array *array) {
-  gl->clearColor(1, 0, 1, 1);
-  cout << "clear color: " << gluErrorString(glGetError()) << endl;
-
-  gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT);
-  cout << "clear: " << gluErrorString(glGetError()) << endl;
-
+void draw(WebGLRenderingContext *gl, WebGLProgram *program, Float32Array *array, DOMString *pos) {
   gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, gl->createBuffer());
   cout << "bind buffer: " << gluErrorString(glGetError()) << endl;
   
   gl->bufferData(WebGLRenderingContext::ARRAY_BUFFER, array, WebGLRenderingContext::STATIC_DRAW);
   cout << "buffer data: " << gluErrorString(glGetError()) << endl;
 
-  DOMString *pos = new DOMString();
-  pos->value = "pos";
-
   GLint attr = gl->getAttribLocation(program, pos);
+  cout << "attrib location" << attr << " ERROR: " << gluErrorString(glGetError()) << endl;
   gl->enableVertexAttribArray(attr);
   cout << "enable vertex attribute array: " << gluErrorString(glGetError()) << endl;
 
-  gl->vertexAttribPointer(attr, 3, WebGLRenderingContext::FLOAT, false, 0, 0);
+  gl->vertexAttribPointer(attr, sizeof(GLfloat), WebGLRenderingContext::FLOAT, false, 0, 0);
   
   cout << "vertex attribute pointer: " << gluErrorString(glGetError()) << endl;
-  
-  gl->drawArrays(WebGLRenderingContext::TRIANGLE_STRIP, 0, 4);
+
+  gl->drawArrays(WebGLRenderingContext::TRIANGLES, 0, 3);
   cout << "draw arrays: " << gluErrorString(glGetError()) << endl;
-  
+
 }
 
 int main() {
@@ -79,9 +66,12 @@ int main() {
   displayMask = CGDisplayIDToOpenGLDisplayMask(targetDisplay);
 
   CGLPixelFormatAttribute attribs[] = {
+      kCGLPFANoRecovery,
+      kCGLPFADoubleBuffer,
       kCGLPFAFullScreen,
+      kCGLPFAStencilSize, ( CGLPixelFormatAttribute ) 8,
       kCGLPFADisplayMask,
-      (CGLPixelFormatAttribute)displayMask,
+      (CGLPixelFormatAttribute)CGDisplayIDToOpenGLDisplayMask( kCGDirectMainDisplay ),
       (CGLPixelFormatAttribute)NULL
   };
 
@@ -91,16 +81,21 @@ int main() {
   CGLCreateContext(pixelFormatObj, NULL, &context);
   CGLDestroyPixelFormat(pixelFormatObj);
   CGLSetCurrentContext(context);
+  CGLRetainContext(context);
   CGLSetFullScreenOnDisplay(context, displayMask);
 
   WebGLRenderingContext *gl = new WebGLRenderingContext();
   WebGLProgram *program = gl->createProgram();
 
+  DOMString *pos = new DOMString();
+  pos->value = "pos";
+
   DOMString *vertex_shader = new DOMString();
   vertex_shader->value = "attribute vec3 pos;\nvoid main() {\n  gl_Position = vec4(pos, 2.0);\n}";
 
   DOMString *fragment_shader = new DOMString();
-  fragment_shader->value = "void main() {\n  gl_FragColor = vec4(0.5, 0.5, 1.0, 1.0);\n}";
+  fragment_shader->value = "void main() {\n  gl_FragColor = vec4(1.0, 0, 1, 1.0);\n}";
+
 
   addShader(gl, program, WebGLRenderingContext::VERTEX_SHADER, vertex_shader);
   addShader(gl, program, WebGLRenderingContext::FRAGMENT_SHADER, fragment_shader);
@@ -110,24 +105,38 @@ int main() {
 
   gl->useProgram(program);
 
-  Float32Array *array = new Float32Array(12);
-  GLfloat tmp[12] = {
-    -1, 0, 0,
+  Float32Array *array = new Float32Array(9);
+  GLfloat tmp[9] = {
     0, 1, 0,
-    0, -1, 0,
-    1, 0, 0
+    -1, -1, 0,
+    1, -1, 0,
   };
   
   // I'm not proud of this.
   memcpy(tmp, array->data, array->size);
   
+  gl->enable(WebGLRenderingContext::DEPTH_TEST);
   // 5 frames for now
-  int a = 5;
+  int a = 500;
+  int interval = 1;
   while(a--) {
-    draw(gl, program, array);
-    usleep(100000);
+    gl->viewport(0, 0, 1600, 1200);
+
+    gl->clearColor(0.5, 0.5, 0.5, 1);
+    cout << "clear color: " << gluErrorString(glGetError()) << endl;
+
+    gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT | WebGLRenderingContext::DEPTH_BUFFER_BIT);
+    cout << "clear: " << gluErrorString(glGetError()) << endl;
+    
+    gluPerspective(45, 1600 / 1200, 0.1, 100.0);
+    glLoadIdentity();
+    glTranslatef(-1.5, 0.0, -7.0);
+    draw(gl, program, array, pos);
+    CGLSetParameter( context, kCGLCPSwapInterval, &interval );
+    CGLFlushDrawable( context );
   }
 
+  CGLReleaseContext(context);
   cout << "Done!" << endl;
   return 0;
 }

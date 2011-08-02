@@ -15,7 +15,7 @@ WebGLProgram::WebGLProgram() {
 }
 
 WebGLProgram::~WebGLProgram() {
-  
+  glDeleteProgram(this->id);
 }
 
 void WebGLProgram::link() {

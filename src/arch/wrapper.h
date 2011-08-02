@@ -8,6 +8,8 @@
     #include <OpenGL/OpenGL.h>
     #include <OpenGL/gl.h>
     #include <OpenGL/glu.h>
+    #include <CoreFoundation/CoreFoundation.h>
+    #include <ApplicationServices/ApplicationServices.h>
   #else
     #ifdef _WIN32
       #include <windows.h>
