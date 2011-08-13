@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 #include "../src/typedarray/ArrayBuffer.h"
-
+#include "../src/util.h"
 using namespace std;
 
 void addShader(WebGLRenderingContext *gl, WebGLProgram *program, GLenum type, DOMString *source) {
@@ -36,26 +36,6 @@ CGDirectDisplayID getDisplay(unsigned int index) {
   return onlineDisplays[index];
 }
 
-void draw(WebGLRenderingContext *gl, WebGLProgram *program, Float32Array *array, DOMString *pos) {
-  gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, gl->createBuffer());
-  cout << "bind buffer: " << gluErrorString(glGetError()) << endl;
-  
-  gl->bufferData(WebGLRenderingContext::ARRAY_BUFFER, array, WebGLRenderingContext::STATIC_DRAW);
-  cout << "buffer data: " << gluErrorString(glGetError()) << endl;
-
-  GLint attr = gl->getAttribLocation(program, pos);
-  cout << "attrib location" << attr << " ERROR: " << gluErrorString(glGetError()) << endl;
-  gl->enableVertexAttribArray(attr);
-  cout << "enable vertex attribute array: " << gluErrorString(glGetError()) << endl;
-
-  gl->vertexAttribPointer(attr, sizeof(GLfloat), WebGLRenderingContext::FLOAT, false, 0, 0);
-  
-  cout << "vertex attribute pointer: " << gluErrorString(glGetError()) << endl;
-
-  gl->drawArrays(WebGLRenderingContext::TRIANGLES, 0, 3);
-  cout << "draw arrays: " << gluErrorString(glGetError()) << endl;
-
-}
 
 int main() {
   CGDirectDisplayID targetDisplay = getDisplay(0);
@@ -66,6 +46,7 @@ int main() {
   displayMask = CGDisplayIDToOpenGLDisplayMask(targetDisplay);
 
   CGLPixelFormatAttribute attribs[] = {
+      kCGLPFAAccelerated,
       kCGLPFANoRecovery,
       kCGLPFADoubleBuffer,
       kCGLPFAFullScreen,
@@ -91,7 +72,7 @@ int main() {
   pos->value = "pos";
 
   DOMString *vertex_shader = new DOMString();
-  vertex_shader->value = "attribute vec3 pos;\nvoid main() {\n  gl_Position = vec4(pos, 2.0);\n}";
+  vertex_shader->value = "attribute vec3 pos;\nvoid main() {\n  gl_Position = vec4(pos, 1.0);\n}";
 
   DOMString *fragment_shader = new DOMString();
   fragment_shader->value = "void main() {\n  gl_FragColor = vec4(1.0, 0, 1, 1.0);\n}";
@@ -105,33 +86,41 @@ int main() {
 
   gl->useProgram(program);
 
-  Float32Array *array = new Float32Array(9);
-  GLfloat tmp[9] = {
-    0, 1, 0,
-    -1, -1, 0,
-    1, -1, 0,
-  };
-  
-  // I'm not proud of this.
-  memcpy(tmp, array->data, array->size);
-  
-  gl->enable(WebGLRenderingContext::DEPTH_TEST);
-  // 5 frames for now
-  int a = 500;
+
+  Float32Array *array = new Float32Array(12);
+
+  int a = 100;
   int interval = 1;
+  WebGLBuffer *buffer = gl->createBuffer();
+
+  const float vertexPositions[] = {
+    0.75f, 0.75f, 0.0f, 1.0f,
+    0.75f, -0.75f, 0.0f, 1.0f,
+    -0.75f, -0.75f, 0.0f, 1.0f,
+  };
+
+  // I'm not proud of this.
+  memcpy(array->data, vertexPositions, array->size);
+
+  gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, buffer);
+  gl->bufferData(WebGLRenderingContext::ARRAY_BUFFER, array, WebGLRenderingContext::STATIC_DRAW);
+  gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, buffer);
+
+  glViewport(0, 0, 1920, 1200);
+  gl->useProgram(program);
+  GLint attr = glGetAttribLocation(program->id, pos->value.c_str());
+
   while(a--) {
-    gl->viewport(0, 0, 1600, 1200);
-
     gl->clearColor(0.5, 0.5, 0.5, 1);
-    cout << "clear color: " << gluErrorString(glGetError()) << endl;
-
     gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT | WebGLRenderingContext::DEPTH_BUFFER_BIT);
-    cout << "clear: " << gluErrorString(glGetError()) << endl;
-    
-    gluPerspective(45, 1600 / 1200, 0.1, 100.0);
-    glLoadIdentity();
-    glTranslatef(-1.5, 0.0, -7.0);
-    draw(gl, program, array, pos);
+    gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, buffer);
+    gl->enableVertexAttribArray(attr);
+    gl->vertexAttribPointer(attr, sizeof(GLfloat), GL_FLOAT, GL_FALSE, 0, 0);
+    gl->drawArrays(GL_TRIANGLES, 0, 3);
+    gl->disableVertexAttribArray(attr);
+    gl->useProgram(0);
+
+    // TODO: this needs to be wrapped up like all of the other CGL stuff.
     CGLSetParameter( context, kCGLCPSwapInterval, &interval );
     CGLFlushDrawable( context );
   }
