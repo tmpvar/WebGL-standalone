@@ -88,7 +88,15 @@ int main() {
 
 
   Float32Array *array = new Float32Array(12);
+  GLfloat tmp[9] = {
+     0.0,  1.0, 0.0,
+    -1.0, -1.0, 0.0,
+     1.0, -1.0, 0.0,
+  };
 
+
+
+  // 5 frames for now
   int a = 100;
   int interval = 1;
   WebGLBuffer *buffer = gl->createBuffer();
@@ -117,10 +125,11 @@ int main() {
     gl->enableVertexAttribArray(attr);
     gl->vertexAttribPointer(attr, sizeof(GLfloat), GL_FLOAT, GL_FALSE, 0, 0);
     gl->drawArrays(GL_TRIANGLES, 0, 3);
-    gl->disableVertexAttribArray(attr);
-    gl->useProgram(0);
 
-    // TODO: this needs to be wrapped up like all of the other CGL stuff.
+    // TODO: implement these
+    //glDisableVertexAttribArray(0);
+    //glUseProgram(0);
+
     CGLSetParameter( context, kCGLCPSwapInterval, &interval );
     CGLFlushDrawable( context );
   }

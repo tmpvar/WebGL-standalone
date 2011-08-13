@@ -1,8 +1,8 @@
 /**
   WebGL Standalone
-  
+
   WebGLRenderingContext.h
-  
+
   Released under the MIT license (see: ../LICENSE)
   Copyright Elijah Insua <tmpvar@gmail.com> 2011
 **/
@@ -10,19 +10,19 @@
 #include "WebGLRenderingContext.h"
 
 WebGLRenderingContext::WebGLRenderingContext() {
-  
+
 }
 
 WebGLRenderingContext::~WebGLRenderingContext() {
-  
+
 }
 
 HTMLCanvasElement WebGLRenderingContext::getCanvas() {
-  
+
 }
 
 WebGLContextAttributes* WebGLRenderingContext::getContextAttributes() {
-  
+
 }
 
 
@@ -32,16 +32,16 @@ bool WebGLRenderingContext::isContextLost() {
 
 
 DOMString** WebGLRenderingContext::getSupportedExtensions() {
-  
+
 }
 
 
 void* WebGLRenderingContext::getExtension(DOMString *name) {
-  
+
 }
 
 void WebGLRenderingContext::activeTexture(GLenum texture) {
-  
+
 }
 
 void WebGLRenderingContext::attachShader(WebGLProgram *program, WebGLShader *shader) {
@@ -62,7 +62,7 @@ void WebGLRenderingContext::bindFramebuffer(GLenum target, WebGLFramebuffer *fra
 }
 
 void WebGLRenderingContext::bindRenderbuffer(GLenum target, WebGLRenderbuffer *renderbuffer) {
-  
+
 }
 
 void WebGLRenderingContext::bindTexture(GLenum target, WebGLTexture *texture) {
@@ -102,15 +102,15 @@ void WebGLRenderingContext::bufferData(GLenum target, ArrayBuffer *data, GLenum 
 }
 
 void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBufferView *data) {
-  
+
 }
 
 void WebGLRenderingContext::bufferSubData(GLenum target, GLintptr offset, ArrayBuffer *data) {
-  
+
 }
 
 GLenum WebGLRenderingContext::checkFramebufferStatus(GLenum target) {
-  
+
 }
 
 void WebGLRenderingContext::clear(GLbitfield mask) {
@@ -181,27 +181,27 @@ void WebGLRenderingContext::cullFace(GLenum mode) {
 }
 
 void WebGLRenderingContext::deleteBuffer(WebGLBuffer *buffer) {
-  
+
 }
 
 void WebGLRenderingContext::deleteFramebuffer(WebGLFramebuffer *framebuffer) {
-  
+
 }
 
 void WebGLRenderingContext::deleteProgram(WebGLProgram *program) {
-  
+
 }
 
 void WebGLRenderingContext::deleteRenderbuffer(WebGLRenderbuffer *renderbuffer) {
-  
+
 }
 
 void WebGLRenderingContext::deleteShader(WebGLShader *shader) {
-  
+
 }
 
 void WebGLRenderingContext::deleteTexture(WebGLTexture *texture) {
-  
+
 }
 
 void WebGLRenderingContext::depthFunc(GLenum func) {
@@ -255,11 +255,11 @@ void WebGLRenderingContext::flush() {
 
 
 void WebGLRenderingContext::framebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, WebGLRenderbuffer *renderbuffer) {
-  
+
 }
 
 void WebGLRenderingContext::framebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, WebGLTexture *texture, GLint level) {
-  
+
 }
 
 void WebGLRenderingContext::frontFace(GLenum mode) {
@@ -267,19 +267,19 @@ void WebGLRenderingContext::frontFace(GLenum mode) {
 }
 
 void WebGLRenderingContext::generateMipmap(GLenum target) {
-  
+
 }
 
 WebGLActiveInfo* WebGLRenderingContext::getActiveAttrib(WebGLProgram *program, GLuint index) {
-  
+
 }
 
 WebGLActiveInfo* WebGLRenderingContext::getActiveUniform(WebGLProgram *program, GLuint index) {
-  
+
 }
 
 WebGLShader** WebGLRenderingContext::getAttachedShaders(WebGLProgram *program) {
-  
+
 }
 
 GLint WebGLRenderingContext::getAttribLocation(WebGLProgram *program, DOMString *name) {
@@ -287,11 +287,11 @@ GLint WebGLRenderingContext::getAttribLocation(WebGLProgram *program, DOMString 
 }
 
 void* WebGLRenderingContext::getParameter(GLenum pname) {
-  
+
 }
 
 void* WebGLRenderingContext::getBufferParameter(GLenum target, GLenum pname) {
-  
+
 }
 
 GLenum WebGLRenderingContext::getError() {
@@ -300,7 +300,7 @@ GLenum WebGLRenderingContext::getError() {
 
 
 void* WebGLRenderingContext::getFramebufferAttachmentParameter(GLenum target, GLenum attachment, GLenum pname) {
-  
+
 }
 
 bool WebGLRenderingContext::getProgramParameter(WebGLProgram *program, GLenum pname) {
@@ -308,43 +308,43 @@ bool WebGLRenderingContext::getProgramParameter(WebGLProgram *program, GLenum pn
 }
 
 DOMString* WebGLRenderingContext::getProgramInfoLog(WebGLProgram *program) {
-  
+
 }
 
 void* WebGLRenderingContext::getRenderbufferParameter(GLenum target, GLenum pname) {
-  
+
 }
 
 void* WebGLRenderingContext::getShaderParameter(WebGLShader *shader, GLenum pname) {
-  
+
 }
 
 DOMString* WebGLRenderingContext::getShaderInfoLog(WebGLShader *shader) {
-  
+
 }
 
 DOMString* WebGLRenderingContext::getShaderSource(WebGLShader *shader) {
- 
+
 }
 
 void* WebGLRenderingContext::getTexParameter(GLenum target, GLenum pname) {
-  
+
 }
 
 void* WebGLRenderingContext::getUniform(WebGLProgram *program, WebGLUniformLocation *location) {
-  
+
 }
 
 WebGLUniformLocation* WebGLRenderingContext::getUniformLocation(WebGLProgram *program, DOMString *name) {
-  
+
 }
 
 void* WebGLRenderingContext::getVertexAttrib(GLuint index, GLenum pname) {
-  
+
 }
 
 GLsizeiptr WebGLRenderingContext::getVertexAttribOffset(GLuint index, GLenum pname) {
-  
+
 }
 
 void WebGLRenderingContext::hint(GLenum target, GLenum mode) {
@@ -424,7 +424,7 @@ void WebGLRenderingContext::readPixels(GLint x, GLint y, GLsizei width, GLsizei 
 }
 
 void WebGLRenderingContext::renderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height) {
-  
+
 }
 
 void WebGLRenderingContext::sampleCoverage(GLclampf value, GLboolean invert) {
@@ -585,51 +585,51 @@ void WebGLRenderingContext::uniform3iv(WebGLUniformLocation *location, long** v)
 }
 
 void WebGLRenderingContext::uniform4f(WebGLUniformLocation *location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
-  
+
 }
 
 void WebGLRenderingContext::uniform4fv(WebGLUniformLocation *location, FloatArray *v) {
-  
+
 }
 
 void WebGLRenderingContext::uniform4fv(WebGLUniformLocation *location, float** v) {
-  
+
 }
 
 void WebGLRenderingContext::uniform4i(WebGLUniformLocation *location, GLint x, GLint y, GLint z, GLint w) {
-  
+
 }
 
 void WebGLRenderingContext::uniform4iv(WebGLUniformLocation *location, Int32Array *v) {
-  
+
 }
 
 void WebGLRenderingContext::uniform4iv(WebGLUniformLocation *location, long** v) {
-  
+
 }
 
 void WebGLRenderingContext::uniformMatrix2fv(WebGLUniformLocation *location, GLboolean transpose, FloatArray *value) {
-  
+
 }
 
 void WebGLRenderingContext::uniformMatrix2fv(WebGLUniformLocation *location, GLboolean transpose, float** value) {
-  
+
 }
 
 void WebGLRenderingContext::uniformMatrix3fv(WebGLUniformLocation *location, GLboolean transpose, FloatArray *value) {
-  
+
 }
 
 void WebGLRenderingContext::uniformMatrix3fv(WebGLUniformLocation *location, GLboolean transpose, float** value) {
-  
+
 }
 
 void WebGLRenderingContext::uniformMatrix4fv(WebGLUniformLocation *location, GLboolean transpose, FloatArray *value) {
-  
+
 }
 
 void WebGLRenderingContext::uniformMatrix4fv(WebGLUniformLocation *location, GLboolean transpose, float** value) {
-  
+
 }
 
 void WebGLRenderingContext::useProgram(WebGLProgram *program) {
@@ -637,55 +637,55 @@ void WebGLRenderingContext::useProgram(WebGLProgram *program) {
 }
 
 void WebGLRenderingContext::validateProgram(WebGLProgram *program) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib1f(GLuint indx, GLfloat x) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib1fv(GLuint indx, FloatArray *values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib1fv(GLuint indx, float** values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib2f(GLuint indx, GLfloat x, GLfloat y) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib2fv(GLuint indx, FloatArray *values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib2fv(GLuint indx, float** values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib3fv(GLuint indx, FloatArray *values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib3fv(GLuint indx, float** values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, FloatArray *values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttrib4fv(GLuint indx, float** values) {
-  
+
 }
 
 void WebGLRenderingContext::vertexAttribPointer(GLuint indx,
@@ -695,7 +695,7 @@ void WebGLRenderingContext::vertexAttribPointer(GLuint indx,
                                                 GLsizei stride,
                                                 GLintptr offset)
 {
-  glVertexAttribPointer(indx, size, type, normalized, stride, (GLvoid *)&offset);
+  glVertexAttribPointer(indx, size, type, normalized, stride, (GLvoid *)offset);
 }
 
 void WebGLRenderingContext::viewport(GLint x, GLint y, GLsizei width, GLsizei height) {
