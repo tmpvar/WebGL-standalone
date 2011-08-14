@@ -1,0 +1,7 @@
+
+webgl = File('../build/libWebGL.a')
+
+Program('triangle', 'triangle.cc',
+  LIBS=[webgl],
+  FRAMEWORKS=['OpenGL', 'Cocoa']
+  )

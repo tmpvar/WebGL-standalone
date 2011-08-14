@@ -1,0 +1,16 @@
+
+import platform
+
+
+CFLAGS = '-Wall -g'
+
+env = Environment(
+  CFLAGS=CFLAGS,
+  FRAMEWORKS=['-framework OpenGL', '-framework Cocoa']
+  )
+
+sources = Glob('*.cc')
+sources.extend(Glob('dom/*.cc'))
+sources.extend(Glob('typedarray/*.cc'))
+
+lib = env.StaticLibrary('WebGL', sources)
