@@ -1,1 +1,1 @@
-console.log('boo');
+module.exports = 'hello world';

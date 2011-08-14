@@ -8,8 +8,7 @@
 /* Include the JSAPI header file to get access to SpiderMonkey. */
 #include "jsapi.h"
 #include "WebGL.h"
-
-#include <fstream>
+#include "module.h"
 
 /* The class of the global object. */
 static JSClass global_class = {
@@ -19,43 +18,58 @@ static JSClass global_class = {
     JSCLASS_NO_OPTIONAL_MEMBERS
 };
 
+static JSFunctionSpec module_global_functions[] = {
+    //JSBool module_require(JSContext *cx, uintN argc, jsval *argv, jsval *rval);
+    JS_FS("module_require",   module_require, 1, 0),
+    JS_FS_END
+};
+
+
 /* The error reporter callback. */
 void reportError(JSContext *cx, const char *message, JSErrorReport *report)
 {
-    cout << "WEBGL ERROR:" << report->filename << ":" << report->lineno << endl << "\t'" << message << "'" << endl;
+    cout << "WEBGL ERROR: "
+         << report->filename
+         << " line:"
+         << report->lineno
+         << endl
+         << "\t'"
+         << message
+         << "'"
+         << endl;
+}
+
+
+void setupRequire(JSContext *cx, JSObject *global) {
+  const char *jsrequire =
+  "function require(filename) {"
+  "  var module = {"
+  "    exports : {}"
+  "  };"
+  "  var parts = filename.split('/');"
+  "  parts.pop();"
+  "  var dirname = parts.join('/');"
+  "  module_require(filename)(module.exports, require, module, filename, dirname);"
+  "  return module.exports"
+  "}";
+
+  jsval rval;
+  JSBool ok = JS_EvaluateScript(cx, global, jsrequire, strlen(jsrequire),
+                                "require.js", 0, &rval);
+  if (!ok) {
+    cout << "WEBGL ERROR: There was a problem setting up require" << endl;
+  }
 }
 
 int main(int argc, const char *argv[])
 {
-
     if (argc < 2) {
         cout << "Usage: webgljs path/to/app.js" << endl;
         return 1;
     }
 
-    const char *filename = argv[1];
-
-    cout << "WEGBL: Loading " <<  filename << endl;
-
-    ifstream scriptStream(filename, ios::in);
-    if (scriptStream.is_open() == false) {
-        cout << "WEGBL: Unable to open '" << filename << "' for reading" << endl;
-        return 1;
-    }
-
-
-    scriptStream.seekg (0, ios::end);
-    int size = (int)scriptStream.tellg();
-    if (size == 0) {
-        cout << "WEGBL: this file is empty, aborting" << endl;
-    }
-    cout << "WEBGL: Loaded script (" << size << " bytes)" << endl;
-
-    scriptStream.seekg (0, ios::beg);
-    char *script = new char [size+1];
-    scriptStream.read(script, size);
-    scriptStream.close();
-    script[size] = 0;
+    const char* filename = argv[1];
+    char *script = getFileContents(filename);
 
     /* JSAPI variables. */
     JSRuntime *rt;
@@ -75,34 +89,22 @@ int main(int argc, const char *argv[])
     JS_SetVersion(cx, JSVERSION_LATEST);
     JS_SetErrorReporter(cx, reportError);
 
-    /*
-     * Create the global object in a new compartment.
-     * You always need a global object per context.
-     */
     global = JS_NewCompartmentAndGlobalObject(cx, &global_class, NULL);
     if (global == NULL)
         return 1;
 
-    /*
-     * Populate the global object with the standard JavaScript
-     * function and object classes, such as Object, Array, Date.
-     */
     if (!JS_InitStandardClasses(cx, global))
         return 1;
 
-    /* Your application code here. This may include JSAPI calls
-     * to create your own custom JavaScript objects and to run scripts.
-     *
-     * The following example code creates a literal JavaScript script,
-     * evaluates it, and prints the result to stdout.
-     *
-     * Errors are conventionally saved in a JSBool variable named ok.
-     */
-    //char *script = "'Hello ' + 'World!'";
     jsval rval;
     JSString *str;
     JSBool ok;
     uintN lineno = 0;
+
+    if (!JS_DefineFunctions(cx, global, module_global_functions))
+      return JS_FALSE;
+
+    setupRequire(cx, global);
 
     ok = JS_EvaluateScript(cx, global, script, strlen(script),
                            filename, lineno, &rval);
@@ -112,9 +114,6 @@ int main(int argc, const char *argv[])
     str = JS_ValueToString(cx, rval);
     printf("OUTPUT: %s\n", JS_EncodeString(cx, str));
 
-    /* End of your application code */
-
-    /* Clean things up and shut down SpiderMonkey. */
     JS_DestroyContext(cx);
     JS_DestroyRuntime(rt);
     JS_ShutDown();
