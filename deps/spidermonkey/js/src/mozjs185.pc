@@ -1,0 +1,10 @@
+prefix=/Volumes/Data/work/c++/WebGL-standalone/build
+libdir=/Volumes/Data/work/c++/WebGL-standalone/build/lib
+includedir=/Volumes/Data/work/c++/WebGL-standalone/build/include
+
+Name: SpiderMonkey 1.8.5
+Description: The Mozilla library for JavaScript 1.8.5
+Version: 
+Requires: nspr >= 4.7
+Libs: -L${libdir} -lmozjs185
+Cflags: -I${includedir}/js

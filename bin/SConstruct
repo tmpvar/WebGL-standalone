@@ -1,7 +1,33 @@
+from os import path
+import subprocess
 
-webgl = File('../build/libWebGL.a')
+current_dir = path.abspath('.')
+build_dir = path.abspath(path.join(current_dir, '..', 'build'))
+
+webgl = File(path.join(build_dir, 'libWebGL.a'))
+spidermonkey_src = path.abspath(path.join(current_dir, '..', 'deps', 'spidermonkey', 'js', 'src'))
+spidermonkey = File(path.join(spidermonkey_src, 'libjs_static.a'))
+spidermonkey_includes = spidermonkey_src
+
+FRAMEWORKS = ['OpenGL', 'Cocoa']
 
 Program('triangle', 'triangle.cc',
-  LIBS=[webgl],
-  FRAMEWORKS=['OpenGL', 'Cocoa']
+  LIBS = [webgl],
+  FRAMEWORKS = FRAMEWORKS
+  )
+
+# Configure spidermonkey
+if not path.isfile(path.join(spidermonkey_src, 'Makefile')):
+  spidermonkey_configure = [path.join(spidermonkey_src, 'configure'),'--disable-shared-js']
+  subprocess.call(spidermonkey_configure, cwd=spidermonkey_src)
+
+# Make spidermonkey
+spidermonkey_make = ['make', '-f', path.join(spidermonkey_src, 'Makefile')]
+subprocess.call(spidermonkey_make, cwd=spidermonkey_src)
+
+# Make webgljs
+env = Environment(CPPPATH=spidermonkey_includes)
+env.Program('webgljs', Glob('js/*.cc'),
+  LIBS = [webgl, spidermonkey],
+  FRAMEWORKS = FRAMEWORKS
   )
