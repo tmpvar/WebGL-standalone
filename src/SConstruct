@@ -1,16 +1,26 @@
 
 import platform
-
+import subprocess
 
 CFLAGS = '-Wall -g'
 
 env = Environment(
   CFLAGS=CFLAGS,
-  FRAMEWORKS=['-framework OpenGL', '-framework Cocoa']
+  FRAMEWORKS=['OpenGL', 'Cocoa']
   )
 
 sources = Glob('*.cc')
 sources.extend(Glob('dom/*.cc'))
 sources.extend(Glob('typedarray/*.cc'))
 
-lib = env.StaticLibrary('WebGL', sources)
+env.StaticLibrary('WebGL', sources)
+
+env2 = Environment(
+  CFLAGS=CFLAGS,
+  FRAMEWORKS=['OpenGL', 'Cocoa']
+  )
+env2.SharedLibrary('WebGL', sources)
+
+Execute(Copy(Glob('libWebGL.*'), '../lib/'))
+
+subprocess.call(['mv', '../build/libWebGL.*', '../lib/'])

@@ -7,6 +7,7 @@
 
 /* Include the JSAPI header file to get access to SpiderMonkey. */
 #include "jsapi.h"
+#include "WebGL.h"
 
 /* The class of the global object. */
 static JSClass global_class = {

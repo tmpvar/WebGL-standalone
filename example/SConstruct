@@ -26,7 +26,7 @@ spidermonkey_make = ['make', '-f', path.join(spidermonkey_src, 'Makefile')]
 subprocess.call(spidermonkey_make, cwd=spidermonkey_src)
 
 # Make webgljs
-env = Environment(CPPPATH=spidermonkey_includes)
+env = Environment(CPPPATH=[spidermonkey_includes, path.join(current_dir, '..', 'include')])
 env.Program('webgljs', Glob('js/*.cc'),
   LIBS = [webgl, spidermonkey],
   FRAMEWORKS = FRAMEWORKS
