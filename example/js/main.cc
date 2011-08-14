@@ -9,6 +9,8 @@
 #include "jsapi.h"
 #include "WebGL.h"
 
+#include <fstream>
+
 /* The class of the global object. */
 static JSClass global_class = {
     "global", JSCLASS_GLOBAL_FLAGS,
@@ -32,6 +34,25 @@ void reportError(JSContext *cx, const char *message, JSErrorReport *report)
 
 int main(int argc, const char *argv[])
 {
+
+    if (argc < 2) {
+        cout << "Usage: webgljs path/to/app.js" << endl;
+        return 1;
+    }
+
+    fstream scriptStream(argv[1]);
+    if (!scriptStream.is_open()) {
+        cout << "Unable to open '" << argv[1] << "' for reading" << endl;
+        return 1;
+    }
+
+    ifstream::pos_type size = scriptStream.tellg();
+    char *script = new char [size];
+    scriptStream.seekg (0, ios::beg);
+    scriptStream.read (script, size);
+    scriptStream.close();
+
+
     /* JSAPI variables. */
     JSRuntime *rt;
     JSContext *cx;
@@ -73,7 +94,7 @@ int main(int argc, const char *argv[])
      *
      * Errors are conventionally saved in a JSBool variable named ok.
      */
-    char *script = "'Hello ' + 'World!'";
+    //char *script = "'Hello ' + 'World!'";
     jsval rval;
     JSString *str;
     JSBool ok;
@@ -94,5 +115,6 @@ int main(int argc, const char *argv[])
     JS_DestroyContext(cx);
     JS_DestroyRuntime(rt);
     JS_ShutDown();
+    delete script;
     return 0;
 }
