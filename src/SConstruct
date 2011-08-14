@@ -15,11 +15,13 @@ sources.extend(Glob('typedarray/*.cc'))
 
 env.StaticLibrary('WebGL', sources)
 
+"""
 env2 = Environment(
   CFLAGS=CFLAGS,
   FRAMEWORKS=['OpenGL', 'Cocoa']
   )
 env2.SharedLibrary('WebGL', sources)
+"""
 
 Execute(Copy(Glob('libWebGL.*'), '../lib/'))
 

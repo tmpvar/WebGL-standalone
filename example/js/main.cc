@@ -22,14 +22,7 @@ static JSClass global_class = {
 /* The error reporter callback. */
 void reportError(JSContext *cx, const char *message, JSErrorReport *report)
 {
-    /*const char *filename = (report->filename) ?
-                            report->filename  :
-                            "<no filename="filename">";
-
-    fprintf(stderr, "%s:%u:%s\n",
-            filename,
-            (unsigned int) report->lineno,
-            message);*/
+    cout << "WEBGL ERROR:" << report->filename << ":" << report->lineno << endl << "\t'" << message << "'" << endl;
 }
 
 int main(int argc, const char *argv[])
@@ -40,18 +33,29 @@ int main(int argc, const char *argv[])
         return 1;
     }
 
-    fstream scriptStream(argv[1]);
-    if (!scriptStream.is_open()) {
-        cout << "Unable to open '" << argv[1] << "' for reading" << endl;
+    const char *filename = argv[1];
+
+    cout << "WEGBL: Loading " <<  filename << endl;
+
+    ifstream scriptStream(filename, ios::in);
+    if (scriptStream.is_open() == false) {
+        cout << "WEGBL: Unable to open '" << filename << "' for reading" << endl;
         return 1;
     }
 
-    ifstream::pos_type size = scriptStream.tellg();
-    char *script = new char [size];
-    scriptStream.seekg (0, ios::beg);
-    scriptStream.read (script, size);
-    scriptStream.close();
 
+    scriptStream.seekg (0, ios::end);
+    int size = (int)scriptStream.tellg();
+    if (size == 0) {
+        cout << "WEGBL: this file is empty, aborting" << endl;
+    }
+    cout << "WEBGL: Loaded script (" << size << " bytes)" << endl;
+
+    scriptStream.seekg (0, ios::beg);
+    char *script = new char [size+1];
+    scriptStream.read(script, size);
+    scriptStream.close();
+    script[size] = 0;
 
     /* JSAPI variables. */
     JSRuntime *rt;
@@ -98,16 +102,15 @@ int main(int argc, const char *argv[])
     jsval rval;
     JSString *str;
     JSBool ok;
-    const char *filename = "noname";
     uintN lineno = 0;
 
     ok = JS_EvaluateScript(cx, global, script, strlen(script),
                            filename, lineno, &rval);
-    if (rval == NULL | rval == JS_FALSE)
+    if (rval == NULL || rval == JS_FALSE)
         return 1;
 
     str = JS_ValueToString(cx, rval);
-    printf("%s\n", JS_EncodeString(cx, str));
+    printf("OUTPUT: %s\n", JS_EncodeString(cx, str));
 
     /* End of your application code */
 
@@ -115,6 +118,6 @@ int main(int argc, const char *argv[])
     JS_DestroyContext(cx);
     JS_DestroyRuntime(rt);
     JS_ShutDown();
-    delete script;
+    delete [] script;
     return 0;
 }
