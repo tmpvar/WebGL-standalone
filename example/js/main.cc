@@ -18,9 +18,24 @@ static JSClass global_class = {
     JSCLASS_NO_OPTIONAL_MEMBERS
 };
 
+
+JSBool stdout_print(JSContext *cx, uintN argc, jsval *argv) {
+  JSString *str;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "S", &str)) {
+    return JS_FALSE;
+  }
+
+  char *out = JS_EncodeString(cx, str);
+  cout << out;
+  free(out);
+
+  return JS_TRUE;
+}
+
 static JSFunctionSpec module_global_functions[] = {
     //JSBool module_require(JSContext *cx, uintN argc, jsval *argv, jsval *rval);
     JS_FS("module_require",   module_require, 1, 0),
+    JS_FS("stdout_print",   stdout_print, 1, 0),
     JS_FS_END
 };
 
@@ -40,8 +55,8 @@ void reportError(JSContext *cx, const char *message, JSErrorReport *report)
 }
 
 
-void setupRequire(JSContext *cx, JSObject *global) {
-  const char *jsrequire =
+void setupGlobals(JSContext *cx, JSObject *global) {
+  const char *globals =
   "function require(filename) {"
   "  var module = {"
   "    exports : {}"
@@ -51,10 +66,16 @@ void setupRequire(JSContext *cx, JSObject *global) {
   "  var dirname = parts.join('/');"
   "  module_require(filename)(module.exports, require, module, filename, dirname);"
   "  return module.exports"
-  "}";
+  "};"
+  "this.console = {"
+  "  log : function() {"
+  "    var args = Array.prototype.slice.call(arguments);"
+  "    stdout_print(args.join(' ') + '\\n');"
+  "  }"
+  "};";
 
   jsval rval;
-  JSBool ok = JS_EvaluateScript(cx, global, jsrequire, strlen(jsrequire),
+  JSBool ok = JS_EvaluateScript(cx, global, globals, strlen(globals),
                                 "require.js", 0, &rval);
   if (!ok) {
     cout << "WEBGL ERROR: There was a problem setting up require" << endl;
@@ -104,15 +125,12 @@ int main(int argc, const char *argv[])
     if (!JS_DefineFunctions(cx, global, module_global_functions))
       return JS_FALSE;
 
-    setupRequire(cx, global);
+    setupGlobals(cx, global);
 
     ok = JS_EvaluateScript(cx, global, script, strlen(script),
                            filename, lineno, &rval);
     if (rval == NULL || rval == JS_FALSE)
         return 1;
-
-    str = JS_ValueToString(cx, rval);
-    printf("OUTPUT: %s\n", JS_EncodeString(cx, str));
 
     JS_DestroyContext(cx);
     JS_DestroyRuntime(rt);
