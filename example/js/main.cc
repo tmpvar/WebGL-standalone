@@ -149,11 +149,5 @@ int main(int argc, const char *argv[])
     delete [] script;
 
     if (rval == NULL || rval == JS_FALSE)
-
-
-    JS_DestroyContext(cx);
-    JS_DestroyRuntime(rt);
-    JS_ShutDown();
-
     c_exit(EXIT_SUCCESS);
 }
