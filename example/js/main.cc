@@ -9,6 +9,7 @@
 #include "jsapi.h"
 #include "WebGL.h"
 #include "module.h"
+#include <stdlib.h>
 
 /* The class of the global object. */
 static JSClass global_class = {
@@ -18,6 +19,22 @@ static JSClass global_class = {
     JSCLASS_NO_OPTIONAL_MEMBERS
 };
 
+
+/* JSAPI variables. */
+JSRuntime *rt;
+JSContext *cx;
+JSObject  *global;
+
+void c_exit(int code) {
+  JS_DestroyContext(cx);
+  JS_DestroyRuntime(rt);
+  JS_ShutDown();
+  exit(code);
+}
+
+JSBool js_abort(JSContext *cx, uintN argc, jsval *argv) {
+  c_exit(-1);
+}
 
 JSBool stdout_print(JSContext *cx, uintN argc, jsval *argv) {
   JSString *str;
@@ -36,6 +53,7 @@ static JSFunctionSpec module_global_functions[] = {
     //JSBool module_require(JSContext *cx, uintN argc, jsval *argv, jsval *rval);
     JS_FS("module_require",   module_require, 1, 0),
     JS_FS("stdout_print",   stdout_print, 1, 0),
+    JS_FS("fail",   js_abort, 1, 0),
     JS_FS_END
 };
 
@@ -82,40 +100,39 @@ void setupGlobals(JSContext *cx, JSObject *global) {
   }
 }
 
+
+
+
 int main(int argc, const char *argv[])
 {
     if (argc < 2) {
         cout << "Usage: webgljs path/to/app.js" << endl;
-        return 1;
+        c_exit(EXIT_FAILURE);
     }
 
     const char* filename = argv[1];
     char *script = getFileContents(filename);
 
-    /* JSAPI variables. */
-    JSRuntime *rt;
-    JSContext *cx;
-    JSObject  *global;
-
     /* Create a JS runtime. You always need at least one runtime per process. */
     rt = JS_NewRuntime(8 * 1024 * 1024);
     if (rt == NULL)
-        return 1;
+        c_exit(EXIT_FAILURE);
 
     /* Create a context. You always need a context per thread. */
     cx = JS_NewContext(rt, 8192);
     if (cx == NULL)
-        return 1;
+        c_exit(EXIT_FAILURE);
+
     JS_SetOptions(cx, JSOPTION_VAROBJFIX | JSOPTION_JIT | JSOPTION_METHODJIT);
     JS_SetVersion(cx, JSVERSION_LATEST);
     JS_SetErrorReporter(cx, reportError);
 
     global = JS_NewCompartmentAndGlobalObject(cx, &global_class, NULL);
     if (global == NULL)
-        return 1;
+        c_exit(EXIT_FAILURE);
 
     if (!JS_InitStandardClasses(cx, global))
-        return 1;
+        c_exit(EXIT_FAILURE);
 
     jsval rval;
     JSString *str;
@@ -123,18 +140,20 @@ int main(int argc, const char *argv[])
     uintN lineno = 0;
 
     if (!JS_DefineFunctions(cx, global, module_global_functions))
-      return JS_FALSE;
+      c_exit(EXIT_FAILURE);
 
     setupGlobals(cx, global);
 
     ok = JS_EvaluateScript(cx, global, script, strlen(script),
                            filename, lineno, &rval);
+    delete [] script;
+
     if (rval == NULL || rval == JS_FALSE)
-        return 1;
+
 
     JS_DestroyContext(cx);
     JS_DestroyRuntime(rt);
     JS_ShutDown();
-    delete [] script;
-    return 0;
+
+    c_exit(EXIT_SUCCESS);
 }
