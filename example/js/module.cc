@@ -8,7 +8,6 @@ using namespace std;
 
 char *getFileContents(const char *filename) {
   ifstream scriptStream(filename, ios::in);
-  cout << "WEBGL MODULE: " <<  filename << endl;
   if (scriptStream.is_open() == false) {
     return NULL;
   }
@@ -29,6 +28,7 @@ char *getFileContents(const char *filename) {
 
 
 JSBool module_require(JSContext *cx, uintN argc, jsval *argv) {
+
   JSString *filename_string;
 
   JSObject *object;
@@ -38,9 +38,13 @@ JSBool module_require(JSContext *cx, uintN argc, jsval *argv) {
     return JS_FALSE;
   }
 
+  jsval false_return = BOOLEAN_TO_JSVAL(JS_FALSE);
+
   const char *filename = JS_EncodeString(cx, filename_string);
+  cout << "WEBGL MODULE: " <<  filename << endl;
   char *script = getFileContents(filename);
   if (script == NULL) {
+    JS_SET_RVAL(cx, argv, false_return);
     return JS_FALSE;
   }
 
@@ -53,11 +57,13 @@ JSBool module_require(JSContext *cx, uintN argc, jsval *argv) {
   delete [] script;
 
   if (wrapper == NULL) {
+    JS_SET_RVAL(cx, argv, false_return);
     return JS_FALSE;
   }
 
   JSObject *function = JS_GetFunctionObject(wrapper);
   if (function == NULL) {
+    JS_SET_RVAL(cx, argv, false_return);
     return JS_FALSE;
   }
 

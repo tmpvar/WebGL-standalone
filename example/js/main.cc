@@ -32,6 +32,26 @@ void c_exit(int code) {
   exit(code);
 }
 
+JSBool js_get_file_contents(JSContext *cx, uintN argc, jsval *argv) {
+  JSString *filename_string;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "S", &filename_string)) {
+    return JS_FALSE;
+  }
+
+  const char *filename = JS_EncodeString(cx, filename_string);
+
+  char *file_contents_char = getFileContents(filename);
+  if (file_contents_char == NULL) {
+    return JS_FALSE;
+  }
+
+  JSString *fileContents  = JS_NewStringCopyN(cx, file_contents_char, strlen(file_contents_char));
+  delete []file_contents_char;
+  JS_SET_RVAL(cx, argv, STRING_TO_JSVAL(fileContents));
+  return JS_TRUE;
+}
+
 JSBool js_abort(JSContext *cx, uintN argc, jsval *argv) {
   c_exit(-1);
 }
@@ -50,10 +70,10 @@ JSBool stdout_print(JSContext *cx, uintN argc, jsval *argv) {
 }
 
 static JSFunctionSpec module_global_functions[] = {
-    //JSBool module_require(JSContext *cx, uintN argc, jsval *argv, jsval *rval);
     JS_FS("module_require",   module_require, 1, 0),
     JS_FS("stdout_print",   stdout_print, 1, 0),
     JS_FS("fail",   js_abort, 1, 0),
+    JS_FS("readfile",   js_get_file_contents, 1, 0),
     JS_FS_END
 };
 
