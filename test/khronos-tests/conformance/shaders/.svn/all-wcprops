@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/repos/!svn/ver/15318/registry/trunk/public/webgl/sdk/tests/conformance/shaders
+END
+00_shaders.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/repos/!svn/ver/13200/registry/trunk/public/webgl/sdk/tests/conformance/shaders/00_shaders.txt
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/15304/registry/trunk/public/webgl/sdk/tests/conformance/shaders/00_test_list.txt
+END

@@ -1,11 +1,11 @@
 #!/bin/sh
 
-prefix='/Volumes/Data/work/c++/WebGL-standalone/build'
+prefix='/usr/local'
 mozilla_version=''
 LIBRARY_NAME='mozjs185'
 NSPR_CFLAGS=''
 JS_CONFIG_LIBS='  -lm '
-MOZ_JS_LIBS='-L/Volumes/Data/work/c++/WebGL-standalone/build/lib -lmozjs185'
+MOZ_JS_LIBS='-L/usr/local/lib -lmozjs185'
 
 usage()
 {
@@ -77,13 +77,13 @@ done
 
 # Set variables that may be dependent upon other variables
 if test -z "$exec_prefix"; then
-    exec_prefix=/Volumes/Data/work/c++/WebGL-standalone/build
+    exec_prefix=/usr/local
 fi
 if test -z "$includedir"; then
-    includedir=/Volumes/Data/work/c++/WebGL-standalone/build/include
+    includedir=/usr/local/include
 fi
 if test -z "$libdir"; then
-    libdir=/Volumes/Data/work/c++/WebGL-standalone/build/lib
+    libdir=/usr/local/lib
 fi
 
 if test "$echo_prefix" = "yes"; then

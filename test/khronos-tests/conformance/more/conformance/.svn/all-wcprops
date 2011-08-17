@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance
+END
+constants.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/constants.html
+END
+quickCheckAPI.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/13826/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/quickCheckAPI.js
+END
+webGLArrays.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/webGLArrays.html
+END
+methods.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/methods.html
+END
+getContext.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/getContext.html
+END
+quickCheckAPI.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/quickCheckAPI.html
+END
+quickCheckAPIBadArgs.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/quickCheckAPIBadArgs.html
+END
+fuzzTheAPI.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/fuzzTheAPI.html
+END
+badArgsArityLessThanArgc.html
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/conformance/badArgsArityLessThanArgc.html
+END

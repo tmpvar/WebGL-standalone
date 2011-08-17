@@ -42,7 +42,7 @@ INCLUDED_AUTOCONF_MK = 1
 USE_AUTOCONF 	= 1
 MOZILLA_CLIENT	= 1
 target          = x86_64-apple-darwin10.8.0
-ac_configure_args =  --disable-shared-js --prefix=/Volumes/Data/work/c++/WebGL-standalone/build
+ac_configure_args =  --disable-shared-js
 BUILD_MODULES	= @BUILD_MODULES@
 MOZILLA_VERSION = 
 
@@ -53,7 +53,7 @@ MOZ_APP_VERSION =
 
 MOZ_PKG_SPECIAL = 
 
-prefix		= /Volumes/Data/work/c++/WebGL-standalone/build
+prefix		= /usr/local
 exec_prefix	= ${prefix}
 bindir		= ${exec_prefix}/bin
 includedir	= ${prefix}/include

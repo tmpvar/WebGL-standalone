@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/glsl
+END
+longLoops.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/glsl/longLoops.html
+END
+unusedAttribsUniforms.html
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/glsl/unusedAttribsUniforms.html
+END
+arrayOutOfBounds.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/glsl/arrayOutOfBounds.html
+END
+uniformOutOfBounds.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more/glsl/uniformOutOfBounds.html
+END
