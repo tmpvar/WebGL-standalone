@@ -38,13 +38,11 @@ var currentFile = 0;
 var sax = require('test/util/sax.js');
 var tests = [];
 function next_test(filename) {
-  console.log('loading', filename)
   var text = readfile('test/khronos-tests/conformance/' + filename);
   var parser = sax.parser();
   parser.onerror = function (e) {
     console.log('PARSE ERROR', e);
   };
-
 
   var scriptText = "";
   var collectText = false;
@@ -58,13 +56,14 @@ function next_test(filename) {
 
   parser.onopentag = function (node) {
     collectText = false;
+    testBody = "";
     if (node.name === "SCRIPT") {
       // TODO: shaders
 
       // collect the main test body
       if (!node.attributes.src) {
         collectText = function(text) {
-          testBody = text;
+          testBody += text;
         };
       }
     }
@@ -75,23 +74,41 @@ function next_test(filename) {
   }
 
   parser.onend = function () {
-    var test = {};
+    var test = {
+      file : filename
+    };
     function description(val) {
       test.name = val;
     }
     function testPassed() {
       test.pass = true;
     }
+    var document = {
+      getElementById : function() { return { getContext : function() {} }; }
+    };
+    var window = {
+      document : document
+    };
+    var debug = function(){};
+    var create3DContext = function() {};
+    var testFailed = function(msg) {
+      test.fail = msg;
+    }
 
+    tests.push(test);
     // run the test
     try {
       eval(testBody);
     } catch (e) {
+
       test.error = e;
       test.file = filename;
+      final();
+      console.log(testBody);
+      fail();
     }
 
-    tests.push(test);
+
     run_next_test();
   };
 
@@ -117,10 +134,10 @@ function final() {
   tests.forEach(function(test) {
   if (!test.pass) {
     if (!test.error) {
-      console.log('✖ -', test.name);
+      console.log('✖ -', test.name || test.file, test.fail);
     } else {
       var stackParts = test.error.stack.split('\n');
-
+      stackParts.length = 5;
       test.error.stack = stackParts.join('\n    ')
 
       console.log('✖ -', test.name || test.file, '-', test.error.message);
