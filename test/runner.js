@@ -35,7 +35,7 @@ create3DContext = function() {
 };
 
 newCanvas = function() {
-  return {
+  var canvas = {
     getContext : function(mode) {
       if (mode === '2d') {
         var stubs = ["lineWidth", "textBaseline", "strokeStyle", "lineJoin", "canvas", "shadowBlur", "globalAlpha", "textAlign", "globalCompositeOperation", "font", "shadowColor", "miterLimit", "shadowOffsetY", "fillStyle", "shadowOffsetX", "lineCap", "save", "restore", "scale", "rotate", "translate", "transform", "setTransform", "createLinearGradient", "createRadialGradient", "clearRect", "fillRect", "beginPath", "closePath", "moveTo", "lineTo", "quadraticCurveTo", "bezierCurveTo", "arcTo", "rect", "arc", "fill", "stroke", "clip", "isPointInPath", "measureText", "setAlpha", "setCompositeOperation", "setLineWidth", "setLineCap", "setLineJoin", "setMiterLimit", "clearShadow", "fillText", "strokeText", "setStrokeColor", "setFillColor", "strokeRect", "drawImage", "drawImageFromRect", "setShadow", "createPattern", "putImageData", "createImageData", "getImageData"];
@@ -52,10 +52,20 @@ newCanvas = function() {
         return create3DContext();
       }
     },
-    style : '',
+    clientWidth : 0,
+    clientHeight : 0,
+    style : {
+      set width(px) {
+        canvas.clientWidth = parseInt(px, 10);
+      },
+      set height(px) {
+        canvas.clientHeight = parseInt(px, 10);
+      }
+    },
     toDataURL : function() {},
     addEventListener : function() {}
   };
+  return canvas;
 };
 
 var document = {
@@ -72,10 +82,16 @@ var document = {
     return newCanvas();
   }
 };
-
+var timer = false;
 var window = {
   document : document,
-  setInterval : function(fn) { fn(); },
+  setInterval : function(fn) {
+    timer = true;
+    while(timer) { fn(); }
+  },
+  clearInterval : function() {
+    timer = false;
+  },
   setTimeout : function(fn) {
     try {
       fn();
@@ -104,38 +120,40 @@ function finishTest() {
   console.log("test is done!");
 }
 
+testPassed = function(msg) {
+  webgl_test.pass = true;
+}
+
+
 var sax = require('test/util/sax.js');
 var webgl_tests = [];
 function next_test(filename) {
   var text = readfile('test/khronos-tests/conformance/' + filename);
   var parser = sax.parser();
+
   parser.onerror = function (e) {
     console.log('PARSE ERROR', filename, e);
   };
 
   var text = text.replace(/([a-z_]*) (<)/ig,'$1 &lt;');
-
-  var scriptText = "";
   var collectText = false;
   var testBody = "";
 
   parser.ontext = function (t) {
     if (collectText) {
-      collectText(t);
+      testBody += t;
     }
   };
 
   parser.onopentag = function (node) {
     collectText = false;
-    testBody = "";
+
     if (node.name === "SCRIPT") {
       // TODO: shaders
-
       // collect the main test body
       if (!node.attributes.src) {
-        collectText = function(text) {
-          testBody += text;
-        };
+        testBody = "";
+        collectText = true
       }
     }
   };
@@ -148,17 +166,14 @@ function next_test(filename) {
     webgl_test = {
       file : filename
     };
+
     function description(val) {
       webgl_test.name = val;
-    }
-    function testPassed() {
-      webgl_test.pass = true;
     }
 
     var log = console.log;
     var error = console.error;
     var debug = console.log;
-
 
     webgl_tests.push(webgl_test);
     testBody = testBody.replace(/&lt;/g,'<');
@@ -174,6 +189,12 @@ function next_test(filename) {
       webgl_test.file = filename;
     }
 
+    if (!webgl_test.pass) {
+      console.log(JSON.stringify(webgl_test));
+      final();
+      fail();
+      return;
+    }
 
     run_next_test();
   };
@@ -235,7 +256,5 @@ function final() {
   });
 
 
-  console.log(passes + '/' + testFiles.length,'passed', ((passes/testFiles.length)*100 + '').substr(0,5) + '%');
-  console.log('total webgl_tests', testFiles.length, 'ran', webgl_tests.length);
-
+  console.log(passes + '/' + webgl_tests.length,'passed', ((passes/webgl_tests.length)*100 + '').substr(0,5) + '%');
 }
