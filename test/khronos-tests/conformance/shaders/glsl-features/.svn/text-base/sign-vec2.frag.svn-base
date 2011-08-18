@@ -2,15 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#if defined(GL_ES)
 precision mediump float;
+#endif
 
-varying vec2 vTexcoord;
 varying vec4 vColor;
 
 void main()
 {
-   gl_FragColor = vec4(sign(
-      vTexcoord * 2.0 - vec2(1, 1)),
+   gl_FragColor = vec4(
+      sign(vColor.xy * 2.0 - vec2(1, 1)) * 0.5 + vec2(0.5, 0.5),
       0,
       1);
 }

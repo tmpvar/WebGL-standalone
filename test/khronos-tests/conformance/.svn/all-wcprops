@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 75
-/svn/repos/!svn/ver/15318/registry/trunk/public/webgl/sdk/tests/conformance
+/svn/repos/!svn/ver/15322/registry/trunk/public/webgl/sdk/tests/conformance
 END
 tex-image-and-sub-image-2d-with-canvas.html
 K 25
@@ -9,17 +9,17 @@ svn:wc:ra_dav:version-url
 V 119
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/tex-image-and-sub-image-2d-with-canvas.html
 END
-framebuffer-object-attachment.html
-K 25
-svn:wc:ra_dav:version-url
-V 110
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/framebuffer-object-attachment.html
-END
 texparameter-test.html
 K 25
 svn:wc:ra_dav:version-url
 V 98
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/texparameter-test.html
+END
+framebuffer-object-attachment.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/framebuffer-object-attachment.html
 END
 uniform-samplers-test.html
 K 25
@@ -33,23 +33,17 @@ svn:wc:ra_dav:version-url
 V 117
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/index-validation-with-resized-buffer.html
 END
-gl-shader-test.html
-K 25
-svn:wc:ra_dav:version-url
-V 95
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-shader-test.html
-END
 tex-image-and-sub-image-2d-with-image.html
 K 25
 svn:wc:ra_dav:version-url
 V 118
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/tex-image-and-sub-image-2d-with-image.html
 END
-00_test_list.txt
+gl-shader-test.html
 K 25
 svn:wc:ra_dav:version-url
-V 92
-/svn/repos/!svn/ver/15304/registry/trunk/public/webgl/sdk/tests/conformance/00_test_list.txt
+V 95
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-shader-test.html
 END
 gl-enable-vertex-attrib.html
 K 25
@@ -57,17 +51,17 @@ svn:wc:ra_dav:version-url
 V 104
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-enable-vertex-attrib.html
 END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/repos/!svn/ver/15304/registry/trunk/public/webgl/sdk/tests/conformance/00_test_list.txt
+END
 uninitialized-test.html
 K 25
 svn:wc:ra_dav:version-url
 V 99
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/uninitialized-test.html
-END
-gl-vertex-attrib-zero-issues.html
-K 25
-svn:wc:ra_dav:version-url
-V 109
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-vertex-attrib-zero-issues.html
 END
 gl-clear.html
 K 25
@@ -75,23 +69,29 @@ svn:wc:ra_dav:version-url
 V 89
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-clear.html
 END
+gl-vertex-attrib-zero-issues.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-vertex-attrib-zero-issues.html
+END
 object-deletion-behaviour.html
 K 25
 svn:wc:ra_dav:version-url
 V 106
 /svn/repos/!svn/ver/15016/registry/trunk/public/webgl/sdk/tests/conformance/object-deletion-behaviour.html
 END
-index-validation-copies-indices.html
-K 25
-svn:wc:ra_dav:version-url
-V 112
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/index-validation-copies-indices.html
-END
 draw-arrays-out-of-bounds.html
 K 25
 svn:wc:ra_dav:version-url
 V 106
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/draw-arrays-out-of-bounds.html
+END
+index-validation-copies-indices.html
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/index-validation-copies-indices.html
 END
 null-uniform-location.html
 K 25
@@ -207,23 +207,17 @@ svn:wc:ra_dav:version-url
 V 98
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/gl-uniform-arrays.html
 END
-buffer-preserve-test.html
-K 25
-svn:wc:ra_dav:version-url
-V 101
-/svn/repos/!svn/ver/15271/registry/trunk/public/webgl/sdk/tests/conformance/buffer-preserve-test.html
-END
 is-object.html
 K 25
 svn:wc:ra_dav:version-url
 V 90
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/is-object.html
 END
-glsl-2types-of-textures-on-same-unit.html
+buffer-preserve-test.html
 K 25
 svn:wc:ra_dav:version-url
-V 117
-/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/glsl-2types-of-textures-on-same-unit.html
+V 101
+/svn/repos/!svn/ver/15271/registry/trunk/public/webgl/sdk/tests/conformance/buffer-preserve-test.html
 END
 gl-bind-attrib-location-test.html
 K 25
@@ -231,23 +225,23 @@ svn:wc:ra_dav:version-url
 V 109
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/gl-bind-attrib-location-test.html
 END
+glsl-2types-of-textures-on-same-unit.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/glsl-2types-of-textures-on-same-unit.html
+END
 webgl-specific.html
 K 25
 svn:wc:ra_dav:version-url
 V 95
 /svn/repos/!svn/ver/14967/registry/trunk/public/webgl/sdk/tests/conformance/webgl-specific.html
 END
-gl-vertexattribpointer.html
+program-test.html
 K 25
 svn:wc:ra_dav:version-url
-V 103
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-vertexattribpointer.html
-END
-gl-uniformmatrix4fv.html
-K 25
-svn:wc:ra_dav:version-url
-V 100
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-uniformmatrix4fv.html
+V 93
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/program-test.html
 END
 invalid-passed-params.html
 K 25
@@ -255,11 +249,17 @@ svn:wc:ra_dav:version-url
 V 102
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/invalid-passed-params.html
 END
-program-test.html
+gl-uniformmatrix4fv.html
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/program-test.html
+V 100
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-uniformmatrix4fv.html
+END
+gl-vertexattribpointer.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-vertexattribpointer.html
 END
 gl-getshadersource.html
 K 25
@@ -273,23 +273,23 @@ svn:wc:ra_dav:version-url
 V 106
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/tex-sub-image-2d-bad-args.html
 END
-glsl-conformance.html
-K 25
-svn:wc:ra_dav:version-url
-V 97
-/svn/repos/!svn/ver/15312/registry/trunk/public/webgl/sdk/tests/conformance/glsl-conformance.html
-END
 gl-min-attribs.html
 K 25
 svn:wc:ra_dav:version-url
 V 95
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/gl-min-attribs.html
 END
-gl-drawelements.html
+glsl-conformance.html
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-drawelements.html
+V 97
+/svn/repos/!svn/ver/15312/registry/trunk/public/webgl/sdk/tests/conformance/glsl-conformance.html
+END
+read-pixels-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repos/!svn/ver/15123/registry/trunk/public/webgl/sdk/tests/conformance/read-pixels-test.html
 END
 more-than-65536-points.html
 K 25
@@ -297,11 +297,11 @@ svn:wc:ra_dav:version-url
 V 103
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more-than-65536-points.html
 END
-read-pixels-test.html
+gl-drawelements.html
 K 25
 svn:wc:ra_dav:version-url
-V 97
-/svn/repos/!svn/ver/15123/registry/trunk/public/webgl/sdk/tests/conformance/read-pixels-test.html
+V 96
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/gl-drawelements.html
 END
 array-buffer-view-crash.html
 K 25
@@ -315,17 +315,17 @@ svn:wc:ra_dav:version-url
 V 97
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/index-validation.html
 END
-canvas-zero-size.html
-K 25
-svn:wc:ra_dav:version-url
-V 97
-/svn/repos/!svn/ver/14862/registry/trunk/public/webgl/sdk/tests/conformance/canvas-zero-size.html
-END
 null-object-behaviour.html
 K 25
 svn:wc:ra_dav:version-url
 V 102
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/null-object-behaviour.html
+END
+canvas-zero-size.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repos/!svn/ver/14862/registry/trunk/public/webgl/sdk/tests/conformance/canvas-zero-size.html
 END
 triangle.html
 K 25
@@ -339,17 +339,17 @@ svn:wc:ra_dav:version-url
 V 93
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/texture-npot.html
 END
-glsl-long-variable-names.html
-K 25
-svn:wc:ra_dav:version-url
-V 105
-/svn/repos/!svn/ver/14949/registry/trunk/public/webgl/sdk/tests/conformance/glsl-long-variable-names.html
-END
 texture-active-bind-2.html
 K 25
 svn:wc:ra_dav:version-url
 V 102
 /svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/texture-active-bind-2.html
+END
+glsl-long-variable-names.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/14949/registry/trunk/public/webgl/sdk/tests/conformance/glsl-long-variable-names.html
 END
 gl-min-uniforms.html
 K 25
@@ -363,17 +363,17 @@ svn:wc:ra_dav:version-url
 V 108
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/tex-image-with-invalid-data.html
 END
-tex-input-validation.html
-K 25
-svn:wc:ra_dav:version-url
-V 101
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/tex-input-validation.html
-END
 uniform-location.html
 K 25
 svn:wc:ra_dav:version-url
 V 97
 /svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/uniform-location.html
+END
+tex-input-validation.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/tex-input-validation.html
 END
 index-validation-verifies-too-many-indices.html
 K 25
@@ -481,7 +481,7 @@ glsl-features.html
 K 25
 svn:wc:ra_dav:version-url
 V 94
-/svn/repos/!svn/ver/15317/registry/trunk/public/webgl/sdk/tests/conformance/glsl-features.html
+/svn/repos/!svn/ver/15319/registry/trunk/public/webgl/sdk/tests/conformance/glsl-features.html
 END
 gl-object-get-calls.html
 K 25

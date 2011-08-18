@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 73
-/svn/repos/!svn/ver/13981/registry/trunk/public/webgl/sdk/tests/resources
+/svn/repos/!svn/ver/15321/registry/trunk/public/webgl/sdk/tests/resources
 END
 js-test-post.js
 K 25
@@ -19,7 +19,7 @@ webgl-test-harness.js
 K 25
 svn:wc:ra_dav:version-url
 V 95
-/svn/repos/!svn/ver/13981/registry/trunk/public/webgl/sdk/tests/resources/webgl-test-harness.js
+/svn/repos/!svn/ver/15321/registry/trunk/public/webgl/sdk/tests/resources/webgl-test-harness.js
 END
 desktop-gl-constants.js
 K 25

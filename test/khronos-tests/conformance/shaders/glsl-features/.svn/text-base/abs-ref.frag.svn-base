@@ -2,9 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#if defined(GL_ES)
 precision mediump float;
+#endif
 
-varying vec2 vTexcoord;
 varying vec4 vColor;
 
 float abs_emu(float value) {
@@ -14,8 +15,8 @@ float abs_emu(float value) {
 void main()
 {
    gl_FragColor = vec4(
-     abs_emu(vTexcoord.x * 2.0 - 1.0),
-     abs_emu(vTexcoord.y * 2.0 - 1.0),
+     abs_emu(vColor.x * 2.0 - 1.0),
+     abs_emu(vColor.y * 2.0 - 1.0),
      0,
      1);
 }

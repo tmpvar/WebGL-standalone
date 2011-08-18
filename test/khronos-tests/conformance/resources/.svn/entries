@@ -1,7 +1,7 @@
 10
 
 dir
-15318
+15328
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/conformance/resources
 https://cvs.khronos.org/svn/repos
 
@@ -570,40 +570,6 @@ has-props
 
 24630
 
-3x3.png
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-882927ddb83b6ab84cff01ef0167a705
-2010-07-12T19:36:34.999719Z
-11916
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2806
-
 gray-ramp-256-with-128-alpha.png
 file
 
@@ -637,6 +603,40 @@ has-props
 
 
 81
+
+3x3.png
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+882927ddb83b6ab84cff01ef0167a705
+2010-07-12T19:36:34.999719Z
+11916
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2806
 
 small-square-with-colorspin-profile.jpg
 file
@@ -774,40 +774,6 @@ has-props
 
 92225
 
-samplerUniformShader.frag
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-2d53a24a076f892c0ec5eed265af3fb9
-2011-02-01T22:52:50.062820Z
-13771
-zhenyao
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-203
-
 fragmentShader.frag
 file
 
@@ -841,6 +807,40 @@ zhenyao
 
 
 1456
+
+samplerUniformShader.frag
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+2d53a24a076f892c0ec5eed265af3fb9
+2011-02-01T22:52:50.062820Z
+13771
+zhenyao
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+203
 
 floatUniformShader.vert
 file
@@ -944,14 +944,14 @@ has-props
 
 134
 
-gray-ramp-gamma0.1.png
+gray-ramp-gamma1.0.png
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-9b6a1b8754958f80e88fec72502a8a5e
+798a247ab85dfb595fbcb7e5659552eb
 2011-01-11T18:41:49.428217Z
 13391
 ennewalker
@@ -978,14 +978,14 @@ has-props
 
 133
 
-gray-ramp-gamma1.0.png
+gray-ramp-gamma0.1.png
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-798a247ab85dfb595fbcb7e5659552eb
+9b6a1b8754958f80e88fec72502a8a5e
 2011-01-11T18:41:49.428217Z
 13391
 ennewalker

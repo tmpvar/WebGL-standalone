@@ -1,15 +1,15 @@
 10
 
 dir
-15318
+15328
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests
 https://cvs.khronos.org/svn/repos
 
 
 
-2011-08-16T17:42:17.132766Z
-15318
-zhenyao
+2011-08-17T10:29:44.621006Z
+15322
+greggman
 
 
 
@@ -112,10 +112,10 @@ file
 
 
 
-2011-08-17T00:03:45.000000Z
-61b38c953faf659900a0605bb9bc6e5a
-2011-06-05T17:47:59.743776Z
-14874
+2011-08-18T00:38:02.000000Z
+43754db5b2d3c9106e9267ec30ab225e
+2011-08-17T10:22:13.974882Z
+15321
 greggman
 has-props
 
@@ -138,5 +138,5 @@ has-props
 
 
 
-12015
+12531
 

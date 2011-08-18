@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 63
-/svn/repos/!svn/ver/15318/registry/trunk/public/webgl/sdk/tests
+/svn/repos/!svn/ver/15322/registry/trunk/public/webgl/sdk/tests
 END
 00_test_list.txt
 K 25
@@ -19,5 +19,5 @@ webgl-conformance-tests.html
 K 25
 svn:wc:ra_dav:version-url
 V 92
-/svn/repos/!svn/ver/14874/registry/trunk/public/webgl/sdk/tests/webgl-conformance-tests.html
+/svn/repos/!svn/ver/15321/registry/trunk/public/webgl/sdk/tests/webgl-conformance-tests.html
 END

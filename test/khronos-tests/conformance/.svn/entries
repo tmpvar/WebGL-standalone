@@ -1,15 +1,15 @@
 10
 
 dir
-15318
+15328
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/conformance
 https://cvs.khronos.org/svn/repos
 
 
 
-2011-08-16T17:42:17.132766Z
-15318
-zhenyao
+2011-08-17T10:29:44.621006Z
+15322
+greggman
 
 
 
@@ -60,40 +60,6 @@ has-props
 
 3763
 
-framebuffer-object-attachment.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-701db9f91744e8b281efa53f7d091bc3
-2011-06-02T00:03:32.839811Z
-14849
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-9279
-
 texparameter-test.html
 file
 
@@ -127,6 +93,40 @@ has-props
 
 
 5431
+
+framebuffer-object-attachment.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+701db9f91744e8b281efa53f7d091bc3
+2011-06-02T00:03:32.839811Z
+14849
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9279
 
 uniform-samplers-test.html
 file
@@ -196,40 +196,6 @@ has-props
 
 3412
 
-gl-shader-test.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-7b438705af3a458c0e29dba29897b343
-2011-06-02T00:03:32.839811Z
-14849
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1259
-
 tex-image-and-sub-image-2d-with-image.html
 file
 
@@ -264,17 +230,18 @@ has-props
 
 4321
 
-00_test_list.txt
+gl-shader-test.html
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-4d4978679c55206299dd946f91385e25
-2011-08-15T10:32:04.055123Z
-15304
+7b438705af3a458c0e29dba29897b343
+2011-06-02T00:03:32.839811Z
+14849
 greggman
+has-props
 
 
 
@@ -295,8 +262,7 @@ greggman
 
 
 
-
-2966
+1259
 
 gl-enable-vertex-attrib.html
 file
@@ -332,6 +298,40 @@ has-props
 
 1514
 
+00_test_list.txt
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+4d4978679c55206299dd946f91385e25
+2011-08-15T10:32:04.055123Z
+15304
+greggman
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2966
+
 uninitialized-test.html
 file
 
@@ -365,40 +365,6 @@ has-props
 
 
 6362
-
-gl-vertex-attrib-zero-issues.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-acc081599cc3642d8d9db851bee04288
-2011-06-02T00:03:32.839811Z
-14849
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2781
 
 gl-clear.html
 file
@@ -434,6 +400,40 @@ has-props
 
 2067
 
+gl-vertex-attrib-zero-issues.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+acc081599cc3642d8d9db851bee04288
+2011-06-02T00:03:32.839811Z
+14849
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2781
+
 object-deletion-behaviour.html
 file
 
@@ -468,40 +468,6 @@ has-props
 
 6992
 
-draw-arrays-out-of-bounds.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-6cf2e300043717472818a6f98cd06c68
-2011-06-02T00:03:32.839811Z
-14849
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7306
-
 index-validation-copies-indices.html
 file
 
@@ -535,6 +501,40 @@ has-props
 
 
 3642
+
+draw-arrays-out-of-bounds.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+6cf2e300043717472818a6f98cd06c68
+2011-06-02T00:03:32.839811Z
+14849
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7306
 
 null-uniform-location.html
 file
@@ -1185,40 +1185,6 @@ has-props
 
 10124
 
-buffer-preserve-test.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-eb4810d40dcc8f919cac8d249cfb688d
-2011-08-08T21:00:55.864157Z
-15271
-bjacob
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2388
-
 is-object.html
 file
 
@@ -1253,17 +1219,17 @@ has-props
 
 2363
 
-glsl-2types-of-textures-on-same-unit.html
+buffer-preserve-test.html
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-8d42166d22ca966b152a6cc0689a2ef7
-2011-06-15T22:49:51.955232Z
-14932
-zhenyao
+eb4810d40dcc8f919cac8d249cfb688d
+2011-08-08T21:00:55.864157Z
+15271
+bjacob
 has-props
 
 
@@ -1285,7 +1251,7 @@ has-props
 
 
 
-4024
+2388
 
 gl-bind-attrib-location-test.html
 file
@@ -1321,6 +1287,40 @@ has-props
 
 6075
 
+glsl-2types-of-textures-on-same-unit.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+8d42166d22ca966b152a6cc0689a2ef7
+2011-06-15T22:49:51.955232Z
+14932
+zhenyao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4024
+
 webgl-specific.html
 file
 
@@ -1355,17 +1355,17 @@ has-props
 
 5807
 
-gl-vertexattribpointer.html
+program-test.html
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-eea3c5288e06ee830414fa016125a147
-2011-06-02T00:03:32.839811Z
-14849
-greggman
+3889d65557c66acd1d47fabd41441c67
+2011-06-15T22:49:51.955232Z
+14932
+zhenyao
 has-props
 
 
@@ -1387,41 +1387,7 @@ has-props
 
 
 
-4375
-
-gl-uniformmatrix4fv.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-e4c38511d957b325d7b511c29a3f945d
-2011-06-02T00:03:32.839811Z
-14849
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2350
+14378
 
 invalid-passed-params.html
 file
@@ -1457,17 +1423,17 @@ has-props
 
 10515
 
-program-test.html
+gl-uniformmatrix4fv.html
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-3889d65557c66acd1d47fabd41441c67
-2011-06-15T22:49:51.955232Z
-14932
-zhenyao
+e4c38511d957b325d7b511c29a3f945d
+2011-06-02T00:03:32.839811Z
+14849
+greggman
 has-props
 
 
@@ -1489,7 +1455,41 @@ has-props
 
 
 
-14378
+2350
+
+gl-vertexattribpointer.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+eea3c5288e06ee830414fa016125a147
+2011-06-02T00:03:32.839811Z
+14849
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4375
 
 shaders
 dir
@@ -1562,40 +1562,6 @@ has-props
 
 3332
 
-glsl-conformance.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-70f078e6e789e95d2067a2469a746220
-2011-08-15T22:33:43.170664Z
-15312
-kbr_google
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-27389
-
 gl-min-attribs.html
 file
 
@@ -1630,17 +1596,17 @@ has-props
 
 2358
 
-gl-drawelements.html
+glsl-conformance.html
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-6e7a84957645bd4de2aa3fd8750914b6
-2011-06-02T00:03:32.839811Z
-14849
-greggman
+70f078e6e789e95d2067a2469a746220
+2011-08-15T22:33:43.170664Z
+15312
+kbr_google
 has-props
 
 
@@ -1662,7 +1628,41 @@ has-props
 
 
 
-3679
+27389
+
+read-pixels-test.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+1f3e96abc13afcce2cdcd4c368cd75a9
+2011-07-23T01:52:33.556663Z
+15123
+kbr_google
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6880
 
 more-than-65536-points.html
 file
@@ -1698,17 +1698,17 @@ has-props
 
 2966
 
-read-pixels-test.html
+gl-drawelements.html
 file
 
 
 
 
 2011-08-17T00:03:45.000000Z
-1f3e96abc13afcce2cdcd4c368cd75a9
-2011-07-23T01:52:33.556663Z
-15123
-kbr_google
+6e7a84957645bd4de2aa3fd8750914b6
+2011-06-02T00:03:32.839811Z
+14849
+greggman
 has-props
 
 
@@ -1730,7 +1730,7 @@ has-props
 
 
 
-6880
+3679
 
 array-buffer-view-crash.html
 file
@@ -1800,40 +1800,6 @@ has-props
 
 5736
 
-canvas-zero-size.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-ca1109d69cd6dd8eae7ca3719cb0e466
-2011-06-03T00:10:22.424902Z
-14862
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1286
-
 null-object-behaviour.html
 file
 
@@ -1867,6 +1833,40 @@ has-props
 
 
 6975
+
+canvas-zero-size.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+ca1109d69cd6dd8eae7ca3719cb0e466
+2011-06-03T00:10:22.424902Z
+14862
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1286
 
 triangle.html
 file
@@ -1936,40 +1936,6 @@ has-props
 
 8345
 
-glsl-long-variable-names.html
-file
-
-
-
-
-2011-08-17T00:03:45.000000Z
-64c891c79ad4f415b0accc8985caceae
-2011-06-17T21:08:50.847215Z
-14949
-zhenyao
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-9478
-
 texture-active-bind-2.html
 file
 
@@ -2003,6 +1969,40 @@ has-props
 
 
 5351
+
+glsl-long-variable-names.html
+file
+
+
+
+
+2011-08-17T00:03:45.000000Z
+64c891c79ad4f415b0accc8985caceae
+2011-06-17T21:08:50.847215Z
+14949
+zhenyao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9478
 
 gl-min-uniforms.html
 file
@@ -2724,10 +2724,10 @@ file
 
 
 
-2011-08-17T00:03:45.000000Z
-69c0759018b614dabbf7539969a0b498
-2011-08-16T09:56:35.181499Z
-15317
+2011-08-18T00:38:02.000000Z
+75858dd1b1b2c1ae589d3195d9a1a431
+2011-08-17T10:17:59.236309Z
+15319
 greggman
 has-props
 
@@ -2750,7 +2750,7 @@ has-props
 
 
 
-7326
+6711
 
 gl-object-get-calls.html
 file
