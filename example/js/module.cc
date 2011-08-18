@@ -44,7 +44,8 @@ JSBool module_require(JSContext *cx, uintN argc, jsval *argv) {
   cout << "WEBGL MODULE: " <<  filename << endl;
   char *script = getFileContents(filename);
   if (script == NULL) {
-    JS_SET_RVAL(cx, argv, false_return);
+    cout << "NULL MODULE" << endl;
+    JS_ReportError(cx, "Error loading module: %s", filename);
     return JS_FALSE;
   }
 
