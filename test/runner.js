@@ -223,10 +223,6 @@ function run_next_test() {
   }
 
   if (currentFile < testFiles.length) {
-
-    //if (testFiles[currentFile].indexOf('#') !== -1) { run_next_test(); }
-    //if (testFiles[currentFile].indexOf('.txt') !== -1) { run_next_test(); }
-
     next_test(testFiles[currentFile]);
   } else {
     final();
