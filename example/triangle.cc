@@ -9,6 +9,10 @@
 #include "../src/util.h"
 using namespace std;
 
+WebGLRenderingContext *gl = NULL;
+WebGLBuffer *buffer = NULL;
+GLint attr;
+
 void addShader(WebGLRenderingContext *gl, WebGLProgram *program, GLenum type, DOMString *source) {
   WebGLShader *shader = gl->createShader(type);
 
@@ -19,54 +23,8 @@ void addShader(WebGLRenderingContext *gl, WebGLProgram *program, GLenum type, DO
   gl->attachShader(program, shader);
 }
 
-CGDirectDisplayID getDisplay(unsigned int index) {
-  CGDisplayErr      dErr;
-  CGDisplayCount    displayCount;
-  CGDisplayCount    maxDisplays = 8;
-  CGDirectDisplayID onlineDisplays[8];
 
-  dErr = CGGetOnlineDisplayList(maxDisplays, onlineDisplays, &displayCount);
-
-  if (dErr != kCGErrorSuccess) {
-      displayCount = 0;
-  }
-
-  if ((index < 0) || (index > (displayCount - 1))) {
-      return 0;
-  }
-
-  return onlineDisplays[index];
-}
-
-
-int main() {
-  CGDirectDisplayID targetDisplay = getDisplay(0);
-  CGOpenGLDisplayMask displayMask;
-  CGLPixelFormatObj   pixelFormatObj;
-  GLint               numPixelFormats;
-
-  displayMask = CGDisplayIDToOpenGLDisplayMask(targetDisplay);
-
-  CGLPixelFormatAttribute attribs[] = {
-      kCGLPFAAccelerated,
-      kCGLPFANoRecovery,
-      kCGLPFADoubleBuffer,
-      kCGLPFAFullScreen,
-      kCGLPFAStencilSize, ( CGLPixelFormatAttribute ) 8,
-      kCGLPFADisplayMask,
-      (CGLPixelFormatAttribute)CGDisplayIDToOpenGLDisplayMask( kCGDirectMainDisplay ),
-      (CGLPixelFormatAttribute)NULL
-  };
-
-  CGLContextObj context = NULL;
-
-  CGLChoosePixelFormat(attribs, &pixelFormatObj, &numPixelFormats);
-  CGLCreateContext(pixelFormatObj, NULL, &context);
-  CGLDestroyPixelFormat(pixelFormatObj);
-  CGLSetCurrentContext(context);
-  CGLRetainContext(context);
-  CGLSetFullScreenOnDisplay(context, displayMask);
-
+void setup() {
   WebGLRenderingContext *gl = new WebGLRenderingContext();
   WebGLProgram *program = gl->createProgram();
 
@@ -95,13 +53,7 @@ int main() {
     -1.0, -1.0, 0.0,
      1.0, -1.0, 0.0,
   };
-
-
-
-  // 5 frames for now
-  int a = 100;
-  int interval = 1;
-  WebGLBuffer *buffer = gl->createBuffer();
+  buffer = gl->createBuffer();
 
   const float vertexPositions[] = {
     0.75f, 0.75f, 0.0f, 1.0f,
@@ -118,25 +70,29 @@ int main() {
 
   glViewport(0, 0, 1920, 1200);
   gl->useProgram(program);
-  GLint attr = glGetAttribLocation(program->id, pos->value.c_str());
+  attr = glGetAttribLocation(program->id, pos->value.c_str());
+}
 
-  while(a--) {
-    gl->clearColor(0.5, 0.5, 0.5, 1);
-    gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT | WebGLRenderingContext::DEPTH_BUFFER_BIT);
-    gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, buffer);
-    gl->enableVertexAttribArray(attr);
-    gl->vertexAttribPointer(attr, sizeof(GLfloat), GL_FLOAT, GL_FALSE, 0, 0);
-    gl->drawArrays(GL_TRIANGLES, 0, 3);
+void render(void) {
+  gl->clearColor(0.5, 0.5, 0.5, 1);
+  gl->clear(WebGLRenderingContext::COLOR_BUFFER_BIT | WebGLRenderingContext::DEPTH_BUFFER_BIT);
+  gl->bindBuffer(WebGLRenderingContext::ARRAY_BUFFER, buffer);
+  gl->enableVertexAttribArray(attr);
+  gl->vertexAttribPointer(attr, sizeof(GLfloat), GL_FLOAT, GL_FALSE, 0, 0);
+  gl->drawArrays(GL_TRIANGLES, 0, 3);
+  // TODO: implement these
+  //glDisableVertexAttribArray(0);
+  //glUseProgram(0);
+  glFlush();
+}
 
-    // TODO: implement these
-    //glDisableVertexAttribArray(0);
-    //glUseProgram(0);
-
-    CGLSetParameter( context, kCGLCPSwapInterval, &interval );
-    CGLFlushDrawable( context );
-  }
-
-  CGLReleaseContext(context);
-  cout << "Done!" << endl;
+int main(int argc, char **argv) {
+  glutInit(&argc, argv);
+  glutInitDisplayMode (GLUT_SINGLE);
+  glutInitWindowSize (500, 500); // Set the width and height of the window
+  glutInitWindowPosition (100, 100);
+  glutCreateWindow ("You’re first OpenGL Window");
+  glutDisplayFunc(render);
+  glutMainLoop();
   return 0;
 }

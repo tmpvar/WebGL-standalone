@@ -5,6 +5,7 @@
   using namespace std;
 
   #ifdef __APPLE__
+    #include <GLUT/glut.h>
     #include <OpenGL/OpenGL.h>
     #include <OpenGL/gl.h>
     #include <OpenGL/glu.h>

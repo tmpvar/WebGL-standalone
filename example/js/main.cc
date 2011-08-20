@@ -6,18 +6,17 @@
 #endif
 
 /* Include the JSAPI header file to get access to SpiderMonkey. */
-#include "jsapi.h"
-#include "../deps/spidermonkey/js/src/jstypedarray.h"
+#include <../src/js/spidermonkey.h>
 #include "WebGL.h"
 #include "module.h"
 #include <stdlib.h>
 
 /* The class of the global object. */
 static JSClass global_class = {
-    "global", JSCLASS_GLOBAL_FLAGS,
-    JS_PropertyStub, JS_PropertyStub, JS_PropertyStub, JS_StrictPropertyStub,
-    JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, JS_FinalizeStub,
-    JSCLASS_NO_OPTIONAL_MEMBERS
+  "global", JSCLASS_GLOBAL_FLAGS,
+  JS_PropertyStub, JS_PropertyStub, JS_PropertyStub, JS_StrictPropertyStub,
+  JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, JS_FinalizeStub,
+  JSCLASS_NO_OPTIONAL_MEMBERS
 };
 
 
@@ -124,6 +123,27 @@ void setupGlobals(JSContext *cx, JSObject *global) {
 
 
 
+
+JSBool printer_construct(JSContext *cx, uintN argc, jsval *argv)
+{
+    cout << "constructed!" << endl;
+    return JS_TRUE;
+}
+
+void printer_finalize(JSContext *cx, JSObject *obj)
+{
+}
+
+static JSClass printer_class = {
+    "Printer",
+    JSCLASS_HAS_PRIVATE | JSCLASS_CONSTRUCT_PROTOTYPE,
+    JS_PropertyStub, JS_PropertyStub, JS_PropertyStub, JS_StrictPropertyStub,
+    JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, printer_finalize,
+    JSCLASS_NO_OPTIONAL_MEMBERS
+};
+
+
+
 int main(int argc, const char *argv[])
 {
     if (argc < 2) {
@@ -144,16 +164,25 @@ int main(int argc, const char *argv[])
     if (cx == NULL)
         c_exit(EXIT_FAILURE);
 
+
+
+
+
     JS_SetOptions(cx, JSOPTION_VAROBJFIX | JSOPTION_JIT | JSOPTION_METHODJIT);
     JS_SetVersion(cx, JSVERSION_LATEST);
     JS_SetErrorReporter(cx, reportError);
 
     global = JS_NewCompartmentAndGlobalObject(cx, &global_class, NULL);
+
     if (global == NULL)
         c_exit(EXIT_FAILURE);
 
     if (!JS_InitStandardClasses(cx, global))
         c_exit(EXIT_FAILURE);
+
+
+    // SET UP CUSTOM CLASS
+    JS_InitClass(cx, global, NULL, &printer_class, printer_construct, 0, NULL, NULL, NULL, NULL);
 
     jsval rval;
     JSString *str;

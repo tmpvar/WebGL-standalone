@@ -9,7 +9,7 @@ spidermonkey_src = path.abspath(path.join(current_dir, '..', 'deps', 'spidermonk
 spidermonkey = File(path.join(spidermonkey_src, 'libjs_static.a'))
 spidermonkey_includes = spidermonkey_src
 
-FRAMEWORKS = ['OpenGL', 'Cocoa']
+FRAMEWORKS = ['OpenGL', 'GLUT']
 
 Program('triangle', 'triangle.cc',
   LIBS = [webgl],

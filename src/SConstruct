@@ -6,7 +6,7 @@ CFLAGS = '-Wall -g'
 
 env = Environment(
   CFLAGS=CFLAGS,
-  FRAMEWORKS=['OpenGL', 'Cocoa']
+  FRAMEWORKS=['OpenGL', 'GLUT']
   )
 
 sources = Glob('*.cc')
