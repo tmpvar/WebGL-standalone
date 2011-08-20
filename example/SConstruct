@@ -11,10 +11,10 @@ spidermonkey_includes = spidermonkey_src
 
 FRAMEWORKS = ['OpenGL', 'GLUT']
 
-Program('triangle', 'triangle.cc',
-  LIBS = [webgl],
-  FRAMEWORKS = FRAMEWORKS
-  )
+#Program('triangle', 'triangle.cc',
+#  LIBS = [webgl],
+#  FRAMEWORKS = FRAMEWORKS
+#  )
 
 # Configure spidermonkey
 if not path.isfile(path.join(spidermonkey_src, 'Makefile')):
