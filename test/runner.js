@@ -140,10 +140,7 @@ var testFailed = function(msg) {
   var parts = e.stack.split('\n');
   parts.shift();
   parts.length=10;
-
   parts[0] = parts[0].replace('test/runner.js', currentFile);
-
-  console.log("currentFile",currentFile);
   webgl_test.stack = parts.join('\n');
 };
 var shouldBe = function(should, be, msg) {
