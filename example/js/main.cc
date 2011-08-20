@@ -359,16 +359,15 @@ int main(int argc, char **argv)
     setupGlobals(cx, global);
 
     glutInit(&argc, argv);
+
+    ok = JS_EvaluateScript(cx, global, script, strlen(script),
+                           filename, lineno, &rval);
+
     glutInitDisplayMode (GLUT_SINGLE);
     glutInitWindowSize (500, 500); // Set the width and height of the window
     glutInitWindowPosition (100, 100);
     glutCreateWindow ("You’re first OpenGL Window");
     glutDisplayFunc(render);
-
-
-    ok = JS_EvaluateScript(cx, global, script, strlen(script),
-                           filename, lineno, &rval);
-
     glutMainLoop();
     delete [] script;
 

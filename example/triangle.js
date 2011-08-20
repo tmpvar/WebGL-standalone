@@ -1,7 +1,7 @@
-var WebGLRenderingContext = require('lib/webctx.js');
+var WebGLRenderingContext = require('lib/webgl.js');
 
 var ctx = new WebGLRenderingContext();
-var program = gl->createProgram();
+var program = ctx.createProgram();
 var shaders = {
   vertex : "attribute vec3 pos;\nvoid main() {\n  gl_Position = vec4(pos, 1.0);\n}",
   frag   : "void main() {\n  gl_FragColor = vec4(1.0, 0, 1, 1.0);\n}"
@@ -26,7 +26,7 @@ if (!ctx.getProgramParameter(program, ctx.LINK_STATUS)) {
 }
 
 ctx.useProgram(program);
-var attr = glGetAttribLocation(program, "pos");
+var attr = ctx.getAttribLocation(program, "pos");
 var vertexBuffer = ctx.createBuffer();
 
 vertexBuffer.itemSize = 3;
@@ -50,12 +50,12 @@ ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);
 ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertexBuffer));
 
 
-setInterval(function() {
+while(1) {
   ctx.clearColor(0.5, 0.5, 0.5, 1);
-  ctx.clear(ctx.COLOR_BUFFER_BIT, DEPTH_BUFFER_BIT);
-  ctx.bindBuffer(ctx.ARRAY_BUFFER, buffer);
+  ctx.clear(ctx.COLOR_BUFFER_BIT, ctx.DEPTH_BUFFER_BIT);
+  ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);
   ctx.enableVertexAttribArray(attr);
   ctx.vertexAttribPointer(attr, vertexBuffer.itemSize, ctx.FLOAT, false, 0, 0);
   ctx.drawArrays(ctx.TRIANGLES, 0, 3);
   ctx.flush();
-}, 10);
+}

@@ -101,7 +101,7 @@ JSBool webgl_rendering_context_checkFramebufferStatus(JSContext *cx, uintN argc,
 }
 
 JSBool webgl_rendering_context_clear(JSContext *cx, uintN argc, jsval *argv) {
-
+  glClear();
   return JS_TRUE;
 }
 
