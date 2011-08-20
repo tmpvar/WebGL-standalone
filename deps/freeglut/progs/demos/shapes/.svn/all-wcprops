@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/freeglut/!svn/ver/824/trunk/freeglut/freeglut/progs/demos/shapes
+END
+shapesStatic.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/freeglut/!svn/ver/712/trunk/freeglut/freeglut/progs/demos/shapes/shapesStatic.dsp
+END
+shapes.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/freeglut/!svn/ver/800/trunk/freeglut/freeglut/progs/demos/shapes/shapes.c
+END
+shapes.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/freeglut/!svn/ver/712/trunk/freeglut/freeglut/progs/demos/shapes/shapes.dsp
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/freeglut/!svn/ver/391/trunk/freeglut/freeglut/progs/demos/shapes/Makefile.am
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/freeglut/!svn/ver/824/trunk/freeglut/freeglut/progs/demos/Fractals
+END
+fractals.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/freeglut/!svn/ver/793/trunk/freeglut/freeglut/progs/demos/Fractals/fractals.c
+END
+Fractals.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/freeglut/!svn/ver/712/trunk/freeglut/freeglut/progs/demos/Fractals/Fractals.dsp
+END
+fractals.dat
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/freeglut/!svn/ver/92/trunk/freeglut/freeglut/progs/demos/Fractals/fractals.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/freeglut/!svn/ver/326/trunk/freeglut/freeglut/progs/demos/Fractals/Makefile.am
+END
+FractalsStatic.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/freeglut/!svn/ver/712/trunk/freeglut/freeglut/progs/demos/Fractals/FractalsStatic.dsp
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/freeglut/!svn/ver/882/trunk/freeglut/freeglut/progs/demos/smooth_opengl3
+END
+smooth_opengl3.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/freeglut/!svn/ver/882/trunk/freeglut/freeglut/progs/demos/smooth_opengl3/smooth_opengl3.c
+END
+smooth_opengl3.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/freeglut/!svn/ver/780/trunk/freeglut/freeglut/progs/demos/smooth_opengl3/smooth_opengl3.dsp
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/freeglut/!svn/ver/774/trunk/freeglut/freeglut/progs/demos/smooth_opengl3/Makefile.am
+END
+smooth_opengl3Static.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/freeglut/!svn/ver/780/trunk/freeglut/freeglut/progs/demos/smooth_opengl3/smooth_opengl3Static.dsp
+END

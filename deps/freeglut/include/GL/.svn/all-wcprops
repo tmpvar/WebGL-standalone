@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/freeglut/!svn/ver/924/trunk/freeglut/freeglut/include/GL
+END
+glut.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/freeglut/!svn/ver/236/trunk/freeglut/freeglut/include/GL/glut.h
+END
+freeglut.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/freeglut/!svn/ver/236/trunk/freeglut/freeglut/include/GL/freeglut.h
+END
+freeglut_ext.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/freeglut/!svn/ver/905/trunk/freeglut/freeglut/include/GL/freeglut_ext.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/freeglut/!svn/ver/236/trunk/freeglut/freeglut/include/GL/Makefile.am
+END
+freeglut_std.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/freeglut/!svn/ver/924/trunk/freeglut/freeglut/include/GL/freeglut_std.h
+END

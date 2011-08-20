@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/freeglut/!svn/ver/926/trunk/freeglut/freeglut/src
+END
+freeglut_input_devices.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/freeglut/!svn/ver/861/trunk/freeglut/freeglut/src/freeglut_input_devices.c
+END
+freeglut_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/freeglut/!svn/ver/926/trunk/freeglut/freeglut/src/freeglut_init.c
+END
+freeglut_stroke_roman.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/freeglut/!svn/ver/754/trunk/freeglut/freeglut/src/freeglut_stroke_roman.c
+END
+freeglut_menu.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/freeglut/!svn/ver/831/trunk/freeglut/freeglut/src/freeglut_menu.c
+END
+freeglut_display.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/freeglut/!svn/ver/738/trunk/freeglut/freeglut/src/freeglut_display.c
+END
+freeglut_font.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/freeglut/!svn/ver/825/trunk/freeglut/freeglut/src/freeglut_font.c
+END
+freeglut_window.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/freeglut/!svn/ver/925/trunk/freeglut/freeglut/src/freeglut_window.c
+END
+freeglut_cursor.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/freeglut/!svn/ver/865/trunk/freeglut/freeglut/src/freeglut_cursor.c
+END
+freeglut_gamemode.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/freeglut/!svn/ver/908/trunk/freeglut/freeglut/src/freeglut_gamemode.c
+END
+freeglut_callbacks.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/freeglut/!svn/ver/905/trunk/freeglut/freeglut/src/freeglut_callbacks.c
+END
+freeglut_state.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/freeglut/!svn/ver/918/trunk/freeglut/freeglut/src/freeglut_state.c
+END
+freeglut_internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/freeglut/!svn/ver/924/trunk/freeglut/freeglut/src/freeglut_internal.h
+END
+freeglut_overlay.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/freeglut/!svn/ver/547/trunk/freeglut/freeglut/src/freeglut_overlay.c
+END
+freeglut_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/freeglut/!svn/ver/925/trunk/freeglut/freeglut/src/freeglut_main.c
+END
+freeglut_spaceball.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/freeglut/!svn/ver/865/trunk/freeglut/freeglut/src/freeglut_spaceball.c
+END
+freeglut_xinput.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/freeglut/!svn/ver/907/trunk/freeglut/freeglut/src/freeglut_xinput.c
+END
+freeglut_videoresize.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/freeglut/!svn/ver/547/trunk/freeglut/freeglut/src/freeglut_videoresize.c
+END
+freeglutdll.def
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/freeglut/!svn/ver/877/trunk/freeglut/freeglut/src/freeglutdll.def
+END
+freeglut_teapot_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/freeglut/!svn/ver/698/trunk/freeglut/freeglut/src/freeglut_teapot_data.h
+END
+freeglut_geometry.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/freeglut/!svn/ver/881/trunk/freeglut/freeglut/src/freeglut_geometry.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/freeglut/!svn/ver/905/trunk/freeglut/freeglut/src/Makefile.am
+END
+freeglut_misc.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/freeglut/!svn/ver/755/trunk/freeglut/freeglut/src/freeglut_misc.c
+END
+freeglut_stroke_mono_roman.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/freeglut/!svn/ver/754/trunk/freeglut/freeglut/src/freeglut_stroke_mono_roman.c
+END
+freeglut_teapot.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/freeglut/!svn/ver/698/trunk/freeglut/freeglut/src/freeglut_teapot.c
+END
+freeglut_glutfont_definitions.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/freeglut/!svn/ver/761/trunk/freeglut/freeglut/src/freeglut_glutfont_definitions.c
+END
+freeglut_joystick.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/freeglut/!svn/ver/861/trunk/freeglut/freeglut/src/freeglut_joystick.c
+END
+freeglut_font_data.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/freeglut/!svn/ver/547/trunk/freeglut/freeglut/src/freeglut_font_data.c
+END
+freeglut_ext.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/freeglut/!svn/ver/905/trunk/freeglut/freeglut/src/freeglut_ext.c
+END
+freeglut_structure.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/freeglut/!svn/ver/895/trunk/freeglut/freeglut/src/freeglut_structure.c
+END

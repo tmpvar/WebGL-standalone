@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 47
+Debug
+Release
+freeglut.ncb
+*.user
+freeglut.suo
+
+END

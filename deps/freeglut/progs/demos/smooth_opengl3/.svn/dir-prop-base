@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 61
+.deps
+Makefile.in
+Makefile
+smooth_opengl3
+smooth_opengl3.exe
+
+END

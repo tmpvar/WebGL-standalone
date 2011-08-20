@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/freeglut/!svn/ver/98/trunk/freeglut/freeglut/src/templates
+END
+header_template
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/freeglut/!svn/ver/98/trunk/freeglut/freeglut/src/templates/header_template
+END
+cpp_template
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/freeglut/!svn/ver/98/trunk/freeglut/freeglut/src/templates/cpp_template
+END

@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 51
+.deps
+.libs
+Makefile
+Makefile.in
+lorenz
+lorenz.exe
+
+END
