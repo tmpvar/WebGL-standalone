@@ -1,7 +1,7 @@
 10
 
 dir
-15328
+15347
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/conformance/more/functions
 https://cvs.khronos.org/svn/repos
 
@@ -638,40 +638,6 @@ has-props
 
 3714
 
-uniformiBadArgs.html
-file
-
-
-
-
-2011-08-17T00:03:42.000000Z
-a796bc356571d5bfc2ef22f8dff5fcea
-2011-06-15T22:49:51.955232Z
-14932
-zhenyao
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3467
-
 texSubImage2DHTMLBadArgs.html
 file
 
@@ -706,17 +672,17 @@ has-props
 
 4359
 
-bufferSubData.html
+uniformiBadArgs.html
 file
 
 
 
 
 2011-08-17T00:03:42.000000Z
-567fcf7c4d15856b0b44b4829fc5f5d2
-2011-06-02T00:03:32.839811Z
-14849
-greggman
+a796bc356571d5bfc2ef22f8dff5fcea
+2011-06-15T22:49:51.955232Z
+14932
+zhenyao
 has-props
 
 
@@ -738,7 +704,7 @@ has-props
 
 
 
-6498
+3467
 
 texImage2DBadArgs.html
 file
@@ -774,17 +740,17 @@ has-props
 
 4384
 
-drawElementsBadArgs.html
+bufferSubData.html
 file
 
 
 
 
 2011-08-17T00:03:42.000000Z
-09dcd0fe69942cf5c273de15fab5d723
-2011-06-15T22:49:51.955232Z
-14932
-zhenyao
+567fcf7c4d15856b0b44b4829fc5f5d2
+2011-06-02T00:03:32.839811Z
+14849
+greggman
 has-props
 
 
@@ -806,7 +772,7 @@ has-props
 
 
 
-9488
+6498
 
 texImage2DHTML.html
 file
@@ -841,6 +807,40 @@ has-props
 
 
 11965
+
+drawElementsBadArgs.html
+file
+
+
+
+
+2011-08-17T00:03:42.000000Z
+09dcd0fe69942cf5c273de15fab5d723
+2011-06-15T22:49:51.955232Z
+14932
+zhenyao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9488
 
 deleteBufferBadArgs.html
 file
@@ -944,40 +944,6 @@ has-props
 
 4646
 
-vertexAttribPointer.html
-file
-
-
-
-
-2011-08-17T00:03:42.000000Z
-067f4b9564057d1db732adbfe5be6f7a
-2011-06-15T22:49:51.955232Z
-14932
-zhenyao
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3366
-
 readPixelsBadArgs.html
 file
 
@@ -1011,6 +977,40 @@ has-props
 
 
 4890
+
+vertexAttribPointer.html
+file
+
+
+
+
+2011-08-17T00:03:42.000000Z
+067f4b9564057d1db732adbfe5be6f7a
+2011-06-15T22:49:51.955232Z
+14932
+zhenyao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3366
 
 uniformf.html
 file

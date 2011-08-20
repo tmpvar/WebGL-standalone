@@ -1,7 +1,7 @@
 10
 
 dir
-15328
+15347
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/conformance/shaders/implicit
 https://cvs.khronos.org/svn/repos
 
@@ -60,14 +60,14 @@ has-props
 
 128
 
-divide_int_mat2.vert
+assign_ivec4_to_vec4.vert
 file
 
 
 
 
 2011-08-17T00:03:44.000000Z
-e504d0dced47e5ab4f83789551f94fde
+b62610d5db7f4280cd81159bc2715034
 2010-07-20T00:31:04.534018Z
 12017
 greggman
@@ -92,7 +92,7 @@ has-props
 
 
 
-96
+101
 
 add_ivec3_vec3.vert
 file
@@ -128,14 +128,14 @@ has-props
 
 117
 
-assign_ivec4_to_vec4.vert
+divide_int_mat2.vert
 file
 
 
 
 
 2011-08-17T00:03:44.000000Z
-b62610d5db7f4280cd81159bc2715034
+e504d0dced47e5ab4f83789551f94fde
 2010-07-20T00:31:04.534018Z
 12017
 greggman
@@ -160,7 +160,7 @@ has-props
 
 
 
-101
+96
 
 not_equal_ivec4_vec4.vert
 file
@@ -298,14 +298,14 @@ has-props
 
 121
 
-equal_ivec2_vec2.vert
+multiply_int_mat4.vert
 file
 
 
 
 
 2011-08-17T00:03:44.000000Z
-2be87cbe16294ddff7969bc68776eea4
+2299213789e4c19e27c6ad5d54999468
 2010-07-20T00:31:04.534018Z
 12017
 greggman
@@ -330,7 +330,7 @@ has-props
 
 
 
-121
+100
 
 multiply_int_float.vert
 file
@@ -366,14 +366,14 @@ has-props
 
 96
 
-multiply_int_mat4.vert
+equal_ivec2_vec2.vert
 file
 
 
 
 
 2011-08-17T00:03:44.000000Z
-2299213789e4c19e27c6ad5d54999468
+2be87cbe16294ddff7969bc68776eea4
 2010-07-20T00:31:04.534018Z
 12017
 greggman
@@ -398,7 +398,7 @@ has-props
 
 
 
-100
+121
 
 subtract_int_vec3.vert
 file
@@ -468,40 +468,6 @@ has-props
 
 138
 
-add_int_mat3.vert
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-82443d77c45533a5573a5fbfded51e76
-2010-07-20T00:31:04.534018Z
-12017
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-96
-
 not_equal_int_float.vert
 file
 
@@ -535,6 +501,40 @@ has-props
 
 
 108
+
+add_int_mat3.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+82443d77c45533a5573a5fbfded51e76
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+96
 
 multiply_ivec3_vec3.vert
 file
@@ -1284,40 +1284,6 @@ has-props
 
 100
 
-equal_ivec4_vec4.vert
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-1266d0d7000e68035857a7f7d72316fd
-2010-07-20T00:31:04.534018Z
-12017
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-137
-
 add_int_vec3.vert
 file
 
@@ -1351,6 +1317,40 @@ has-props
 
 
 106
+
+equal_ivec4_vec4.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+1266d0d7000e68035857a7f7d72316fd
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+137
 
 ternary_int_float.vert
 file
@@ -1420,40 +1420,6 @@ has-props
 
 103
 
-00_shaders.txt
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-1aa83767910e4b5b2b72f1522e3b2394
-2010-07-10T04:19:53.160466Z
-11902
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1465
-
 add_int_float.vert
 file
 
@@ -1488,16 +1454,16 @@ has-props
 
 92
 
-divide_int_vec3.vert
+00_shaders.txt
 file
 
 
 
 
 2011-08-17T00:03:44.000000Z
-6debcfb36d5ab5c4b9d107473968cb30
-2010-07-20T00:31:04.534018Z
-12017
+1aa83767910e4b5b2b72f1522e3b2394
+2010-07-10T04:19:53.160466Z
+11902
 greggman
 has-props
 
@@ -1520,7 +1486,7 @@ has-props
 
 
 
-106
+1465
 
 function_ivec3_vec3.vert
 file
@@ -1555,6 +1521,40 @@ has-props
 
 
 149
+
+divide_int_vec3.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+6debcfb36d5ab5c4b9d107473968cb30
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+106
 
 ternary_ivec4_vec4.vert
 file
@@ -1624,40 +1624,6 @@ has-props
 
 136
 
-divide_int_float.vert
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-0f2ecb3438d1499ffcdc626fcaa74845
-2010-07-20T00:31:04.534018Z
-12017
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-92
-
 add_ivec4_vec4.vert
 file
 
@@ -1691,6 +1657,40 @@ has-props
 
 
 125
+
+divide_int_float.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+0f2ecb3438d1499ffcdc626fcaa74845
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+92
 
 equal_int_float.vert
 file
@@ -1828,40 +1828,6 @@ has-props
 
 129
 
-equal_ivec3_vec3.vert
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-4baa8f88824c51d0bfed31ec52440dee
-2010-07-20T00:31:04.534018Z
-12017
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-129
-
 subtract_int_vec2.vert
 file
 
@@ -1895,6 +1861,40 @@ has-props
 
 
 108
+
+equal_ivec3_vec3.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+4baa8f88824c51d0bfed31ec52440dee
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+129
 
 add_int_vec4.vert
 file
@@ -1964,40 +1964,6 @@ has-props
 
 96
 
-subtract_int_float.vert
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-bc8cbe464ac1ecda8ea4c9b1b0694ba3
-2010-07-20T00:31:04.534018Z
-12017
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-99
-
 subtract_int_mat4.vert
 file
 
@@ -2031,6 +1997,40 @@ has-props
 
 
 103
+
+subtract_int_float.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+bc8cbe464ac1ecda8ea4c9b1b0694ba3
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+99
 
 construct_struct.vert
 file
@@ -2066,40 +2066,6 @@ has-props
 
 135
 
-greater_than_equal.vert
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-f950773872d721f5b2b7df8c6236aaf8
-2010-07-20T00:31:04.534018Z
-12017
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-114
-
 multiply_ivec4_vec4.vert
 file
 
@@ -2133,6 +2099,40 @@ has-props
 
 
 133
+
+greater_than_equal.vert
+file
+
+
+
+
+2011-08-17T00:03:44.000000Z
+f950773872d721f5b2b7df8c6236aaf8
+2010-07-20T00:31:04.534018Z
+12017
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+114
 
 function_ivec2_vec2.vert
 file

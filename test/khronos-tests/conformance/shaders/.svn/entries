@@ -1,14 +1,14 @@
 10
 
 dir
-15328
+15347
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/conformance/shaders
 https://cvs.khronos.org/svn/repos
 
 
 
-2011-08-17T10:29:44.621006Z
-15322
+2011-08-19T10:16:31.049374Z
+15346
 greggman
 
 
@@ -63,46 +63,9 @@ has-props
 
 69
 
-00_test_list.txt
-file
-
-
-
-
-2011-08-17T00:03:44.000000Z
-c0c558791c72a578390f41fedadd030d
-2011-08-15T10:32:04.055123Z
-15304
-greggman
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-32
-
 implicit
 dir
 
 misc
-dir
-
-glsl-features
 dir
 

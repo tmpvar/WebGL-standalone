@@ -1,14 +1,14 @@
 10
 
 dir
-15328
+15347
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/resources
 https://cvs.khronos.org/svn/repos
 
 
 
-2011-08-17T10:22:13.974882Z
-15321
+2011-08-18T05:48:12.662305Z
+15330
 greggman
 
 
@@ -100,10 +100,10 @@ file
 
 
 
-2011-08-18T00:38:02.000000Z
-e7fbc884a6d9ea2a73a429e535c880fb
-2011-08-17T10:22:13.974882Z
-15321
+2011-08-20T06:22:11.000000Z
+0fb52200790173c3c2912334e18dde6f
+2011-08-18T05:48:12.662305Z
+15330
 greggman
 has-props
 
@@ -126,7 +126,7 @@ has-props
 
 
 
-8136
+10555
 
 desktop-gl-constants.js
 file
