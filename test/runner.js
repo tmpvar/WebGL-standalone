@@ -12,7 +12,7 @@ var webgl_test;
 
 var assertMsg = shouldBe;
 
-var glErrorShouldBe = shouldBe;
+//var glErrorShouldBe = shouldBe;
 
 var testIntro = readfile('test/khronos-tests/resources/js-test-pre.js');
 eval(testIntro);
@@ -26,7 +26,9 @@ try {
   console.log(e.stack);
 }
 
-
+var isTestPassing = function(test) {
+  return (!test.pass || test.error || test.fail || test.skipped) ? false : true;
+}
 
 checkPixel = function() {};
 var WebGLRenderingContext = require('lib/webgl.js');
@@ -83,26 +85,50 @@ var document = {
   }
 };
 var timer = false;
-var window = {
-  document : document,
-  setInterval : function(fn) {
-    timer = true;
-    while(timer) { fn(); }
-  },
-  clearInterval : function() {
-    timer = false;
-  },
-  setTimeout : function(fn) {
-    try {
-      fn();
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  },
-  console : {
-    log : console.log,
-    error: console.log
+var window = this;
+
+window.document = document;
+window.setInterval = function(fn) {
+  timer = true;
+  while(timer) { fn(); }
+};
+window.clearInterval = function() {
+  timer = false;
+};
+window.setTimeout = function(fn) {
+  try {
+    fn();
+  } catch (e) {
+    console.log("ERROR", e);
   }
+};
+
+// workaround for global code in array-unit-tests.html
+window.array = {};
+
+window.addEventListener = function(ev, fn) {
+  fn();
+};
+
+window.scrollBy = function() {};
+
+var XMLHttpRequest = window.XMLHttpRequest = function() {
+
+};
+XMLHttpRequest.prototype = {
+  _file : null,
+  open : function(method, file, async) {
+    this._file = 'test/khronos-tests/conformance/' + file;
+  },
+  send : function() {
+    this.responseText = readfile(this._file);
+    this.readyState = 4;
+    if (this.onreadystatechange) {
+      this.onreadystatechange();
+    }
+    return this.responseText;
+  },
+
 };
 
 window.parent = window;
@@ -110,6 +136,15 @@ window.parent = window;
 
 var testFailed = function(msg) {
   webgl_test.fail = msg;
+  var e = new Error();
+  var parts = e.stack.split('\n');
+  parts.shift();
+  parts.length=10;
+
+  parts[0] = parts[0].replace('test/runner.js', currentFile);
+
+  console.log("currentFile",currentFile);
+  webgl_test.stack = parts.join('\n');
 };
 var shouldBe = function(should, be, msg) {
   if (should !== be) {
@@ -127,6 +162,7 @@ testPassed = function(msg) {
 
 var sax = require('test/util/sax.js');
 var webgl_tests = [];
+var shaders = {};
 function next_test(filename) {
   var text = readfile('test/khronos-tests/conformance/' + filename);
   var parser = sax.parser();
@@ -141,7 +177,7 @@ function next_test(filename) {
 
   parser.ontext = function (t) {
     if (collectText) {
-      testBody += t;
+      collectText(t);
     }
   };
 
@@ -153,8 +189,12 @@ function next_test(filename) {
       // collect the main test body
       if (!node.attributes.src) {
         testBody = "";
-        collectText = true
-      }
+        collectText = function(t) {
+          testBody+=t;
+        }
+      } else if (1==0) {//node.attributes.type.toLowerCase().indexOf('shader')) {
+        console.log("here");
+      };
     }
   };
 
@@ -184,13 +224,12 @@ function next_test(filename) {
       var split = e.stack.split('\n');
       split.length = 10;
       e.stack = split.join('\n');
-      console.log(filename, e.fileName, e.lineNumber, e.message, e.stack);
+///      console.log(filename, e.fileName, e.lineNumber, e.message, e.stack);
       webgl_test.error = e;
       webgl_test.file = filename;
     }
 
-    if (!webgl_test.pass) {
-      console.log(JSON.stringify(webgl_test));
+    if (!isTestPassing(webgl_test)) {
       final();
       fail();
       return;
@@ -232,22 +271,24 @@ function run_next_test() {
 function final() {
   var passes = 0;
   webgl_tests.forEach(function(test) {
-    if (!test.pass) {
+    if (!isTestPassing(test)) {
+
       if (test.skipped) {
         console.log('# -', test.file, '(skipped)');
       } else if (!test.error) {
-        console.log('✖ -', test.name || test.file, test.fail);
+        console.log('✖ -', test.name + '@' + test.file, test.fail);
+        console.log(test.stack);
       } else {
         var stackParts = test.error.stack.split('\n');
         stackParts.length = 5;
         test.error.stack = stackParts.join('\n    ')
 
-        console.log('✖ -', test.name || test.file, '-', test.error.message);
+        console.log('✖ -', test.name + '@' + test.file, '-', test.error.message);
         console.log('\n    ' + test.error.stack + '\n');
       }
     } else {
       passes++;
-      console.log('√ - ' + test.name);
+      console.log('√- ' + test.file + " (" + test.name + ")");
     }
   });
 
