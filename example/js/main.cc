@@ -7,6 +7,7 @@
 
 /* Include the JSAPI header file to get access to SpiderMonkey. */
 #include "jsapi.h"
+#include "../deps/spidermonkey/js/src/jstypedarray.h"
 #include "WebGL.h"
 #include "module.h"
 #include <stdlib.h>
