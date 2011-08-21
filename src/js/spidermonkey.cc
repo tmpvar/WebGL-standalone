@@ -899,7 +899,7 @@ JSBool webgl_rendering_context_vertexAttribPointer(JSContext *cx, uintN argc, js
   GLuint attr;
   GLint size;
   unsigned int type;
-  GLboolean normalized;
+  bool normalized;
   GLsizei stride;
   int offset;
 
@@ -907,7 +907,7 @@ JSBool webgl_rendering_context_vertexAttribPointer(JSContext *cx, uintN argc, js
     return JS_FALSE;
   }
 
-  glVertexAttribPointer(attr, size, type, normalized, stride, (void *)&offset);
+  glVertexAttribPointer(attr, size, type, normalized, stride, (void *)offset);
 
   return JS_TRUE;
 }

@@ -41,23 +41,24 @@ if (!ctx.getProgramParameter(program, ctx.LINK_STATUS)) {
   fail();
 }
 
-e('use program', ctx.useProgram(program));
+
 var attr = e('attribute location', ctx.getAttribLocation(program, "pos"));
+
 var vertexBuffer = e('create buffer', ctx.createBuffer());
-
-
 e('bind buffer', ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer));
 e('buffer data', ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertices), ctx.STATIC_DRAW));
 
+
 e('viewport', ctx.viewport(0, 0, 300, 300));
 
+e('use program', ctx.useProgram(program));
+e('enable vertex attrib array', ctx.enableVertexAttribArray(attr));
 
-var a = 1;
+var a = 10000;
 while(a--) {
   e('clear color', ctx.clearColor(0.5, 0.5, 0.5, 1));
   e('clear', ctx.clear(ctx.COLOR_BUFFER_BIT | ctx.DEPTH_BUFFER_BIT));
   e('bind buffer', ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer));
-  e('enable vertex attrib array', ctx.enableVertexAttribArray(attr));
   e('vertex pointer', ctx.vertexAttribPointer(attr, 3, ctx.FLOAT, false, 0, 0));
   e('draw arrays', ctx.drawArrays(ctx.TRIANGLES, 0, 3));
   e('flush', ctx.flush());
