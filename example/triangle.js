@@ -52,7 +52,7 @@ e('buffer data', ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertices), ct
 e('viewport', ctx.viewport(0, 0, 300, 300));
 
 
-var a = 10000;
+var a = 1;
 while(a--) {
   e('clear color', ctx.clearColor(0.5, 0.5, 0.5, 1));
   e('clear', ctx.clear(ctx.COLOR_BUFFER_BIT | ctx.DEPTH_BUFFER_BIT));
