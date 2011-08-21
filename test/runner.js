@@ -221,7 +221,7 @@ function next_test(filename) {
       var split = e.stack.split('\n');
       split.length = 10;
       e.stack = split.join('\n');
-///      console.log(filename, e.fileName, e.lineNumber, e.message, e.stack);
+      console.log(filename, e.fileName, e.lineNumber, e.message, e.stack);
       webgl_test.error = e;
       webgl_test.file = filename;
     }

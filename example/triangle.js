@@ -1,8 +1,9 @@
 var webgl = require('../lib/webgl.js');
+
 var vertices = [
-    0.75, 0.75, 0.0, 1.0,
-    0.75, -0.75, 0.0, 1.0,
-    -0.75, -0.75, 0.0, 1.0,
+    0.75, 0.75, 0.0, 1,
+    0.75, -0.75, 0.0, 1,
+    -0.75, -0.75, 0.0, 1,
 ];
 
 function e(name, result) {
@@ -11,7 +12,7 @@ function e(name, result) {
     console.log(name, 'failed!', e);
     fail();
   } else {
-    console.log(name, 'passed! (', result, ')');
+    console.log(name, 'passed! (', JSON.stringify(result), ')');
   }
   return result;
 }
@@ -44,10 +45,12 @@ e('use program', ctx.useProgram(program));
 var attr = e('attribute location', ctx.getAttribLocation(program, "pos"));
 var vertexBuffer = e('create buffer', ctx.createBuffer());
 
+
 e('bind buffer', ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer));
 e('buffer data', ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertices), ctx.STATIC_DRAW));
 
 e('viewport', ctx.viewport(0, 0, 300, 300));
+
 
 var a = 10000;
 while(a--) {
