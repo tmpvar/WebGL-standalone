@@ -21,14 +21,23 @@ static JSClass global_class = {
 
 
 /* JSAPI variables. */
-JSRuntime *rt;
-JSContext *cx;
-JSObject  *global;
+JSRuntime *rt = NULL;
+JSContext *cx = NULL;
+JSObject  *global = NULL;
 
 void c_exit(int code) {
-  JS_DestroyContext(cx);
-  JS_DestroyRuntime(rt);
-  JS_ShutDown();
+  if (cx != NULL) {
+    JS_DestroyContext(cx);
+  }
+
+  if (rt != NULL) {
+    JS_DestroyRuntime(rt);
+  }
+
+  if (global != NULL) {
+    JS_ShutDown();
+  }
+
   exit(code);
 }
 
@@ -90,9 +99,7 @@ static JSFunctionSpec module_global_functions[] = {
   JS_FS("webgl_rendering_context_blendEquationSeparate", webgl_rendering_context_blendEquationSeparate, 2 /* GLenum modeRGB, GLenum modeAlpha */, 0),
   JS_FS("webgl_rendering_context_blendFunc", webgl_rendering_context_blendFunc, 2 /* GLenum sfactor, GLenum dfactor */, 0),
   JS_FS("webgl_rendering_context_blendFuncSeparate", webgl_rendering_context_blendFuncSeparate, 4 /* GLenum srcRGB, GLenum dstRGB,  GLenum srcAlpha, GLenum dstAlpha */, 0),
-  JS_FS("webgl_rendering_context_bufferData", webgl_rendering_context_bufferData, 3 /* GLenum target, GLsizeiptr size, GLenum usage */, 0),
-  JS_FS("webgl_rendering_context_bufferData", webgl_rendering_context_bufferData, 3 /* GLenum target, ArrayBufferView data, GLenum usage */, 0),
-  JS_FS("webgl_rendering_context_bufferData", webgl_rendering_context_bufferData, 3 /* GLenum target, ArrayBuffer data, GLenum usage */, 0),
+  JS_FS("webgl_rendering_context_bufferData", webgl_rendering_context_bufferData, 3, 0),
   JS_FS("webgl_rendering_context_bufferSubData", webgl_rendering_context_bufferSubData, 3 /* GLenum target, GLintptr offset, ArrayBufferView data */, 0),
   JS_FS("webgl_rendering_context_bufferSubData", webgl_rendering_context_bufferSubData, 3 /* GLenum target, GLintptr offset, ArrayBuffer data */, 0),
   JS_FS("webgl_rendering_context_checkFramebufferStatus", webgl_rendering_context_checkFramebufferStatus, 1 /* GLenum target */, 0),
@@ -256,41 +263,12 @@ void setupGlobals(JSContext *cx, JSObject *global) {
   }
 }
 
-
-
-
-
-JSBool printer_construct(JSContext *cx, uintN argc, jsval *argv)
-{
-    cout << "constructed!" << endl;
-    return JS_TRUE;
-}
-
-void printer_finalize(JSContext *cx, JSObject *obj)
-{
-}
-
-static JSClass printer_class = {
-    "Printer",
-    JSCLASS_HAS_PRIVATE | JSCLASS_CONSTRUCT_PROTOTYPE,
-    JS_PropertyStub, JS_PropertyStub, JS_PropertyStub, JS_StrictPropertyStub,
-    JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, printer_finalize,
-    JSCLASS_NO_OPTIONAL_MEMBERS
-};
-
-void render() {
-  glFlush();
-}
-
-
 int main(int argc, char **argv)
 {
     if (argc < 2) {
         cout << "Usage: webgljs path/to/app.js" << endl;
         c_exit(EXIT_FAILURE);
     }
-
-
 
     const char* filename = argv[1];
     char *script = getFileContents(filename);
@@ -305,10 +283,6 @@ int main(int argc, char **argv)
     if (cx == NULL)
         c_exit(EXIT_FAILURE);
 
-
-
-
-
     JS_SetOptions(cx, JSOPTION_VAROBJFIX | JSOPTION_JIT | JSOPTION_METHODJIT);
     JS_SetVersion(cx, JSVERSION_LATEST);
     JS_SetErrorReporter(cx, reportError);
@@ -320,10 +294,6 @@ int main(int argc, char **argv)
 
     if (!JS_InitStandardClasses(cx, global))
         c_exit(EXIT_FAILURE);
-
-
-    // SET UP CUSTOM CLASS
-    JS_InitClass(cx, global, NULL, &printer_class, printer_construct, 0, NULL, NULL, NULL, NULL);
 
     jsval rval;
     JSString *str;

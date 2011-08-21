@@ -1,64 +1,60 @@
-var WebGLRenderingContext = require('../lib/webgl.js');
+var webgl = require('../lib/webgl.js');
+var vertices = [
+    0.75, 0.75, 0.0, 1.0,
+    0.75, -0.75, 0.0, 1.0,
+    -0.75, -0.75, 0.0, 1.0,
+];
 
-var ctx = new WebGLRenderingContext();
-var program = ctx.createProgram();
+function e(name, result) {
+  var e = ctx.getError()
+  if (e) {
+    console.log(name, 'failed!', e);
+    fail();
+  } else {
+    console.log(name, 'passed!');
+  }
+  return result;
+}
+
+var ctx = new webgl.WebGLRenderingContext();
+var program = e('create program', ctx.createProgram());
 var shaders = {
   vertex : "attribute vec3 pos;\nvoid main() {\n  gl_Position = vec4(pos, 1.0);\n}",
   frag   : "void main() {\n  gl_FragColor = vec4(1.0, 0, 1, 1.0);\n}"
 };
 
-var vertexShader = ctx.createShader(ctx.VERTEX_SHADER);
-var fragShader = ctx.createShader(ctx.FRAGMENT_SHADER);
+var vertexShader = e('create shader', ctx.createShader(ctx.VERTEX_SHADER));
+var fragShader = e('create shader', ctx.createShader(ctx.FRAGMENT_SHADER));
 
-ctx.shaderSource(vertexShader, shaders.vertex);
-ctx.shaderSource(fragShader, shaders.frag);
-
-ctx.compileShader(vertexShader);
-ctx.compileShader(fragShader);
-
-ctx.attachShader(program, vertexShader);
-ctx.attachShader(program, fragShader);
-ctx.linkProgram(program);
+e('shader source', ctx.shaderSource(vertexShader, shaders.vertex));
+e('shader source', ctx.shaderSource(fragShader, shaders.frag));
+e('compile shader', ctx.compileShader(vertexShader));
+e('compile shader', ctx.compileShader(fragShader));
+e('attach shader', ctx.attachShader(program, vertexShader));
+e('attach shader', ctx.attachShader(program, fragShader));
+e('link program', ctx.linkProgram(program));
 
 if (!ctx.getProgramParameter(program, ctx.LINK_STATUS)) {
-  console.log("Could not link program");
+  console.log("Could not link program.\n Error:", ctx.getError());
+  console.log(ctx.getProgramInfoLog(program));
   fail();
 }
 
-ctx.useProgram(program);
-var attr = ctx.getAttribLocation(program, "pos");
-var vertexBuffer = ctx.createBuffer();
+e('use program', ctx.useProgram(program));
+var attr = e('attribute location', ctx.getAttribLocation(program, "pos"));
+var vertexBuffer = e('create buffer', ctx.createBuffer());
 
-vertexBuffer.itemSize = 3;
-vertexBuffer.numItems = 3;
-
-/*
-  const float vertexPositions[] = {
-    0.75f, 0.75f, 0.0f, 1.0f,
-    0.75f, -0.75f, 0.0f, 1.0f,
-    -0.75f, -0.75f, 0.0f, 1.0f,
-  };
-*/
-
-var vertices = [
-   0.0,  1.0,  0.0,
-  -1.0, -1.0,  0.0,
-   1.0, -1.0,  0.0
-];
-
-ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);
-ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertexBuffer));
+e('bind buffer', ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer));
+e('buffer data', ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertexBuffer)));
 
 var a = 10000;
 while(a--) {
-
-  ctx.clearColor(0.5, 0.5, 0.5, 1);
-  ctx.clear(ctx.COLOR_BUFFER_BIT, ctx.DEPTH_BUFFER_BIT);
-  ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);
-  ctx.enableVertexAttribArray(attr);
-  ctx.vertexAttribPointer(attr, vertexBuffer.itemSize, ctx.FLOAT, false, 0, 0);
-  ctx.drawArrays(ctx.TRIANGLES, 0, 3);
-  ctx.flush();
+  e('clear color', ctx.clearColor(0.5, 0.5, 0.5, 1));
+  e('clear', ctx.clear(ctx.COLOR_BUFFER_BIT | ctx.DEPTH_BUFFER_BIT));
+  e('bind buffer', ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer));
+  e('enable vertex attrib array', ctx.enableVertexAttribArray(attr));
+  e('vertex pointer', ctx.vertexAttribPointer(attr, 3, ctx.FLOAT, false, 0, 0));
+  e('draw arrays', ctx.drawArrays(ctx.TRIANGLES, 0, 3));
+  e('flush', ctx.flush());
 }
-
-fail();
+console.log("DONE");
