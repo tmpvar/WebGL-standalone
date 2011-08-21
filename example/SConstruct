@@ -9,12 +9,12 @@ spidermonkey_src = path.abspath(path.join(current_dir, '..', 'deps', 'spidermonk
 spidermonkey = File(path.join(spidermonkey_src, 'libjs_static.a'))
 spidermonkey_includes = spidermonkey_src
 
-FRAMEWORKS = ['OpenGL', 'GLUT']
+glfw_src = path.abspath(path.join(current_dir, '..', 'deps', 'glfw', ))
+glfw = File(path.join(glfw_src, 'lib', 'cocoa', 'libglfw.a'))
+glfw_includes = path.abspath(path.join(glfw_src, 'include'))
 
-#Program('triangle', 'triangle.cc',
-#  LIBS = [webgl],
-#  FRAMEWORKS = FRAMEWORKS
-#  )
+
+FRAMEWORKS = ['OpenGL', 'Cocoa']
 
 # Configure spidermonkey
 if not path.isfile(path.join(spidermonkey_src, 'Makefile')):
@@ -26,8 +26,8 @@ spidermonkey_make = ['make', '-f', path.join(spidermonkey_src, 'Makefile')]
 subprocess.call(spidermonkey_make, cwd=spidermonkey_src)
 
 # Make webgljs
-env = Environment(CPPPATH=[spidermonkey_includes, path.join(current_dir, '..', 'include')])
+env = Environment(CPPPATH=[spidermonkey_includes, path.join(current_dir, '..', 'include'), glfw_includes])
 env.Program('webgljs', Glob('js/*.cc'),
-  LIBS = [webgl, spidermonkey],
+  LIBS = [webgl, spidermonkey, glfw],
   FRAMEWORKS = FRAMEWORKS
   )

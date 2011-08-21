@@ -101,12 +101,14 @@ JSBool webgl_rendering_context_checkFramebufferStatus(JSContext *cx, uintN argc,
 }
 
 JSBool webgl_rendering_context_clear(JSContext *cx, uintN argc, jsval *argv) {
-  glClear();
+
+
+  glClear(GL_DEPTH);
   return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_clearColor(JSContext *cx, uintN argc, jsval *argv) {
-
+  glClearColor(0,0,0,1);
   return JS_TRUE;
 }
 
@@ -268,7 +270,9 @@ JSBool webgl_rendering_context_finish(JSContext *cx, uintN argc, jsval *argv) {
 }
 
 JSBool webgl_rendering_context_flush(JSContext *cx, uintN argc, jsval *argv) {
-
+  // TODO: make this more flexible?
+  // Swap front and back rendering buffers
+  glfwSwapBuffers();
   return JS_TRUE;
 }
 

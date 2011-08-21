@@ -1,4 +1,4 @@
-var WebGLRenderingContext = require('lib/webgl.js');
+var WebGLRenderingContext = require('../lib/webgl.js');
 
 var ctx = new WebGLRenderingContext();
 var program = ctx.createProgram();
@@ -49,8 +49,9 @@ var vertices = [
 ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);
 ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(vertexBuffer));
 
+var a = 10000;
+while(a--) {
 
-while(1) {
   ctx.clearColor(0.5, 0.5, 0.5, 1);
   ctx.clear(ctx.COLOR_BUFFER_BIT, ctx.DEPTH_BUFFER_BIT);
   ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);
@@ -59,3 +60,5 @@ while(1) {
   ctx.drawArrays(ctx.TRIANGLES, 0, 3);
   ctx.flush();
 }
+
+fail();
