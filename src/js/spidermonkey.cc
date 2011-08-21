@@ -121,7 +121,6 @@ JSBool webgl_rendering_context_bufferData(JSContext *cx, uintN argc, jsval *argv
   js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
   JS_ASSERT(tarray);
 
-  cout << "data " << tarray->data << " type:" << tarray->type << endl;
   uintN srclen = tarray->length;
 
   glBufferData(target, srclen, tarray->data, usage);
