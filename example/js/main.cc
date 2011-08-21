@@ -10,6 +10,7 @@
 #include "WebGL.h"
 #include "module.h"
 #include <stdlib.h>
+#include <string>
 
 /* The class of the global object. */
 static JSClass global_class = {
@@ -61,6 +62,75 @@ JSBool js_get_file_contents(JSContext *cx, uintN argc, jsval *argv) {
   return JS_TRUE;
 }
 
+JSBool js_readimage(JSContext *cx, uintN argc, jsval *argv) {
+  JSString *filename_string;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "S", &filename_string)) {
+    return JS_FALSE;
+  }
+
+  const char *filename = JS_EncodeString(cx, filename_string);
+
+  GLFWimage img;
+  if (!glfwReadImage(filename, &img, NULL)) {
+    JS_ReportError(cx, "Image not found: %s", filename);
+    return JS_FALSE;
+  }
+
+  JSObject *ret = JS_NewObject(cx, NULL, NULL, NULL);
+  unsigned int length = img.Height*img.Width*img.BytesPerPixel;
+  char c_length[10];
+  sprintf(c_length, "%d", length);
+
+  // TODO: there has to be a better way!
+  jsval array;
+  string cpp_string = "new Uint32Array(";
+  cpp_string += c_length;
+  cpp_string += ");";
+  cout << cpp_string << endl;
+  const char *src = cpp_string.c_str();
+
+  if (!JS_EvaluateScript(cx, JS_GetGlobalObject(cx), src, strlen(src), __FILE__, __LINE__, &array)) {
+    return JS_FALSE;
+  }
+
+  JS_ASSERT(array);
+
+  JSObject *typedArrayObject = JSVAL_TO_OBJECT(array);
+
+  if (!js_IsTypedArray(typedArrayObject)) {
+    JS_ReportError(cx, "array is not a typed array!");
+    return JS_FALSE;
+  }
+
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(typedArrayObject);
+  memcpy(tarray->data, img.Data, length);
+
+  if (!JS_SetProperty(cx, ret, "data", &array)) {
+    return JS_FALSE;
+  }
+
+  jsval width = INT_TO_JSVAL(img.Width);
+  if (!JS_SetProperty(cx, ret, "width", &width)) {
+    return JS_FALSE;
+  }
+
+  jsval height = INT_TO_JSVAL(img.Height);
+  if (!JS_SetProperty(cx, ret, "height", &height)) {
+    return JS_FALSE;
+  }
+
+  jsval bytesPerPixel = INT_TO_JSVAL(img.BytesPerPixel);
+  if (!JS_SetProperty(cx, ret, "bytesPerPixel", &bytesPerPixel)) {
+    return JS_FALSE;
+  }
+
+
+
+  JS_SET_RVAL(cx, argv, OBJECT_TO_JSVAL(ret));
+  return JS_TRUE;
+}
+
 JSBool js_abort(JSContext *cx, uintN argc, jsval *argv) {
   c_exit(-1);
 }
@@ -83,6 +153,7 @@ static JSFunctionSpec module_global_functions[] = {
   JS_FS("stdout_print",   stdout_print, 1, 0),
   JS_FS("fail",   js_abort, 1, 0),
   JS_FS("readfile",   js_get_file_contents, 1, 0),
+  JS_FS("readimage", js_readimage, 1, 0),
   JS_FS("webgl_rendering_context_getContextAttributes", webgl_rendering_context_getContextAttributes, 0 /*  */, 0),
   JS_FS("webgl_rendering_context_isContextLost", webgl_rendering_context_isContextLost, 0 /*  */, 0),
   JS_FS("webgl_rendering_context_getSupportedExtensions", webgl_rendering_context_getSupportedExtensions, 0 /*  */, 0),
@@ -109,7 +180,8 @@ static JSFunctionSpec module_global_functions[] = {
   JS_FS("webgl_rendering_context_clearStencil", webgl_rendering_context_clearStencil, 1 /* GLint s */, 0),
   JS_FS("webgl_rendering_context_colorMask", webgl_rendering_context_colorMask, 4 /* GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha */, 0),
   JS_FS("webgl_rendering_context_compileShader", webgl_rendering_context_compileShader, 1 /* WebGLShader shader */, 0),
-  JS_FS("webgl_rendering_context_copyTexImage2D", webgl_rendering_context_copyTexImage2D, 8 /* GLenum target, GLint level, GLenum internalformat,  GLint x, GLint y, GLsizei width, GLsizei height,   GLint border */, 0),
+  JS_FS("webgl_rendering_context_copyTexImage2D", webgl_rendering_context_texImage2D, 8 /* GLenum target, GLint level, GLenum internalformat,  GLint x, GLint y, GLsizei width, GLsizei height,   GLint border */, 0),
+  JS_FS("webgl_rendering_context_texImage2D_Image", webgl_rendering_context_texImage2D_Image, 6, 0),
   JS_FS("webgl_rendering_context_copyTexSubImage2D", webgl_rendering_context_copyTexSubImage2D, 8 /* GLenum target, GLint level, GLint xoffset, GLint yoffset,  GLint x, GLint y, GLsizei width, GLsizei height */, 0),
   JS_FS("webgl_rendering_context_createBuffer", webgl_rendering_context_createBuffer, 0 /*  */, 0),
   JS_FS("webgl_rendering_context_createFramebuffer", webgl_rendering_context_createFramebuffer, 0 /*  */, 0),

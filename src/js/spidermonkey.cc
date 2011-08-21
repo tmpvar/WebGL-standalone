@@ -25,8 +25,14 @@ JSBool webgl_rendering_context_getExtension(JSContext *cx, uintN argc, jsval *ar
 
 
 JSBool webgl_rendering_context_activeTexture(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint texture;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &texture)) {
+    return JS_FALSE;
+  }
+
+  glActiveTexture(texture);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_attachShader(JSContext *cx, uintN argc, jsval *argv) {
@@ -73,8 +79,17 @@ JSBool webgl_rendering_context_bindRenderbuffer(JSContext *cx, uintN argc, jsval
 }
 
 JSBool webgl_rendering_context_bindTexture(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  unsigned int target;
+  unsigned int texture;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &target, &texture)) {
+    JS_ReportError(cx, "Error in bindTexture");
+    return JS_FALSE;
+  }
+
+  glBindTexture(target, texture);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_blendColor(JSContext *cx, uintN argc, jsval *argv) {
@@ -253,8 +268,10 @@ JSBool webgl_rendering_context_createShader(JSContext *cx, uintN argc, jsval *ar
 }
 
 JSBool webgl_rendering_context_createTexture(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  unsigned int ret;
+  glGenTextures(1, &ret);
+  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
+  return JS_TRUE;
 }
 
 
@@ -354,8 +371,15 @@ JSBool webgl_rendering_context_drawElements(JSContext *cx, uintN argc, jsval *ar
 
 
 JSBool webgl_rendering_context_enable(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  GLuint bits;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &bits)) {
+    return JS_FALSE;
+  }
+
+  glEnable(bits);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_enableVertexAttribArray(JSContext *cx, uintN argc, jsval *argv) {
@@ -562,8 +586,20 @@ JSBool webgl_rendering_context_getUniform(JSContext *cx, uintN argc, jsval *argv
 
 
 JSBool webgl_rendering_context_getUniformLocation(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  GLuint program;
+  JSString *js_name;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iS", &program, &js_name)) {
+    return JS_FALSE;
+  }
+
+  const char *name = JS_EncodeString(cx, js_name);
+
+  int ret = glGetUniformLocation(program, name);
+  JS_free(cx, (void *)name);
+  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
+
+  return JS_TRUE;
 }
 
 
@@ -637,8 +673,16 @@ JSBool webgl_rendering_context_linkProgram(JSContext *cx, uintN argc, jsval *arg
 }
 
 JSBool webgl_rendering_context_pixelStorei(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  unsigned int param;
+  int value;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &param, &value)) {
+    return JS_FALSE;
+  }
+
+  glPixelStorei(param, value);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_polygonOffset(JSContext *cx, uintN argc, jsval *argv) {
@@ -722,14 +766,67 @@ JSBool webgl_rendering_context_texImage2D(JSContext *cx, uintN argc, jsval *argv
   return JS_FALSE;
 }
 
+
+JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval *argv) {
+
+  unsigned int target;
+  int level;
+  unsigned int internalFormat;
+  unsigned int format;
+  unsigned int type;
+  JSObject *image;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iiiiio", &target, &level, &internalFormat, &format, &type, &image)) {
+    return JS_FALSE;
+  }
+
+  jsval js_width;
+  if (!JS_GetProperty(cx, image, "width", &js_width)) {
+    return JS_FALSE;
+  }
+  int width = JSVAL_TO_INT(js_width);
+
+  jsval js_height;
+  if (!JS_GetProperty(cx, image, "height", &js_height)) {
+    return JS_FALSE;
+  }
+  int height = JSVAL_TO_INT(js_height);
+
+  jsval js_bytesPerPixel;
+  if (!JS_GetProperty(cx, image, "bytesPerPixel", &js_bytesPerPixel)) {
+    return JS_FALSE;
+  }
+  int bytesPerPixel = JSVAL_TO_INT(js_bytesPerPixel);
+
+  jsval js_data;
+  if (!JS_GetProperty(cx, image, "data", &js_data)) {
+    return JS_FALSE;
+  }
+  JSObject *dataObject = JSVAL_TO_OBJECT(js_data);
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(dataObject);
+
+  glTexImage2D(target, level, internalFormat, width, height, 0, format, type, tarray->data);
+
+  return JS_TRUE;
+}
+
 JSBool webgl_rendering_context_texParameterf(JSContext *cx, uintN argc, jsval *argv) {
   JS_ReportError(cx, "method not implemented");
   return JS_FALSE;
 }
 
 JSBool webgl_rendering_context_texParameteri(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint target;
+  GLuint pname;
+  GLuint param;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iii", &target, &pname, &param)) {
+    return JS_FALSE;
+  }
+
+  glTexParameteri(target, pname, param);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_texSubImage2D(JSContext *cx, uintN argc, jsval *argv) {
@@ -749,8 +846,15 @@ JSBool webgl_rendering_context_uniform1fv(JSContext *cx, uintN argc, jsval *argv
 }
 
 JSBool webgl_rendering_context_uniform1i(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint location;
+  GLint x;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &location, &x)) {
+    return JS_FALSE;
+  }
+
+  glUniform1i(location, x);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_uniform1iv(JSContext *cx, uintN argc, jsval *argv) {

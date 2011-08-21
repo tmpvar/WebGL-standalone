@@ -39,7 +39,7 @@
 
   JSBool webgl_rendering_context_copyTexImage2D(JSContext *cx, uintN argc, jsval *argv);
   JSBool webgl_rendering_context_copyTexSubImage2D(JSContext *cx, uintN argc, jsval *argv);
-
+  JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval *argv);
   JSBool webgl_rendering_context_createBuffer(JSContext *cx, uintN argc, jsval *argv);
   JSBool webgl_rendering_context_createFramebuffer(JSContext *cx, uintN argc, jsval *argv);
   JSBool webgl_rendering_context_createProgram(JSContext *cx, uintN argc, jsval *argv);
