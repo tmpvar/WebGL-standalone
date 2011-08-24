@@ -78,16 +78,16 @@ JSBool js_readimage(JSContext *cx, uintN argc, jsval *argv) {
   }
 
   JSObject *ret = JS_NewObject(cx, NULL, NULL, NULL);
-  unsigned int length = img.Height*img.Width*img.BytesPerPixel;
+  unsigned long size = img.Height*img.Width*img.BytesPerPixel;
+  unsigned long length = img.Height*img.Width;
   char c_length[10];
-  sprintf(c_length, "%d", length);
+  sprintf(c_length, "%d", size);
 
   // TODO: there has to be a better way!
   jsval array;
   string cpp_string = "new Uint32Array(";
   cpp_string += c_length;
   cpp_string += ");";
-  cout << cpp_string << endl;
   const char *src = cpp_string.c_str();
 
   if (!JS_EvaluateScript(cx, JS_GetGlobalObject(cx), src, strlen(src), __FILE__, __LINE__, &array)) {
@@ -104,8 +104,9 @@ JSBool js_readimage(JSContext *cx, uintN argc, jsval *argv) {
   }
 
   js::TypedArray *tarray = js::TypedArray::fromJSObject(typedArrayObject);
-  memcpy(tarray->data, img.Data, length);
+  memcpy(tarray->data, img.Data, size);
 
+  unsigned char *data = (unsigned char *)tarray->data;
   if (!JS_SetProperty(cx, ret, "data", &array)) {
     return JS_FALSE;
   }

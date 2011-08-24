@@ -1,0 +1,9 @@
+attribute vec4 aVertexPosition;
+attribute vec2 aTextureCoord;
+
+varying vec2 vTextureCoord;
+
+void main(void) {
+  gl_Position = gl_ModelViewProjectionMatrix * aVertexPosition;
+  vTextureCoord = aTextureCoord;
+}

@@ -135,8 +135,7 @@ JSBool webgl_rendering_context_bufferData(JSContext *cx, uintN argc, jsval *argv
   }
 
   js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
-  float *data = (float *)tarray->data;
-  glBufferData(target, tarray->byteLength, data, usage);
+  glBufferData(target, tarray->byteLength, tarray->data, usage);
 
   return JS_TRUE;
 }
@@ -366,7 +365,17 @@ JSBool webgl_rendering_context_drawArrays(JSContext *cx, uintN argc, jsval *argv
 
 JSBool webgl_rendering_context_drawElements(JSContext *cx, uintN argc, jsval *argv) {
 
+  unsigned int mode;
+  GLint first;
+  GLsizei count;
 
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iii", &mode, &first, &count)) {
+    return JS_FALSE;
+  }
+
+  //glDrawElements(mode, first, count);
+
+  return JS_TRUE;
 }
 
 
@@ -776,6 +785,9 @@ JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval
   unsigned int type;
   JSObject *image;
 
+/*    void texImage2D(GLenum target, GLint level, GLenum internalformat,
+                    GLenum format, GLenum type, HTMLImageElement image);
+*/
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iiiiio", &target, &level, &internalFormat, &format, &type, &image)) {
     return JS_FALSE;
   }
@@ -802,10 +814,13 @@ JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval
   if (!JS_GetProperty(cx, image, "data", &js_data)) {
     return JS_FALSE;
   }
+
   JSObject *dataObject = JSVAL_TO_OBJECT(js_data);
   js::TypedArray *tarray = js::TypedArray::fromJSObject(dataObject);
 
-  glTexImage2D(target, level, internalFormat, width, height, 0, format, type, tarray->data);
+  const unsigned char *data = (unsigned char *)tarray->data;
+
+  glTexImage2D(target, level, internalFormat, width, height, 0, format, type, data);
 
   return JS_TRUE;
 }
