@@ -96,10 +96,10 @@ e('vertex pointer',              gl.vertexAttribPointer(attr, 4, gl.FLOAT, false
 e('bind texture buffer',         gl.bindBuffer(gl.ARRAY_BUFFER, squareTextureBuffer));
 e('vertex point texture',        gl.vertexAttribPointer(textureAttr, 2, gl.FLOAT, false, 0, 0));
 e('enable depth test',           gl.enable(gl.DEPTH_TEST));
+e('enable blend mode',           gl.enable(gl.BLEND));
+e('blend func',                  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA));
 
-
-
-var a = 50000;
+var a = 5000;
 while(a--) {
 
   e('bind texture',                gl.bindTexture(gl.TEXTURE_2D, textureImage));

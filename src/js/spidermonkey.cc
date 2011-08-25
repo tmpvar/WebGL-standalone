@@ -108,8 +108,16 @@ JSBool webgl_rendering_context_blendEquationSeparate(JSContext *cx, uintN argc, 
 }
 
 JSBool webgl_rendering_context_blendFunc(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLenum sfactor;
+  GLuint dfactor;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &sfactor, &dfactor)) {
+    JS_ReportError(cx, "Error in blendFunc");
+    return JS_FALSE;
+  }
+
+  glBlendFunc(sfactor, dfactor);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_blendFuncSeparate(JSContext *cx, uintN argc, jsval *argv) {
