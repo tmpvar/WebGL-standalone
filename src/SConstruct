@@ -9,10 +9,9 @@ env = Environment(
   FRAMEWORKS=['OpenGL', 'GLUT']
   )
 
-sources = Glob('*.cc')
+sources = Glob('arch/*.cc')
 sources.extend(Glob('js/*.cc'))
-sources.extend(Glob('dom/*.cc'))
-#sources.extend(Glob('typedarray/*.cc'))
+
 
 env.StaticLibrary('WebGL', sources)
 
