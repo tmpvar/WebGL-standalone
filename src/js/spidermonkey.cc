@@ -410,8 +410,8 @@ JSBool webgl_rendering_context_enableVertexAttribArray(JSContext *cx, uintN argc
 }
 
 JSBool webgl_rendering_context_finish(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  glFinish();
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_flush(JSContext *cx, uintN argc, jsval *argv) {

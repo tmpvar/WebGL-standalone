@@ -109,3 +109,6 @@ while(a--) {
   e('draw arrays',  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4));
   e('flush',        gl.flush());
 }
+
+
+console.log(gl.notImplemented + '/' + gl.totalMethods + " (" + Math.floor(((gl.totalMethods - gl.notImplemented)/gl.totalMethods)*100) + "%)");
