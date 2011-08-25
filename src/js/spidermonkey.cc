@@ -26,7 +26,7 @@ JSBool webgl_rendering_context_getExtension(JSContext *cx, uintN argc, jsval *ar
 
 JSBool webgl_rendering_context_activeTexture(JSContext *cx, uintN argc, jsval *argv) {
   GLuint texture;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &texture)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &texture)) {
     return JS_FALSE;
   }
 
@@ -37,10 +37,10 @@ JSBool webgl_rendering_context_activeTexture(JSContext *cx, uintN argc, jsval *a
 
 JSBool webgl_rendering_context_attachShader(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int program;
-  unsigned int shader;
+  GLuint program;
+  GLuint shader;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &program, &shader)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &program, &shader)) {
     return JS_FALSE;
   }
 
@@ -56,10 +56,10 @@ JSBool webgl_rendering_context_bindAttribLocation(JSContext *cx, uintN argc, jsv
 
 JSBool webgl_rendering_context_bindBuffer(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int target;
-  unsigned int buffer;
+  GLenum target;
+  GLuint buffer;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &target, &buffer)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &target, &buffer)) {
     return JS_FALSE;
   }
 
@@ -80,9 +80,9 @@ JSBool webgl_rendering_context_bindRenderbuffer(JSContext *cx, uintN argc, jsval
 
 JSBool webgl_rendering_context_bindTexture(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int target;
-  unsigned int texture;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &target, &texture)) {
+  GLenum target;
+  GLuint texture;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &target, &texture)) {
     JS_ReportError(cx, "Error in bindTexture");
     return JS_FALSE;
   }
@@ -121,11 +121,11 @@ JSBool webgl_rendering_context_blendFuncSeparate(JSContext *cx, uintN argc, jsva
 JSBool webgl_rendering_context_bufferData(JSContext *cx, uintN argc, jsval *argv) {
 
 
-  unsigned int target;
+  GLenum target;
   JSObject *array;
-  unsigned int usage;
+  GLenum usage;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ioi", &target, &array, &usage)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uou", &target, &array, &usage)) {
     return JS_FALSE;
   }
 
@@ -153,7 +153,7 @@ JSBool webgl_rendering_context_checkFramebufferStatus(JSContext *cx, uintN argc,
 
 JSBool webgl_rendering_context_clear(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int bits;
+  GLbitfield bits;
 
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &bits)) {
     return JS_FALSE;
@@ -169,6 +169,7 @@ JSBool webgl_rendering_context_clearColor(JSContext *cx, uintN argc, jsval *argv
   jsdouble g;
   jsdouble b;
   jsdouble a;
+
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "dddd", &r, &g, &b, &a)) {
     return JS_FALSE;
   }
@@ -180,7 +181,7 @@ JSBool webgl_rendering_context_clearColor(JSContext *cx, uintN argc, jsval *argv
 
 JSBool webgl_rendering_context_clearDepth(JSContext *cx, uintN argc, jsval *argv) {
 
-  jsdouble clampd;
+  GLclampd clampd;
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "d", &clampd)) {
     return JS_FALSE;
   }
@@ -203,7 +204,7 @@ JSBool webgl_rendering_context_colorMask(JSContext *cx, uintN argc, jsval *argv)
 JSBool webgl_rendering_context_compileShader(JSContext *cx, uintN argc, jsval *argv) {
 
   GLuint id;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &id)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &id)) {
     return JS_FALSE;
   }
 
@@ -227,7 +228,7 @@ JSBool webgl_rendering_context_copyTexSubImage2D(JSContext *cx, uintN argc, jsva
 JSBool webgl_rendering_context_createBuffer(JSContext *cx, uintN argc, jsval *argv) {
   GLuint buffer;
   glGenBuffers(1, &buffer);
-  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(buffer));
+  JS_SET_RVAL(cx, argv, UINT_TO_JSVAL(buffer));
   return JS_TRUE;
 }
 
@@ -238,38 +239,35 @@ JSBool webgl_rendering_context_createFramebuffer(JSContext *cx, uintN argc, jsva
 
 JSBool webgl_rendering_context_createProgram(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int ret = glCreateProgram();
-  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
+  GLuint ret = glCreateProgram();
+  JS_SET_RVAL(cx, argv, UINT_TO_JSVAL(ret));
 
   return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_createRenderbuffer(JSContext *cx, uintN argc, jsval *argv) {
-
-  unsigned int ret = glCreateProgram();
-  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
-
-  return JS_TRUE;
+  JS_ReportError(cx, "method not implemented");
+  return JS_FALSE;
 }
 
 JSBool webgl_rendering_context_createShader(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int type;
+  GLenum type;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &type)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &type)) {
     return JS_FALSE;
   }
 
-  unsigned int ret = glCreateShader(type);
-  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
+  GLuint ret = glCreateShader(type);
+  JS_SET_RVAL(cx, argv, UINT_TO_JSVAL(ret));
 
   return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_createTexture(JSContext *cx, uintN argc, jsval *argv) {
-  unsigned int ret;
+  GLuint ret;
   glGenTextures(1, &ret);
-  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
+  JS_SET_RVAL(cx, argv, UINT_TO_JSVAL(ret));
   return JS_TRUE;
 }
 
@@ -339,7 +337,7 @@ JSBool webgl_rendering_context_disable(JSContext *cx, uintN argc, jsval *argv) {
 JSBool webgl_rendering_context_disableVertexAttribArray(JSContext *cx, uintN argc, jsval *argv) {
 
   GLuint attr;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &attr)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &attr)) {
     return JS_FALSE;
   }
 
@@ -350,11 +348,11 @@ JSBool webgl_rendering_context_disableVertexAttribArray(JSContext *cx, uintN arg
 
 JSBool webgl_rendering_context_drawArrays(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int mode;
+  GLenum mode;
   GLint first;
   GLsizei count;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iii", &mode, &first, &count)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uii", &mode, &first, &count)) {
     return JS_FALSE;
   }
 
@@ -365,11 +363,11 @@ JSBool webgl_rendering_context_drawArrays(JSContext *cx, uintN argc, jsval *argv
 
 JSBool webgl_rendering_context_drawElements(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int mode;
+  GLenum mode;
   GLint first;
   GLsizei count;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iii", &mode, &first, &count)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uii", &mode, &first, &count)) {
     return JS_FALSE;
   }
 
@@ -382,7 +380,7 @@ JSBool webgl_rendering_context_drawElements(JSContext *cx, uintN argc, jsval *ar
 JSBool webgl_rendering_context_enable(JSContext *cx, uintN argc, jsval *argv) {
 
   GLuint bits;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &bits)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &bits)) {
     return JS_FALSE;
   }
 
@@ -394,7 +392,7 @@ JSBool webgl_rendering_context_enable(JSContext *cx, uintN argc, jsval *argv) {
 JSBool webgl_rendering_context_enableVertexAttribArray(JSContext *cx, uintN argc, jsval *argv) {
 
   GLuint attr;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &attr)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &attr)) {
     return JS_FALSE;
   }
 
@@ -457,12 +455,12 @@ JSBool webgl_rendering_context_getAttribLocation(JSContext *cx, uintN argc, jsva
 
   GLuint program;
   JSString *js_attr;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iS", &program, &js_attr)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uS", &program, &js_attr)) {
     return JS_FALSE;
   }
 
   const char *attr = JS_EncodeString(cx, js_attr);
-  int ret = glGetAttribLocation(program, attr);
+  GLint ret = glGetAttribLocation(program, attr);
   JS_free(cx, (void *)attr);
 
   JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
@@ -482,7 +480,7 @@ JSBool webgl_rendering_context_getBufferParameter(JSContext *cx, uintN argc, jsv
 
 
 JSBool webgl_rendering_context_getError(JSContext *cx, uintN argc, jsval *argv) {
-  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(glGetError()));
+  JS_SET_RVAL(cx, argv, UINT_TO_JSVAL(glGetError()));
   return JS_TRUE;
 }
 
@@ -494,23 +492,21 @@ JSBool webgl_rendering_context_getFramebufferAttachmentParameter(JSContext *cx, 
 
 JSBool webgl_rendering_context_getProgramParameter(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int param;
   GLuint program;
+  GLenum param;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &program, &param)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &program, &param)) {
     return JS_FALSE;
   }
 
-  int status;
+  GLint status;
   glGetProgramiv(program, param, &status);
-
-  bool b_status = (status == GL_TRUE) ? true : false;
 
   switch (param) {
     case GL_DELETE_STATUS:
     case GL_LINK_STATUS:
     case GL_VALIDATE_STATUS:
-      JS_SET_RVAL(cx, argv, BOOLEAN_TO_JSVAL(status));
+      JS_SET_RVAL(cx, argv, BOOLEAN_TO_JSVAL((GLboolean)status));
     break;
 
     // all others are int return types
@@ -526,7 +522,7 @@ JSBool webgl_rendering_context_getProgramInfoLog(JSContext *cx, uintN argc, jsva
 
   GLuint program;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &program)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &program)) {
     return JS_FALSE;
   }
 
@@ -557,7 +553,7 @@ JSBool webgl_rendering_context_getShaderParameter(JSContext *cx, uintN argc, jsv
 JSBool webgl_rendering_context_getShaderInfoLog(JSContext *cx, uintN argc, jsval *argv) {
   GLuint shader;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &shader)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &shader)) {
     return JS_FALSE;
   }
 
@@ -598,13 +594,13 @@ JSBool webgl_rendering_context_getUniformLocation(JSContext *cx, uintN argc, jsv
 
   GLuint program;
   JSString *js_name;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iS", &program, &js_name)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uS", &program, &js_name)) {
     return JS_FALSE;
   }
 
   const char *name = JS_EncodeString(cx, js_name);
 
-  int ret = glGetUniformLocation(program, name);
+  GLint ret = glGetUniformLocation(program, name);
   JS_free(cx, (void *)name);
   JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
 
@@ -672,7 +668,7 @@ JSBool webgl_rendering_context_lineWidth(JSContext *cx, uintN argc, jsval *argv)
 JSBool webgl_rendering_context_linkProgram(JSContext *cx, uintN argc, jsval *argv) {
 
   GLuint program;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &program)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &program)) {
     return JS_FALSE;
   }
 
@@ -683,9 +679,9 @@ JSBool webgl_rendering_context_linkProgram(JSContext *cx, uintN argc, jsval *arg
 
 JSBool webgl_rendering_context_pixelStorei(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int param;
-  int value;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &param, &value)) {
+  GLuint param;
+  GLint  value;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ui", &param, &value)) {
     return JS_FALSE;
   }
 
@@ -726,7 +722,7 @@ JSBool webgl_rendering_context_shaderSource(JSContext *cx, uintN argc, jsval *ar
 
   GLuint id;
   JSString *js_source;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iS", &id, &js_source)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uS", &id, &js_source)) {
     return JS_FALSE;
   }
 
@@ -778,17 +774,17 @@ JSBool webgl_rendering_context_texImage2D(JSContext *cx, uintN argc, jsval *argv
 
 JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval *argv) {
 
-  unsigned int target;
-  int level;
-  unsigned int internalFormat;
-  unsigned int format;
-  unsigned int type;
+  GLenum target;
+  GLint level;
+  GLint internalFormat;
+  GLenum format;
+  GLenum type;
   JSObject *image;
 
 /*    void texImage2D(GLenum target, GLint level, GLenum internalformat,
                     GLenum format, GLenum type, HTMLImageElement image);
 */
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iiiiio", &target, &level, &internalFormat, &format, &type, &image)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uiiuuo", &target, &level, &internalFormat, &format, &type, &image)) {
     return JS_FALSE;
   }
 
@@ -835,7 +831,7 @@ JSBool webgl_rendering_context_texParameteri(JSContext *cx, uintN argc, jsval *a
   GLuint pname;
   GLuint param;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iii", &target, &pname, &param)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uuu", &target, &pname, &param)) {
     return JS_FALSE;
   }
 
@@ -863,7 +859,7 @@ JSBool webgl_rendering_context_uniform1fv(JSContext *cx, uintN argc, jsval *argv
 JSBool webgl_rendering_context_uniform1i(JSContext *cx, uintN argc, jsval *argv) {
   GLuint location;
   GLint x;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ii", &location, &x)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ui", &location, &x)) {
     return JS_FALSE;
   }
 
@@ -957,7 +953,7 @@ JSBool webgl_rendering_context_uniformMatrix4fv(JSContext *cx, uintN argc, jsval
 JSBool webgl_rendering_context_useProgram(JSContext *cx, uintN argc, jsval *argv) {
 
   GLuint program;
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "i", &program)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &program)) {
     return JS_FALSE;
   }
 
@@ -1017,12 +1013,13 @@ JSBool webgl_rendering_context_vertexAttribPointer(JSContext *cx, uintN argc, js
 
   GLuint attr;
   GLint size;
-  unsigned int type;
-  bool normalized;
+  GLenum type;
+  GLboolean normalized;
   GLsizei stride;
+  // TODO: how do you calculate a pointer here?
   int offset;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "iiibii", &attr, &size, &type, &normalized, &stride, &offset)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uiubii", &attr, &size, &type, &normalized, &stride, &offset)) {
     return JS_FALSE;
   }
 
