@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs
+END
+gl-vertex-attrib.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs/gl-vertex-attrib.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs/00_test_list.txt
+END
+gl-enable-vertex-attrib.html
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs/gl-enable-vertex-attrib.html
+END
+gl-vertexattribpointer.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs/gl-vertexattribpointer.html
+END
+gl-vertex-attrib-zero-issues.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs/gl-vertex-attrib-zero-issues.html
+END
+gl-vertexattribpointer-offsets.html
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/attribs/gl-vertexattribpointer-offsets.html
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc
+END
+is-object.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/is-object.html
+END
+error-reporting.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/error-reporting.html
+END
+null-object-behaviour.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/null-object-behaviour.html
+END
+type-conversion-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/type-conversion-test.html
+END
+webgl-specific.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/webgl-specific.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/00_test_list.txt
+END
+invalid-passed-params.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/invalid-passed-params.html
+END
+uninitialized-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/uninitialized-test.html
+END
+bad-arguments-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/bad-arguments-test.html
+END
+instanceof-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/instanceof-test.html
+END
+object-deletion-behaviour.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/misc/object-deletion-behaviour.html
+END

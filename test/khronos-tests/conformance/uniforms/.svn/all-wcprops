@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms
+END
+gl-unknown-uniform.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/gl-unknown-uniform.html
+END
+null-uniform-location.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/null-uniform-location.html
+END
+gl-uniform-arrays.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/gl-uniform-arrays.html
+END
+uniform-samplers-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/uniform-samplers-test.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/00_test_list.txt
+END
+gl-uniformmatrix4fv.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/gl-uniformmatrix4fv.html
+END
+uniform-location.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/uniform-location.html
+END
+gl-uniform-bool.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/uniforms/gl-uniform-bool.html
+END

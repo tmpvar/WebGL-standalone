@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering
+END
+point-size.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/point-size.html
+END
+gl-scissor-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/gl-scissor-test.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/00_test_list.txt
+END
+triangle.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/triangle.html
+END
+draw-elements-out-of-bounds.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/draw-elements-out-of-bounds.html
+END
+gl-clear.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/gl-clear.html
+END
+gl-drawelements.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/gl-drawelements.html
+END
+more-than-65536-points.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/more-than-65536-points.html
+END
+draw-arrays-out-of-bounds.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/rendering/draw-arrays-out-of-bounds.html
+END

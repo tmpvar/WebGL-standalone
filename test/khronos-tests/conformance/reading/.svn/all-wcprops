@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/reading
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/reading/00_test_list.txt
+END
+read-pixels-pack-alignment.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/reading/read-pixels-pack-alignment.html
+END
+read-pixels-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/reading/read-pixels-test.html
+END

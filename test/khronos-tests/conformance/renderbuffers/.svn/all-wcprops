@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/renderbuffers
+END
+framebuffer-object-attachment.html
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/renderbuffers/framebuffer-object-attachment.html
+END
+renderbuffer-initialization.html
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/renderbuffers/renderbuffer-initialization.html
+END
+framebuffer-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/renderbuffers/framebuffer-test.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/renderbuffers/00_test_list.txt
+END

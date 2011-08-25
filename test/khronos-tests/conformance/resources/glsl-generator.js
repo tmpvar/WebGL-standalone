@@ -67,34 +67,34 @@ var types = [
   { type: "float",
     code: [
       "float $(func)_emu($(args)) {",
-      "  return $(func)_base(value$(extraArgs));",
+      "  return $(func)_base($(baseArgs));",
       "}"].join("\n")
   },
   { type: "vec2",
     code: [
       "vec2 $(func)_emu($(args)) {",
       "  return vec2(",
-      "      $(func)_base(value.x$(extraArgsX)),",
-      "      $(func)_base(value.y$(extraArgsY)));",
+      "      $(func)_base($(baseArgsX)),",
+      "      $(func)_base($(baseArgsY)));",
       "}"].join("\n")
   },
   { type: "vec3",
     code: [
       "vec3 $(func)_emu($(args)) {",
       "  return vec3(",
-      "      $(func)_base(value.x$(extraArgsX)),",
-      "      $(func)_base(value.y$(extraArgsY)),",
-      "      $(func)_base(value.z$(extraArgsZ)));",
+      "      $(func)_base($(baseArgsX)),",
+      "      $(func)_base($(baseArgsY)),",
+      "      $(func)_base($(baseArgsZ)));",
       "}"].join("\n")
   },
   { type: "vec4",
     code: [
       "vec4 $(func)_emu($(args)) {",
       "  return vec4(",
-      "      $(func)_base(value.x$(extraArgsX)),",
-      "      $(func)_base(value.y$(extraArgsY)),",
-      "      $(func)_base(value.z$(extraArgsZ)),",
-      "      $(func)_base(value.w$(extraArgsW)));",
+      "      $(func)_base($(baseArgsX)),",
+      "      $(func)_base($(baseArgsY)),",
+      "      $(func)_base($(baseArgsZ)),",
+      "      $(func)_base($(baseArgsW)));",
       "}"].join("\n")
   }
 ];
@@ -122,11 +122,12 @@ var generateReferenceShader = function(
   var type = typeInfo.type;
   var typeCode = typeInfo.code;
 
-  var extraArgs = params.extraArgs || "";
-  var extraArgsX = params.needXYZW ? (extraArgs + ".x") : extraArgs;
-  var extraArgsY = params.needXYZW ? (extraArgs + ".y") : extraArgs;
-  var extraArgsZ = params.needXYZW ? (extraArgs + ".z") : extraArgs;
-  var extraArgsW = params.needXYZW ? (extraArgs + ".w") : extraArgs;
+  var baseArgs = params.baseArgs || "value$(field)";
+  var baseArgsX = replaceParams(baseArgs, {field: ".x"});
+  var baseArgsY = replaceParams(baseArgs, {field: ".y"});
+  var baseArgsZ = replaceParams(baseArgs, {field: ".z"});
+  var baseArgsW = replaceParams(baseArgs, {field: ".w"});
+  var baseArgs = replaceParams(baseArgs, {field: ""});
 
   test = replaceParams(test, {
     input: input,
@@ -143,11 +144,11 @@ var generateReferenceShader = function(
     func: feature,
     type: type,
     args: args,
-    extraArgs: extraArgs,
-    extraArgsX: extraArgsX,
-    extraArgsY: extraArgsY,
-    extraArgsZ: extraArgsZ,
-    extraArgsW: extraArgsW,
+    baseArgs: baseArgs,
+    baseArgsX: baseArgsX,
+    baseArgsY: baseArgsY,
+    baseArgsZ: baseArgsZ,
+    baseArgsW: baseArgsW
   });
   var shader = replaceParams(template, {
     emu: emuFunc + "\n\n" + typeCode,
@@ -162,13 +163,14 @@ var generateTestShader = function(
   var output = shaderInfo.output;
   var feature = params.feature;
   var testFunc = params.testFunc;
+  var extra = params.extra || '';
 
   test = replaceParams(test, {
     input: input,
     output: output,
     func: feature
   });
-  var shader = replaceParams(template, {
+  var shader = replaceParams(extra + template, {
     emu: '',
     test: test
   });
@@ -186,8 +188,9 @@ var runFeatureTest = function(params) {
     window.initNonKhronosFramework(false);
   }
 
-  wtu = WebGLTestUtils;
-  gridRes = params.gridRes;
+  var wtu = WebGLTestUtils;
+  var gridRes = params.gridRes;
+  var tolerance = params.tolerance || 0;
 
   description("Testing GLSL feature: " + params.feature);
 
@@ -295,7 +298,10 @@ var runFeatureTest = function(params) {
     var l = document.createElement("a");
     l.href = "show-shader-source";
     l.appendChild(document.createTextNode(label));
-    l.addEventListener('click', function() {
+    l.addEventListener('click', function(event) {
+        if (event.preventDefault) {
+          event.preventDefault();
+        }
         s.style.display = (s.style.display == 'none') ? 'block' : 'none';
         return false;
       }, false);
@@ -314,10 +320,10 @@ var runFeatureTest = function(params) {
         imgData.data[imgOffset + 1] = 0;
         imgData.data[imgOffset + 2] = 0;
         imgData.data[imgOffset + 3] = 255;
-        if (refData[offset + 0] != testData[offset + 0] ||
-            refData[offset + 1] != testData[offset + 1] ||
-            refData[offset + 2] != testData[offset + 2] ||
-            refData[offset + 3] != testData[offset + 3]) {
+        if (Math.abs(refData[offset + 0] - testData[offset + 0]) > tolerance ||
+            Math.abs(refData[offset + 1] - testData[offset + 1]) > tolerance ||
+            Math.abs(refData[offset + 2] - testData[offset + 2]) > tolerance ||
+            Math.abs(refData[offset + 3] - testData[offset + 3]) > tolerance) {
           imgData.data[imgOffset] = 255;
           same = false;
         }

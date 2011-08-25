@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/limits
+END
+gl-min-uniforms.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/limits/gl-min-uniforms.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/limits/00_test_list.txt
+END
+gl-min-textures.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/limits/gl-min-textures.html
+END
+gl-min-attribs.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/limits/gl-min-attribs.html
+END

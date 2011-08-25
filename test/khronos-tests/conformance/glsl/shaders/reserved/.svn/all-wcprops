@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved
+END
+_webgl_field.vert
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/_webgl_field.vert
+END
+_webgl_struct.vert
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/_webgl_struct.vert
+END
+webgl_field.vert
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/webgl_field.vert
+END
+_webgl_function.vert
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/_webgl_function.vert
+END
+_webgl_variable.vert
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/_webgl_variable.vert
+END
+webgl_struct.vert
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/webgl_struct.vert
+END
+webgl_function.vert
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/webgl_function.vert
+END
+webgl_variable.vert
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/webgl_variable.vert
+END
+00_shaders.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/reserved/00_shaders.txt
+END

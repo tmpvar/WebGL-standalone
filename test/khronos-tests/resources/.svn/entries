@@ -1,14 +1,14 @@
 10
 
 dir
-15347
+15381
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/resources
 https://cvs.khronos.org/svn/repos
 
 
 
-2011-08-18T05:48:12.662305Z
-15330
+2011-08-21T16:08:33.599023Z
+15353
 greggman
 
 
@@ -66,10 +66,10 @@ file
 
 
 
-2011-08-17T00:03:45.000000Z
-f13a1fe9a67118e7ca7f547d3b4d700f
-2011-01-05T06:50:06.432132Z
-13320
+2011-08-25T02:43:44.000000Z
+fae7ec908be87f5db9110ec9b6b70a50
+2011-08-21T14:42:23.052383Z
+15351
 greggman
 has-props
 
@@ -92,7 +92,7 @@ has-props
 
 
 
-10624
+10889
 
 webgl-test-harness.js
 file
@@ -100,10 +100,10 @@ file
 
 
 
-2011-08-20T06:22:11.000000Z
-0fb52200790173c3c2912334e18dde6f
-2011-08-18T05:48:12.662305Z
-15330
+2011-08-25T02:43:44.000000Z
+e01b975629ab5ed531badb5899f54db5
+2011-08-21T16:08:33.599023Z
+15353
 greggman
 has-props
 
@@ -126,7 +126,7 @@ has-props
 
 
 
-10555
+10718
 
 desktop-gl-constants.js
 file

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/extensions
+END
+oes-vertex-array-object.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/extensions/oes-vertex-array-object.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/extensions/00_test_list.txt
+END
+oes-standard-derivatives.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/extensions/oes-standard-derivatives.html
+END
+oes-texture-float.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/extensions/oes-texture-float.html
+END

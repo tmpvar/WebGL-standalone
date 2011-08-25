@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 80
-/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/more
+/svn/repos/!svn/ver/15365/registry/trunk/public/webgl/sdk/tests/conformance/more
 END
 unit.css
 K 25
@@ -25,7 +25,7 @@ util.js
 K 25
 svn:wc:ra_dav:version-url
 V 88
-/svn/repos/!svn/ver/14849/registry/trunk/public/webgl/sdk/tests/conformance/more/util.js
+/svn/repos/!svn/ver/15365/registry/trunk/public/webgl/sdk/tests/conformance/more/util.js
 END
 index.html
 K 25

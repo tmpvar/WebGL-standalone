@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 85
-/svn/repos/!svn/ver/15347/registry/trunk/public/webgl/sdk/tests/conformance/resources
+/svn/repos/!svn/ver/15375/registry/trunk/public/webgl/sdk/tests/conformance/resources
 END
 noopUniformShader.frag
 K 25
@@ -25,13 +25,13 @@ gray-ramp.png
 K 25
 svn:wc:ra_dav:version-url
 V 99
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp.png
 END
 npot-video.mp4
 K 25
 svn:wc:ra_dav:version-url
 V 100
-/svn/repos/!svn/ver/15072/registry/trunk/public/webgl/sdk/tests/conformance/resources/npot-video.mp4
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/npot-video.mp4
 END
 vertexShader.vert
 K 25
@@ -43,13 +43,13 @@ gray-ramp-default-gamma.png
 K 25
 svn:wc:ra_dav:version-url
 V 113
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-default-gamma.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-default-gamma.png
 END
 zero-alpha.png
 K 25
 svn:wc:ra_dav:version-url
 V 100
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/zero-alpha.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/zero-alpha.png
 END
 pnglib.js
 K 25
@@ -61,7 +61,7 @@ webgl-test-utils.js
 K 25
 svn:wc:ra_dav:version-url
 V 105
-/svn/repos/!svn/ver/15329/registry/trunk/public/webgl/sdk/tests/conformance/resources/webgl-test-utils.js
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/resources/webgl-test-utils.js
 END
 matUniformShader.vert
 K 25
@@ -73,13 +73,13 @@ red-green.webmvp8.webm
 K 25
 svn:wc:ra_dav:version-url
 V 108
-/svn/repos/!svn/ver/12155/registry/trunk/public/webgl/sdk/tests/conformance/resources/red-green.webmvp8.webm
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/red-green.webmvp8.webm
 END
 webgl-test.js
 K 25
 svn:wc:ra_dav:version-url
 V 99
-/svn/repos/!svn/ver/15054/registry/trunk/public/webgl/sdk/tests/conformance/resources/webgl-test.js
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/resources/webgl-test.js
 END
 structUniformShader.vert
 K 25
@@ -103,13 +103,13 @@ npot-video.theora.ogv
 K 25
 svn:wc:ra_dav:version-url
 V 107
-/svn/repos/!svn/ver/15072/registry/trunk/public/webgl/sdk/tests/conformance/resources/npot-video.theora.ogv
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/npot-video.theora.ogv
 END
-gray-ramp-256-with-128-alpha.png
+glsl-generator.js
 K 25
 svn:wc:ra_dav:version-url
-V 118
-/svn/repos/!svn/ver/11916/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-256-with-128-alpha.png
+V 103
+/svn/repos/!svn/ver/15375/registry/trunk/public/webgl/sdk/tests/conformance/resources/glsl-generator.js
 END
 3x3.png
 K 25
@@ -117,47 +117,47 @@ svn:wc:ra_dav:version-url
 V 93
 /svn/repos/!svn/ver/11916/registry/trunk/public/webgl/sdk/tests/conformance/resources/3x3.png
 END
-glsl-generator.js
+gray-ramp-256-with-128-alpha.png
 K 25
 svn:wc:ra_dav:version-url
-V 103
-/svn/repos/!svn/ver/15346/registry/trunk/public/webgl/sdk/tests/conformance/resources/glsl-generator.js
+V 118
+/svn/repos/!svn/ver/11916/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-256-with-128-alpha.png
 END
 small-square-with-colorspin-profile.jpg
 K 25
 svn:wc:ra_dav:version-url
 V 125
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-colorspin-profile.jpg
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-colorspin-profile.jpg
 END
 small-square-with-srgb-iec61966-2.1-profile.png
 K 25
 svn:wc:ra_dav:version-url
 V 133
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-srgb-iec61966-2.1-profile.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-srgb-iec61966-2.1-profile.png
 END
 small-square-with-colorspin-profile.png
 K 25
 svn:wc:ra_dav:version-url
 V 125
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-colorspin-profile.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-colorspin-profile.png
 END
 red-green.mp4
 K 25
 svn:wc:ra_dav:version-url
 V 99
-/svn/repos/!svn/ver/12155/registry/trunk/public/webgl/sdk/tests/conformance/resources/red-green.mp4
-END
-fragmentShader.frag
-K 25
-svn:wc:ra_dav:version-url
-V 105
-/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/resources/fragmentShader.frag
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/red-green.mp4
 END
 samplerUniformShader.frag
 K 25
 svn:wc:ra_dav:version-url
 V 111
 /svn/repos/!svn/ver/13771/registry/trunk/public/webgl/sdk/tests/conformance/resources/samplerUniformShader.frag
+END
+fragmentShader.frag
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/14932/registry/trunk/public/webgl/sdk/tests/conformance/resources/fragmentShader.frag
 END
 floatUniformShader.vert
 K 25
@@ -175,37 +175,37 @@ green-2x2-16bit.png
 K 25
 svn:wc:ra_dav:version-url
 V 105
-/svn/repos/!svn/ver/12697/registry/trunk/public/webgl/sdk/tests/conformance/resources/green-2x2-16bit.png
-END
-gray-ramp-gamma1.0.png
-K 25
-svn:wc:ra_dav:version-url
-V 108
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma1.0.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/green-2x2-16bit.png
 END
 gray-ramp-gamma0.1.png
 K 25
 svn:wc:ra_dav:version-url
 V 108
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma0.1.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma0.1.png
+END
+gray-ramp-gamma1.0.png
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma1.0.png
 END
 gray-ramp-gamma2.0.png
 K 25
 svn:wc:ra_dav:version-url
 V 108
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma2.0.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma2.0.png
 END
 red-green.theora.ogv
 K 25
 svn:wc:ra_dav:version-url
 V 106
-/svn/repos/!svn/ver/12155/registry/trunk/public/webgl/sdk/tests/conformance/resources/red-green.theora.ogv
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/red-green.theora.ogv
 END
 gray-ramp-gamma4.0.png
 K 25
 svn:wc:ra_dav:version-url
 V 108
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma4.0.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma4.0.png
 END
 bug-32888-texture.png
 K 25
@@ -217,13 +217,13 @@ gray-ramp-gamma9.0.png
 K 25
 svn:wc:ra_dav:version-url
 V 108
-/svn/repos/!svn/ver/13391/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma9.0.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/gray-ramp-gamma9.0.png
 END
 small-square-with-colormatch-profile.png
 K 25
 svn:wc:ra_dav:version-url
 V 126
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-colormatch-profile.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-colormatch-profile.png
 END
 intArrayUniformShader.vert
 K 25
@@ -247,19 +247,19 @@ npot-video.webmvp8.webm
 K 25
 svn:wc:ra_dav:version-url
 V 109
-/svn/repos/!svn/ver/15072/registry/trunk/public/webgl/sdk/tests/conformance/resources/npot-video.webmvp8.webm
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/npot-video.webmvp8.webm
 END
 small-square-with-cie-rgb-profile.png
 K 25
 svn:wc:ra_dav:version-url
 V 123
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-cie-rgb-profile.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-cie-rgb-profile.png
 END
 small-square-with-smpte-c-profile.png
 K 25
 svn:wc:ra_dav:version-url
 V 123
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-smpte-c-profile.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-smpte-c-profile.png
 END
 red-indexed.png
 K 25
@@ -271,5 +271,5 @@ small-square-with-e-srgb-profile.png
 K 25
 svn:wc:ra_dav:version-url
 V 122
-/svn/repos/!svn/ver/12966/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-e-srgb-profile.png
+/svn/repos/!svn/ver/15354/registry/trunk/public/webgl/sdk/tests/conformance/resources/small-square-with-e-srgb-profile.png
 END

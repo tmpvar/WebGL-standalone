@@ -1,7 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 69
-/svn/repos/!svn/ver/15069/registry/trunk/public/webgl/sdk/tests/extra
+/svn/repos/!svn/ver/15369/registry/trunk/public/webgl/sdk/tests/extra
+END
+out-of-vram.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/repos/!svn/ver/15369/registry/trunk/public/webgl/sdk/tests/extra/out-of-vram.html
 END
 out-of-memory.html
 K 25

@@ -1,14 +1,14 @@
 10
 
 dir
-15347
+15381
 https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/tests/extra
 https://cvs.khronos.org/svn/repos
 
 
 
-2011-07-08T18:31:27.839663Z
-15069
+2011-08-23T05:01:21.463744Z
+15369
 greggman
 
 
@@ -25,6 +25,40 @@ greggman
 
 
 e7fa87d3-cd2b-0410-9028-fcbf551c1848
+
+out-of-vram.html
+file
+
+
+
+
+2011-08-25T02:39:36.000000Z
+08d9deef636fd9a574009cef3649f95d
+2011-08-23T05:01:21.463744Z
+15369
+greggman
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2809
 
 out-of-memory.html
 file

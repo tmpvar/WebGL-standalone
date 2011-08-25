@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/repos/!svn/ver/15364/registry/trunk/public/webgl/sdk/tests/conformance/state
+END
+gl-object-get-calls.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/state/gl-object-get-calls.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/state/00_test_list.txt
+END
+gl-enum-tests.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/state/gl-enum-tests.html
+END
+gl-enable-enum-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/state/gl-enable-enum-test.html
+END
+gl-getstring.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/state/gl-getstring.html
+END
+gl-geterror.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/state/gl-geterror.html
+END
+gl-get-calls.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15364/registry/trunk/public/webgl/sdk/tests/conformance/state/gl-get-calls.html
+END

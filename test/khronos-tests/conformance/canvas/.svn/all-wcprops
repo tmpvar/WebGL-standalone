@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas
+END
+buffer-offscreen-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/buffer-offscreen-test.html
+END
+buffer-preserve-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/buffer-preserve-test.html
+END
+canvas-zero-size.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/canvas-zero-size.html
+END
+drawingbuffer-static-canvas-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/drawingbuffer-static-canvas-test.html
+END
+drawingbuffer-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/drawingbuffer-test.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/00_test_list.txt
+END
+viewport-unchanged-upon-resize.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/viewport-unchanged-upon-resize.html
+END
+canvas-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/canvas/canvas-test.html
+END

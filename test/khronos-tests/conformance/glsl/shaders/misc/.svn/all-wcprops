@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc
+END
+non-ascii.vert
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc/non-ascii.vert
+END
+non-ascii-comments.vert
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc/non-ascii-comments.vert
+END
+shared-a.frag
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc/shared-a.frag
+END
+shared-b.frag
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc/shared-b.frag
+END
+shared.vert
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc/shared.vert
+END
+00_shaders.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/glsl/shaders/misc/00_shaders.txt
+END

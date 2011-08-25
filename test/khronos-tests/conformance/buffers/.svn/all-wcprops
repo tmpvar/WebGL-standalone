@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers
+END
+index-validation.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/index-validation.html
+END
+buffer-bind-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/buffer-bind-test.html
+END
+index-validation-with-resized-buffer.html
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/index-validation-with-resized-buffer.html
+END
+buffer-data-array-buffer.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/buffer-data-array-buffer.html
+END
+00_test_list.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/00_test_list.txt
+END
+index-validation-verifies-too-many-indices.html
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/index-validation-verifies-too-many-indices.html
+END
+index-validation-copies-indices.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/index-validation-copies-indices.html
+END
+index-validation-crash-with-buffer-sub-data.html
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/repos/!svn/ver/15349/registry/trunk/public/webgl/sdk/tests/conformance/buffers/index-validation-crash-with-buffer-sub-data.html
+END
