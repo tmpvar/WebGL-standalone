@@ -98,13 +98,27 @@ JSBool webgl_rendering_context_blendColor(JSContext *cx, uintN argc, jsval *argv
 }
 
 JSBool webgl_rendering_context_blendEquation(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint mode;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &mode)) {
+    return JS_FALSE;
+  }
+
+  glBlendEquation(mode);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_blendEquationSeparate(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  GLuint modeRGB;
+  GLenum modeAlpha;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &modeRGB, &modeAlpha)) {
+    return JS_FALSE;
+  }
+
+  glBlendEquationSeparate(modeRGB, modeAlpha);
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_blendFunc(JSContext *cx, uintN argc, jsval *argv) {
@@ -121,8 +135,17 @@ JSBool webgl_rendering_context_blendFunc(JSContext *cx, uintN argc, jsval *argv)
 }
 
 JSBool webgl_rendering_context_blendFuncSeparate(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint srcRGB;
+  GLuint dstRGB;
+  GLenum srcAlpha;
+  GLenum dstAlpha;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uuuu", &srcRGB, &dstRGB, &srcAlpha, &dstAlpha)) {
+    return JS_FALSE;
+  }
+
+  glBlendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
+  return JS_TRUE;
 }
 
 
@@ -281,8 +304,14 @@ JSBool webgl_rendering_context_createTexture(JSContext *cx, uintN argc, jsval *a
 
 
 JSBool webgl_rendering_context_cullFace(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint mode;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &mode)) {
+    return JS_FALSE;
+  }
+
+  glCullFace(mode);
+
+  return JS_TRUE;
 }
 
 
@@ -318,8 +347,15 @@ JSBool webgl_rendering_context_deleteTexture(JSContext *cx, uintN argc, jsval *a
 
 
 JSBool webgl_rendering_context_depthFunc(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  GLuint func;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &func)) {
+    return JS_FALSE;
+  }
+
+  glDepthFunc(func);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_depthMask(JSContext *cx, uintN argc, jsval *argv) {
@@ -338,8 +374,15 @@ JSBool webgl_rendering_context_detachShader(JSContext *cx, uintN argc, jsval *ar
 }
 
 JSBool webgl_rendering_context_disable(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLenum cap;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &cap)) {
+    JS_ReportError(cx, "Error in blendFunc");
+    return JS_FALSE;
+  }
+
+  glDisable(cap);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_disableVertexAttribArray(JSContext *cx, uintN argc, jsval *argv) {
@@ -432,8 +475,14 @@ JSBool webgl_rendering_context_framebufferTexture2D(JSContext *cx, uintN argc, j
 }
 
 JSBool webgl_rendering_context_frontFace(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint mode;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &mode)) {
+    return JS_FALSE;
+  }
+
+  glFrontFace(mode);
+
+  return JS_TRUE;
 }
 
 
@@ -477,8 +526,26 @@ JSBool webgl_rendering_context_getAttribLocation(JSContext *cx, uintN argc, jsva
 
 
 JSBool webgl_rendering_context_getParameter(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+
+  GLenum name;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "u", &name)) {
+    return JS_FALSE;
+  }
+
+  const char *value = (const char *)glGetString(name);
+
+  if (value == 0) {
+    // DANGER!
+    JSString *js_value  = JS_NewStringCopyN(cx, "", 0);
+    JS_SET_RVAL(cx, argv, STRING_TO_JSVAL(js_value));
+
+  } else {
+    // DANGER!
+    JSString *js_value  = JS_NewStringCopyN(cx, value, strlen(value));
+    JS_SET_RVAL(cx, argv, STRING_TO_JSVAL(js_value));
+  }
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_getBufferParameter(JSContext *cx, uintN argc, jsval *argv) {
@@ -554,8 +621,16 @@ JSBool webgl_rendering_context_getRenderbufferParameter(JSContext *cx, uintN arg
 }
 
 JSBool webgl_rendering_context_getShaderParameter(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint shader;
+  GLenum pname;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uu", &shader, &pname)) {
+    return JS_FALSE;
+  }
+
+  GLint param;
+  glGetShaderiv(shader, pname, &param);
+  JS_SET_RVAL(cx, argv, INT_TO_JSVAL(param));
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_getShaderInfoLog(JSContext *cx, uintN argc, jsval *argv) {
@@ -855,8 +930,15 @@ JSBool webgl_rendering_context_texSubImage2D(JSContext *cx, uintN argc, jsval *a
 
 
 JSBool webgl_rendering_context_uniform1f(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint location;
+  jsdouble x;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ud", &location, &x)) {
+    return JS_FALSE;
+  }
+
+  glUniform1f(location, x);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_uniform1fv(JSContext *cx, uintN argc, jsval *argv) {
@@ -882,8 +964,15 @@ JSBool webgl_rendering_context_uniform1iv(JSContext *cx, uintN argc, jsval *argv
 }
 
 JSBool webgl_rendering_context_uniform2f(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint location;
+  jsdouble x, y;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "udd", &location, &x, &y)) {
+    return JS_FALSE;
+  }
+
+  glUniform2f(location, x, y);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_uniform2fv(JSContext *cx, uintN argc, jsval *argv) {
@@ -902,13 +991,34 @@ JSBool webgl_rendering_context_uniform2iv(JSContext *cx, uintN argc, jsval *argv
 }
 
 JSBool webgl_rendering_context_uniform3f(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint location;
+  jsdouble x, y, z;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uddd", &location, &x, &y, &z)) {
+    return JS_FALSE;
+  }
+
+  glUniform3f(location, x, y, z);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_uniform3fv(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLenum location;
+  JSObject *array;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uo", &location, &array)) {
+    return JS_FALSE;
+  }
+
+  // TODO: convert it into a typed array?
+  if (!js_IsTypedArray(array)) {
+    return JS_FALSE;
+  }
+
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
+  glUniform3fv(location, tarray->length, (GLfloat *)tarray->data);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_uniform3i(JSContext *cx, uintN argc, jsval *argv) {
@@ -922,8 +1032,15 @@ JSBool webgl_rendering_context_uniform3iv(JSContext *cx, uintN argc, jsval *argv
 }
 
 JSBool webgl_rendering_context_uniform4f(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLuint location;
+  jsdouble x, y, z, w;
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uddd", &location, &x, &y, &z, &w)) {
+    return JS_FALSE;
+  }
+
+  glUniform4f(location, x, y, z, w);
+
+  return JS_TRUE;
 }
 
 JSBool webgl_rendering_context_uniform4fv(JSContext *cx, uintN argc, jsval *argv) {
@@ -953,8 +1070,25 @@ JSBool webgl_rendering_context_uniformMatrix3fv(JSContext *cx, uintN argc, jsval
 }
 
 JSBool webgl_rendering_context_uniformMatrix4fv(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLenum location;
+
+  // TODO: this is currently doing nothing.
+  GLboolean transpose;
+  JSObject *array;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ubo", &location, &transpose, &array)) {
+    return JS_FALSE;
+  }
+
+  // TODO: convert it into a typed array?
+  if (!js_IsTypedArray(array)) {
+    return JS_FALSE;
+  }
+
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
+  glUniform4fv(location, tarray->length, (GLfloat *)tarray->data);
+
+  return JS_TRUE;
 }
 
 
