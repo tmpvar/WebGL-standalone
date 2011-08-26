@@ -6,7 +6,8 @@ var document = {
     return {
       getContext : function() {
         return new WebGLRenderingContext();
-      }
+      },
+      setTransform : function() {}
 
     };
   }
@@ -79,5 +80,10 @@ pointLight.position.z = 130;
 // add to the scene
 scene.addLight(pointLight);
 
+console.log(renderer.render.toString());
 // draw!
-renderer.render(scene, camera);
+var a = 1000;
+while(a--) {
+  renderer.render(scene, camera);
+}
+console.log("HERE");

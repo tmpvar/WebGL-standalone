@@ -11319,7 +11319,6 @@ THREE.WebGLRenderer = function ( parameters ) {
       }
 
     }
-
     var program = material.program,
       p_uniforms = program.uniforms,
       m_uniforms = material.uniforms;
@@ -11330,9 +11329,7 @@ THREE.WebGLRenderer = function ( parameters ) {
       _currentProgram = program;
 
     }
-
     _gl.uniformMatrix4fv( p_uniforms.projectionMatrix, false, _projectionMatrixArray );
-
     // refresh uniforms common to several materials
 
     if ( fog && (
@@ -11347,7 +11344,6 @@ THREE.WebGLRenderer = function ( parameters ) {
       refreshUniformsFog( m_uniforms, fog );
 
     }
-
     if ( material instanceof THREE.MeshPhongMaterial ||
        material instanceof THREE.MeshLambertMaterial ||
        material.lights ) {
@@ -11356,7 +11352,6 @@ THREE.WebGLRenderer = function ( parameters ) {
       refreshUniformsLights( m_uniforms, _lights );
 
     }
-
     if ( material instanceof THREE.MeshBasicMaterial ||
        material instanceof THREE.MeshLambertMaterial ||
        material instanceof THREE.MeshPhongMaterial ) {
@@ -11364,7 +11359,6 @@ THREE.WebGLRenderer = function ( parameters ) {
       refreshUniformsCommon( m_uniforms, material );
 
     }
-
     // refresh single material specific uniforms
 
     if ( material instanceof THREE.LineBasicMaterial ) {
@@ -11400,6 +11394,7 @@ THREE.WebGLRenderer = function ( parameters ) {
     // load common uniforms
 
     loadUniformsGeneric( program, m_uniforms );
+console.log("setProgram");
     loadUniformsMatrices( p_uniforms, object );
 
     // load material specific uniforms
@@ -11429,7 +11424,7 @@ THREE.WebGLRenderer = function ( parameters ) {
       }
 
     }
-
+console.log("setProgram");
     if ( material instanceof THREE.MeshPhongMaterial ||
        material instanceof THREE.MeshLambertMaterial ||
        material instanceof THREE.MeshShaderMaterial ||
@@ -11454,15 +11449,15 @@ THREE.WebGLRenderer = function ( parameters ) {
   };
 
   function renderBuffer( camera, lights, fog, material, geometryGroup, object ) {
-
+console.log('renderBUFFER', material.opacity);
     if ( material.opacity == 0 ) return;
 
     var program, attributes, linewidth, primitives, a, attribute;
-
+console.log('renderBUFFER');
     program = setProgram( camera, lights, fog, material, object );
-
+console.log('renderBUFFER');
     attributes = program.attributes;
-
+console.log('renderBUFFER');
     // vertices
 
     if ( !material.morphTargets && attributes.position >= 0 ) {
@@ -12373,10 +12368,13 @@ THREE.WebGLRenderer = function ( parameters ) {
           for ( i = 0; i < opaque.count; i ++ ) {
 
             material = opaque.list[ i ];
-
+console.log("HERE");
             setDepthTest( material.depthTest );
+            console.log("HERE");
             setPolygonOffset( material.polygonOffset, material.polygonOffsetFactor, material.polygonOffsetUnits );
+            console.log("HERE");
             renderBuffer( camera, lights, fog, material, buffer, object );
+            console.log("HERE");
 
           }
 
