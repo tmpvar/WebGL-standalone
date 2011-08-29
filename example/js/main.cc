@@ -4,9 +4,10 @@
 #ifdef _MSC_VER
 # define XP_WIN
 #endif
-
+#define MOZ_TRACE_JSCALLS
 /* Include the JSAPI header file to get access to SpiderMonkey. */
 #include "../../src/js/spidermonkey.h"
+#include "../../deps/spidermonkey/js/src/jsdbgapi.h"
 #include "WebGL.h"
 #include "module.h"
 #include <stdlib.h>
@@ -25,6 +26,58 @@ static JSClass global_class = {
 JSRuntime *rt = NULL;
 JSContext *cx = NULL;
 JSObject  *global = NULL;
+int depth = 0;
+void funcTransition(const JSFunction *func,
+                    const JSScript *scr,
+                    const JSContext *const_cx,
+                    JSBool entering)
+{
+  JSContext *icx = const_cast<JSContext*>(const_cx);
+  if (!func) {
+    return;
+  }
+
+  JSString *name = JS_GetFunctionId((JSFunction*)func);
+  const char *entExit;
+  const char *nameStr;
+
+  /* build a C string for the function's name */
+
+  if (!name) {
+    nameStr = "Unnamed function";
+  } else {
+    nameStr = JS_EncodeString(icx, name);
+  }
+
+  /* build a string for whether we're entering or exiting */
+
+  if (entering) {
+    entExit = "Entering";
+    depth+=2;
+  } else {
+    depth-=2;
+    entExit = "Exiting";
+  }
+
+  /* build a string for the file and line */
+  JSScript *fnScript = JS_GetFunctionScript(icx, (JSFunction*)func);
+
+  if (!fnScript) {
+    return;
+  }
+
+  const char *filename = JS_GetScriptFilename(icx, fnScript);
+  uintN line = JS_GetScriptBaseLineNumber(icx, fnScript);
+
+  char *pad = (char*)malloc((sizeof(char)*depth)+1);
+  memset(pad, ' ', depth);
+  pad[depth] = 0;
+  /* output information about the trace */
+  cout << pad << nameStr << "@" << clock() << " in " << filename << line << endl;
+
+  free(pad);
+}
+
 
 void c_exit(int code) {
   if (cx != NULL) {
@@ -49,10 +102,12 @@ JSBool js_get_file_contents(JSContext *cx, uintN argc, jsval *argv) {
     return JS_FALSE;
   }
 
+  cout << "Loading File: " << filename_string << endl;
   const char *filename = JS_EncodeString(cx, filename_string);
 
   char *file_contents_char = getFileContents(filename);
   if (file_contents_char == NULL) {
+    cout << "Could not load" << endl;
     return JS_FALSE;
   }
 
@@ -133,6 +188,7 @@ JSBool js_readimage(JSContext *cx, uintN argc, jsval *argv) {
 }
 
 JSBool js_abort(JSContext *cx, uintN argc, jsval *argv) {
+  cout << "Aborting" << endl;
   c_exit(-1);
 }
 
@@ -358,7 +414,7 @@ int main(int argc, char **argv)
 
     JS_SetOptions(cx, JSOPTION_VAROBJFIX | JSOPTION_JIT | JSOPTION_METHODJIT);
     JS_SetVersion(cx, JSVERSION_LATEST);
-    JS_SetErrorReporter(cx, reportError);
+    //JS_SetErrorReporter(cx, reportError);
 
     global = JS_NewCompartmentAndGlobalObject(cx, &global_class, NULL);
 
@@ -377,6 +433,8 @@ int main(int argc, char **argv)
       c_exit(EXIT_FAILURE);
 
     setupGlobals(cx, global);
+
+    JS_SetFunctionCallback(cx, funcTransition);
 
     glfwInit();
 

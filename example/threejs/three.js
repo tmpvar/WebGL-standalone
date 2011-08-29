@@ -2323,7 +2323,7 @@ THREE.Quaternion.prototype = {
 
   },
 
-  calculateW : function () {
+  calculateW : function calculateW () {
 
     this.w = - Math.sqrt( Math.abs( 1.0 - this.x * this.x - this.y * this.y - this.z * this.z ) );
 
@@ -3982,7 +3982,7 @@ THREE.ParticleCanvasMaterial = function ( parameters ) {
   parameters = parameters || {};
 
   this.color = parameters.color !== undefined ? new THREE.Color( parameters.color ) : new THREE.Color( 0xffffff );
-  this.program = parameters.program !== undefined ? parameters.program : function ( context, color ) {};
+  this.program = parameters.program !== undefined ? parameters.program : function program ( context, color ) {};
 
 };
 
@@ -12194,7 +12194,7 @@ console.log('renderBUFFER');
 
   };
 
-  this.render = function( scene, camera, renderTarget, forceClear ) {
+  this.render = function render( scene, camera, renderTarget, forceClear ) {
 
     var i, program, opaque, transparent, material,
       o, ol, oil, webglObject, object, buffer,
@@ -13788,6 +13788,7 @@ console.log("HERE");
     for( i = 0, l = identifiers.length; i < l; i++ ) {
 
       id = identifiers[ i ];
+      console.log(id);
       program.uniforms[ id ] = _gl.getUniformLocation( program, id );
 
     }
@@ -14303,7 +14304,7 @@ THREE.RenderableLine = function () {
 
 THREE.ColorUtils = {
 
-  adjustHSV : function ( color, h, s, v ) {
+  adjustHSV : function adjustHSV ( color, h, s, v ) {
 
     var hsv = THREE.ColorUtils.__hsv;
 
@@ -14319,7 +14320,7 @@ THREE.ColorUtils = {
 
   // based on MochiKit implementation by Bob Ippolito
 
-  rgbToHsv : function ( color, hsv ) {
+  rgbToHsv : function rgbToHsv ( color, hsv ) {
 
     var r = color.r;
     var g = color.g;
@@ -14886,13 +14887,13 @@ THREE.ImageUtils = {
 
 THREE.SceneUtils = {
 
-  showHierarchy : function ( root, visible ) {
+  showHierarchy : function showHierarchy ( root, visible ) {
 
     THREE.SceneUtils.traverseHierarchy( root, function( node ) { node.visible = visible; } );
 
   },
 
-  traverseHierarchy : function ( root, callback ) {
+  traverseHierarchy : function traverseHierarchy ( root, callback ) {
 
     var n, i, l = root.children.length;
 
@@ -20019,7 +20020,7 @@ THREE.Shape.Utils = {
   }, // end triangulate shapes
 
   /*
-  triangulate2 : function( pts, holes ) {
+  triangulate2 : function triangulate2 ( pts, holes ) {
 
     // For use with Poly2Tri.js
 
@@ -21798,7 +21799,7 @@ THREE.FontUtils = {
   size : 150,
   divisions : 10,
 
-  getFace : function() {
+  getFace : function getFace () {
 
     return this.faces[ this.face ][ this.weight ][ this.style ];
 
@@ -21812,7 +21813,7 @@ THREE.FontUtils = {
 
   },
 
-  loadFace : function( data ) {
+  loadFace : function loadFace ( data ) {
 
     var family = data.familyName.toLowerCase();
 
@@ -21831,7 +21832,7 @@ THREE.FontUtils = {
 
 /* LEGACY CODE
 
-  extractPoints : function( allPoints, charactersPoints ) {
+  extractPoints : function extractPoints ( allPoints, charactersPoints ) {
 
     // Quick exit
 
@@ -22186,7 +22187,7 @@ THREE.FontUtils = {
 
   },*/
 
-  drawText : function( text ) {
+  drawText : function drawText ( text ) {
 
     var characterPts = [], allPts = [];
 
@@ -22236,7 +22237,7 @@ THREE.FontUtils = {
 
 
 
-  extractGlyphPoints : function( c, face, scale, offset, path ) {
+  extractGlyphPoints : function extractGlyphPoints ( c, face, scale, offset, path ) {
 
     var pts = [];
 
@@ -24331,7 +24332,7 @@ THREE.SceneLoader = function () {
 
 THREE.SceneLoader.prototype = {
 
-  load : function ( url, callbackFinished ) {
+  load : function load ( url, callbackFinished ) {
 
     var scope = this;
 

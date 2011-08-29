@@ -86,6 +86,7 @@
 #define JS_TRACER 1
 #define MALLOC_H <malloc/malloc.h>
 #define MOZ_DLL_SUFFIX ".dylib"
+#define MOZ_TRACE_JSCALLS 1
 #define NEED_CPP_UNUSED_IMPLEMENTATIONS 1
 #define NEW_H <new>
 #define NS_ALWAYS_INLINE __attribute__((always_inline))

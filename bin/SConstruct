@@ -18,7 +18,7 @@ FRAMEWORKS = ['OpenGL', 'Cocoa']
 
 # Configure spidermonkey
 if not path.isfile(path.join(spidermonkey_src, 'Makefile')):
-  spidermonkey_configure = [path.join(spidermonkey_src, 'configure'),'--disable-shared-js']
+  spidermonkey_configure = [path.join(spidermonkey_src, 'configure'),'--disable-shared-js', '--enable-trace-jscalls']
   subprocess.call(spidermonkey_configure, cwd=spidermonkey_src)
 
 # Make spidermonkey

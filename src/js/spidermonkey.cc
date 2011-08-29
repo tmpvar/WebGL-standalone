@@ -517,7 +517,9 @@ JSBool webgl_rendering_context_getAttribLocation(JSContext *cx, uintN argc, jsva
   }
 
   const char *attr = JS_EncodeString(cx, js_attr);
+
   GLint ret = glGetAttribLocation(program, attr);
+  cout << "attrib-:" << attr << " result:" << ret << " " << glGetError() << endl;
   JS_free(cx, (void *)attr);
 
   JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));

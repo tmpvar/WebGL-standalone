@@ -2,6 +2,7 @@
 #define _INCLUDE_Spidermonkey_
 
   #include "../../deps/spidermonkey/js/src/jsapi.h"
+  #include "../../deps/spidermonkey/js/src/jsdbgapi.h"
   #include "../../deps/spidermonkey/js/src/jstypedarray.h"
   #include "../arch/wrapper.h"
 

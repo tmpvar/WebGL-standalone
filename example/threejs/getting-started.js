@@ -80,10 +80,19 @@ pointLight.position.z = 130;
 // add to the scene
 scene.addLight(pointLight);
 
-console.log(renderer.render.toString());
+function render() {
+  renderer.render(scene, camera);
+}
+
 // draw!
 var a = 1000;
 while(a--) {
-  renderer.render(scene, camera);
+  try {
+    render();
+  } catch (e) {
+    console.log(e.stack);
+    fail();
+  }
+  console.log('-------------------------------------------------------------\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 }
 console.log("HERE");
