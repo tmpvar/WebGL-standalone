@@ -2,3 +2,17 @@
 .DS_Store
 .sconsign.dblite
 gmon.out
+deps/spidermonkey/js/src/.deps
+deps/spidermonkey/js/src/jsapi-tests/.deps
+deps/spidermonkey/js/src/jscpucfg.dSYM
+deps/spidermonkey/js/src/config.log
+deps/spidermonkey/js/src/config.status
+deps/spidermonkey/js/src/config/autoconf.mk
+deps/spidermonkey/js/src/config/nsinstall
+deps/spidermonkey/js/src/editline/libeditline.a
+deps/spidermonkey/js/src/host_jskwgen
+deps/spidermonkey/js/src/host_jsoplengen
+deps/spidermonkey/js/src/js-confdefs.h
+deps/spidermonkey/js/src/jscpucfg
+deps/spidermonkey/js/src/libjs_static.a
+deps/spidermonkey/js/src/shell/js

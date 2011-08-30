@@ -32,6 +32,7 @@ void funcTransition(const JSFunction *func,
                     const JSContext *const_cx,
                     JSBool entering)
 {
+  return;
   JSContext *icx = const_cast<JSContext*>(const_cx);
   if (!func) {
     return;
@@ -414,7 +415,7 @@ int main(int argc, char **argv)
 
     JS_SetOptions(cx, JSOPTION_VAROBJFIX | JSOPTION_JIT | JSOPTION_METHODJIT);
     JS_SetVersion(cx, JSVERSION_LATEST);
-    //JS_SetErrorReporter(cx, reportError);
+    JS_SetErrorReporter(cx, reportError);
 
     global = JS_NewCompartmentAndGlobalObject(cx, &global_class, NULL);
 
@@ -442,8 +443,22 @@ int main(int argc, char **argv)
 
     ok = JS_EvaluateScript(cx, global, script, strlen(script),
                            filename, lineno, &rval);
-
+    cout << "eval script" << ok << endl;
     delete [] script;
+
+    if (!ok) {
+      jsval exn;
+      if (JS_GetPendingException(cx, &exn)){
+        JSString *str = JS_ValueToString(cx, exn);
+        const char *exnString = JS_EncodeString(cx, str);
+        cout << "Execution exception:" <<  exnString << endl;
+
+        return -1;
+      }
+
+
+
+    }
 
     if (rval == NULL || rval == JS_FALSE)
     c_exit(EXIT_SUCCESS);

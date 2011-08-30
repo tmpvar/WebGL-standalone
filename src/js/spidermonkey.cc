@@ -944,8 +944,18 @@ JSBool webgl_rendering_context_uniform1f(JSContext *cx, uintN argc, jsval *argv)
 }
 
 JSBool webgl_rendering_context_uniform1fv(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
+  GLenum location;
+  JSObject *obj;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uo", &location, &obj)) {
+    return JS_FALSE;
+  }
+
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(obj);
+  glUniform1fv(location, tarray->length, (GLfloat *)tarray->data);
+
+  return JS_TRUE;
+
 }
 
 JSBool webgl_rendering_context_uniform1i(JSContext *cx, uintN argc, jsval *argv) {
@@ -1006,18 +1016,13 @@ JSBool webgl_rendering_context_uniform3f(JSContext *cx, uintN argc, jsval *argv)
 
 JSBool webgl_rendering_context_uniform3fv(JSContext *cx, uintN argc, jsval *argv) {
   GLenum location;
-  JSObject *array;
+  JSObject *obj;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uo", &location, &array)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uo", &location, &obj)) {
     return JS_FALSE;
   }
 
-  // TODO: convert it into a typed array?
-  if (!js_IsTypedArray(array)) {
-    return JS_FALSE;
-  }
-
-  js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(obj);
   glUniform3fv(location, tarray->length, (GLfloat *)tarray->data);
 
   return JS_TRUE;
@@ -1067,28 +1072,31 @@ JSBool webgl_rendering_context_uniformMatrix2fv(JSContext *cx, uintN argc, jsval
 }
 
 JSBool webgl_rendering_context_uniformMatrix3fv(JSContext *cx, uintN argc, jsval *argv) {
-  JS_ReportError(cx, "method not implemented");
-  return JS_FALSE;
-}
-
-JSBool webgl_rendering_context_uniformMatrix4fv(JSContext *cx, uintN argc, jsval *argv) {
   GLenum location;
-
-  // TODO: this is currently doing nothing.
-  GLboolean transpose;
+  JSBool transpose;
   JSObject *array;
 
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ubo", &location, &transpose, &array)) {
     return JS_FALSE;
   }
 
-  // TODO: convert it into a typed array?
-  if (!js_IsTypedArray(array)) {
+  js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
+  glUniformMatrix3fv(location, tarray->length, (GLboolean)transpose, (GLfloat *)tarray->data);
+
+  return JS_TRUE;
+}
+
+JSBool webgl_rendering_context_uniformMatrix4fv(JSContext *cx, uintN argc, jsval *argv) {
+  GLenum location;
+  JSBool transpose;
+  JSObject *array;
+
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "ubo", &location, &transpose, &array)) {
     return JS_FALSE;
   }
 
   js::TypedArray *tarray = js::TypedArray::fromJSObject(array);
-  glUniform4fv(location, tarray->length, (GLfloat *)tarray->data);
+  glUniformMatrix4fv(location, tarray->length, (GLboolean)transpose, (GLfloat *)tarray->data);
 
   return JS_TRUE;
 }
@@ -1158,7 +1166,7 @@ JSBool webgl_rendering_context_vertexAttribPointer(JSContext *cx, uintN argc, js
   GLuint attr;
   GLint size;
   GLenum type;
-  GLboolean normalized;
+  JSBool normalized;
   GLsizei stride;
   // TODO: how do you calculate a pointer here?
   int offset;
@@ -1167,7 +1175,7 @@ JSBool webgl_rendering_context_vertexAttribPointer(JSContext *cx, uintN argc, js
     return JS_FALSE;
   }
 
-  glVertexAttribPointer(attr, size, type, normalized, stride, (void *)offset);
+  glVertexAttribPointer(attr, size, type, (GLboolean)normalized, stride, (void *)offset);
 
   return JS_TRUE;
 }
