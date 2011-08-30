@@ -4,6 +4,8 @@
   #include <assert.h>
   using namespace std;
 
+  #define BUFFER_OFFSET(i) ((char*)NULL + (i))
+
   #ifdef __APPLE__
     #include "../../deps/glfw/include/GL/glfw.h"
     #include <OpenGL/OpenGL.h>

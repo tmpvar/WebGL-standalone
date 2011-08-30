@@ -404,7 +404,7 @@ int main(int argc, char **argv)
     char *script = getFileContents(filename);
 
     /* Create a JS runtime. You always need at least one runtime per process. */
-    rt = JS_NewRuntime(8 * 1024 * 1024);
+    rt = JS_NewRuntime(67108864);
     if (rt == NULL)
         c_exit(EXIT_FAILURE);
 
@@ -443,7 +443,7 @@ int main(int argc, char **argv)
 
     ok = JS_EvaluateScript(cx, global, script, strlen(script),
                            filename, lineno, &rval);
-    cout << "eval script" << ok << endl;
+    cout << "script result: " << ok << endl;
     delete [] script;
 
     if (!ok) {

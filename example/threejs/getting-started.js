@@ -12,7 +12,9 @@ var document = {
     };
   }
 };
-var navigator = {};
+var navigator = {
+  userAgent : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.215 Safari/535.1'
+};
 
 var WebGLRenderingContext = require('../lib/webgl.js').WebGLRenderingContext;
 
@@ -85,7 +87,7 @@ function render() {
 }
 
 // draw!
-var a = 1000;
+var a = 30;
 while(a--) {
   try {
     render();
@@ -93,6 +95,6 @@ while(a--) {
     console.log(e.stack);
     fail();
   }
-  console.log('-------------------------------------------------------------\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+  webgl_rendering_context_flush();
+  webgl_rendering_context_finish();
 }
-console.log("HERE");

@@ -150,18 +150,11 @@ JSBool webgl_rendering_context_blendFuncSeparate(JSContext *cx, uintN argc, jsva
 
 
 JSBool webgl_rendering_context_bufferData(JSContext *cx, uintN argc, jsval *argv) {
-
-
   GLenum target;
   JSObject *array;
   GLenum usage;
 
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uou", &target, &array, &usage)) {
-    return JS_FALSE;
-  }
-
-  // TODO: convert it into a typed array?
-  if (!js_IsTypedArray(array)) {
     return JS_FALSE;
   }
 
@@ -415,14 +408,15 @@ JSBool webgl_rendering_context_drawArrays(JSContext *cx, uintN argc, jsval *argv
 JSBool webgl_rendering_context_drawElements(JSContext *cx, uintN argc, jsval *argv) {
 
   GLenum mode;
-  GLint first;
   GLsizei count;
+  GLenum type;
+  GLint offset;
 
-  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uii", &mode, &first, &count)) {
+  if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uiui", &mode, &count, &type, &offset)) {
     return JS_FALSE;
   }
 
-  //glDrawElements(mode, first, count);
+  glDrawElements(mode, count, type, (void *)offset);
 
   return JS_TRUE;
 }
@@ -517,9 +511,7 @@ JSBool webgl_rendering_context_getAttribLocation(JSContext *cx, uintN argc, jsva
   }
 
   const char *attr = JS_EncodeString(cx, js_attr);
-
   GLint ret = glGetAttribLocation(program, attr);
-  cout << "attrib-:" << attr << " result:" << ret << " " << glGetError() << endl;
   JS_free(cx, (void *)attr);
 
   JS_SET_RVAL(cx, argv, INT_TO_JSVAL(ret));
@@ -858,7 +850,7 @@ JSBool webgl_rendering_context_texImage2D(JSContext *cx, uintN argc, jsval *argv
 
 
 JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval *argv) {
-
+  cout << "gere" << endl;
   GLenum target;
   GLint level;
   GLint internalFormat;
@@ -1168,8 +1160,7 @@ JSBool webgl_rendering_context_vertexAttribPointer(JSContext *cx, uintN argc, js
   GLenum type;
   JSBool normalized;
   GLsizei stride;
-  // TODO: how do you calculate a pointer here?
-  int offset;
+  GLint offset;
 
   if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, argv), "uiubii", &attr, &size, &type, &normalized, &stride, &offset)) {
     return JS_FALSE;

@@ -8825,7 +8825,7 @@ THREE.WebGLRenderer = function ( parameters ) {
     drawCalls: 0
 
   };
-
+  window.programs = _programs;
   this.maxMorphTargets = 8;
   this.domElement = _canvas;
   this.autoClear = true;
@@ -11449,15 +11449,11 @@ console.log("setProgram");
   };
 
   function renderBuffer( camera, lights, fog, material, geometryGroup, object ) {
-console.log('renderBUFFER', material.opacity);
     if ( material.opacity == 0 ) return;
 
     var program, attributes, linewidth, primitives, a, attribute;
-console.log('renderBUFFER');
     program = setProgram( camera, lights, fog, material, object );
-console.log('renderBUFFER');
     attributes = program.attributes;
-console.log('renderBUFFER');
     // vertices
 
     if ( !material.morphTargets && attributes.position >= 0 ) {
@@ -11569,7 +11565,7 @@ console.log('renderBUFFER');
 
     if ( attributes.uv2 >= 0 ) {
 
-      if ( geometryGroup.__webglUV2Buffer ) {
+      if ( geometryGroup.__webglUV2Buffer && false) {
 
         _gl.bindBuffer( _gl.ARRAY_BUFFER, geometryGroup.__webglUV2Buffer );
         _gl.vertexAttribPointer( attributes.uv2, 2, _gl.FLOAT, false, 0, 0 );
@@ -12366,20 +12362,12 @@ console.log('renderBUFFER');
           setObjectFaces( object );
 
           for ( i = 0; i < opaque.count; i ++ ) {
-
             material = opaque.list[ i ];
-console.log("HERE");
             setDepthTest( material.depthTest );
-            console.log("HERE");
             setPolygonOffset( material.polygonOffset, material.polygonOffsetFactor, material.polygonOffsetUnits );
-            console.log("HERE");
             renderBuffer( camera, lights, fog, material, buffer, object );
-            console.log("HERE");
-
           }
-
         }
-
       }
 
       // opaque pass (immediate simulator)
