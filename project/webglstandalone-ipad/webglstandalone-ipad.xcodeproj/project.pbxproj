@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06D32A31140DD02F00725E8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A30140DD02F00725E8F /* UIKit.framework */; };
+		06D32A33140DD02F00725E8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A32140DD02F00725E8F /* Foundation.framework */; };
+		06D32A35140DD02F00725E8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A34140DD02F00725E8F /* CoreGraphics.framework */; };
+		06D32A37140DD02F00725E8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A36140DD02F00725E8F /* QuartzCore.framework */; };
+		06D32A39140DD02F00725E8F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A38140DD02F00725E8F /* OpenGLES.framework */; };
+		06D32A3F140DD02F00725E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06D32A3D140DD02F00725E8F /* InfoPlist.strings */; };
+		06D32A42140DD02F00725E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D32A41140DD02F00725E8F /* main.m */; };
+		06D32A45140DD02F00725E8F /* webglstandalone_ipadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D32A44140DD02F00725E8F /* webglstandalone_ipadAppDelegate.m */; };
+		06D32A48140DD02F00725E8F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D32A46140DD02F00725E8F /* MainWindow.xib */; };
+		06D32A4A140DD02F00725E8F /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 06D32A49140DD02F00725E8F /* Shader.fsh */; };
+		06D32A4C140DD02F00725E8F /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 06D32A4B140DD02F00725E8F /* Shader.vsh */; };
+		06D32A4F140DD02F00725E8F /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D32A4E140DD02F00725E8F /* EAGLView.m */; };
+		06D32A52140DD02F00725E8F /* webglstandalone_ipadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D32A51140DD02F00725E8F /* webglstandalone_ipadViewController.m */; };
+		06D32A55140DD02F00725E8F /* webglstandalone_ipadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D32A53140DD02F00725E8F /* webglstandalone_ipadViewController.xib */; };
+		06D32A5C140DD0D700725E8F /* libWebGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A5B140DD0D700725E8F /* libWebGL.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06D32A2C140DD02F00725E8F /* webglstandalone-ipad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "webglstandalone-ipad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06D32A30140DD02F00725E8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		06D32A32140DD02F00725E8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		06D32A34140DD02F00725E8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		06D32A36140DD02F00725E8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		06D32A38140DD02F00725E8F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		06D32A3C140DD02F00725E8F /* webglstandalone-ipad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "webglstandalone-ipad-Info.plist"; sourceTree = "<group>"; };
+		06D32A3E140DD02F00725E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06D32A40140DD02F00725E8F /* webglstandalone-ipad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "webglstandalone-ipad-Prefix.pch"; sourceTree = "<group>"; };
+		06D32A41140DD02F00725E8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		06D32A43140DD02F00725E8F /* webglstandalone_ipadAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webglstandalone_ipadAppDelegate.h; sourceTree = "<group>"; };
+		06D32A44140DD02F00725E8F /* webglstandalone_ipadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webglstandalone_ipadAppDelegate.m; sourceTree = "<group>"; };
+		06D32A47140DD02F00725E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		06D32A49140DD02F00725E8F /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		06D32A4B140DD02F00725E8F /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		06D32A4D140DD02F00725E8F /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		06D32A4E140DD02F00725E8F /* EAGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		06D32A50140DD02F00725E8F /* webglstandalone_ipadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webglstandalone_ipadViewController.h; sourceTree = "<group>"; };
+		06D32A51140DD02F00725E8F /* webglstandalone_ipadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webglstandalone_ipadViewController.m; sourceTree = "<group>"; };
+		06D32A54140DD02F00725E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/webglstandalone_ipadViewController.xib; sourceTree = "<group>"; };
+		06D32A5B140DD0D700725E8F /* libWebGL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWebGL.a; path = ../../build/libWebGL.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06D32A29140DD02F00725E8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06D32A5C140DD0D700725E8F /* libWebGL.a in Frameworks */,
+				06D32A31140DD02F00725E8F /* UIKit.framework in Frameworks */,
+				06D32A33140DD02F00725E8F /* Foundation.framework in Frameworks */,
+				06D32A35140DD02F00725E8F /* CoreGraphics.framework in Frameworks */,
+				06D32A37140DD02F00725E8F /* QuartzCore.framework in Frameworks */,
+				06D32A39140DD02F00725E8F /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06D32A21140DD02F00725E8F = {
+			isa = PBXGroup;
+			children = (
+				06D32A5B140DD0D700725E8F /* libWebGL.a */,
+				06D32A3A140DD02F00725E8F /* webglstandalone-ipad */,
+				06D32A2F140DD02F00725E8F /* Frameworks */,
+				06D32A2D140DD02F00725E8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		06D32A2D140DD02F00725E8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06D32A2C140DD02F00725E8F /* webglstandalone-ipad.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06D32A2F140DD02F00725E8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06D32A30140DD02F00725E8F /* UIKit.framework */,
+				06D32A32140DD02F00725E8F /* Foundation.framework */,
+				06D32A34140DD02F00725E8F /* CoreGraphics.framework */,
+				06D32A36140DD02F00725E8F /* QuartzCore.framework */,
+				06D32A38140DD02F00725E8F /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06D32A3A140DD02F00725E8F /* webglstandalone-ipad */ = {
+			isa = PBXGroup;
+			children = (
+				06D32A43140DD02F00725E8F /* webglstandalone_ipadAppDelegate.h */,
+				06D32A44140DD02F00725E8F /* webglstandalone_ipadAppDelegate.m */,
+				06D32A46140DD02F00725E8F /* MainWindow.xib */,
+				06D32A49140DD02F00725E8F /* Shader.fsh */,
+				06D32A4B140DD02F00725E8F /* Shader.vsh */,
+				06D32A4D140DD02F00725E8F /* EAGLView.h */,
+				06D32A4E140DD02F00725E8F /* EAGLView.m */,
+				06D32A50140DD02F00725E8F /* webglstandalone_ipadViewController.h */,
+				06D32A51140DD02F00725E8F /* webglstandalone_ipadViewController.m */,
+				06D32A53140DD02F00725E8F /* webglstandalone_ipadViewController.xib */,
+				06D32A3B140DD02F00725E8F /* Supporting Files */,
+			);
+			path = "webglstandalone-ipad";
+			sourceTree = "<group>";
+		};
+		06D32A3B140DD02F00725E8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06D32A3C140DD02F00725E8F /* webglstandalone-ipad-Info.plist */,
+				06D32A3D140DD02F00725E8F /* InfoPlist.strings */,
+				06D32A40140DD02F00725E8F /* webglstandalone-ipad-Prefix.pch */,
+				06D32A41140DD02F00725E8F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		06D32A2B140DD02F00725E8F /* webglstandalone-ipad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06D32A58140DD02F00725E8F /* Build configuration list for PBXNativeTarget "webglstandalone-ipad" */;
+			buildPhases = (
+				06D32A28140DD02F00725E8F /* Sources */,
+				06D32A29140DD02F00725E8F /* Frameworks */,
+				06D32A2A140DD02F00725E8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "webglstandalone-ipad";
+			productName = "webglstandalone-ipad";
+			productReference = 06D32A2C140DD02F00725E8F /* webglstandalone-ipad.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06D32A23140DD02F00725E8F /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 06D32A26140DD02F00725E8F /* Build configuration list for PBXProject "webglstandalone-ipad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 06D32A21140DD02F00725E8F;
+			productRefGroup = 06D32A2D140DD02F00725E8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06D32A2B140DD02F00725E8F /* webglstandalone-ipad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06D32A2A140DD02F00725E8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06D32A3F140DD02F00725E8F /* InfoPlist.strings in Resources */,
+				06D32A48140DD02F00725E8F /* MainWindow.xib in Resources */,
+				06D32A4A140DD02F00725E8F /* Shader.fsh in Resources */,
+				06D32A4C140DD02F00725E8F /* Shader.vsh in Resources */,
+				06D32A55140DD02F00725E8F /* webglstandalone_ipadViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06D32A28140DD02F00725E8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06D32A42140DD02F00725E8F /* main.m in Sources */,
+				06D32A45140DD02F00725E8F /* webglstandalone_ipadAppDelegate.m in Sources */,
+				06D32A4F140DD02F00725E8F /* EAGLView.m in Sources */,
+				06D32A52140DD02F00725E8F /* webglstandalone_ipadViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		06D32A3D140DD02F00725E8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06D32A3E140DD02F00725E8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		06D32A46140DD02F00725E8F /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06D32A47140DD02F00725E8F /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		06D32A53140DD02F00725E8F /* webglstandalone_ipadViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06D32A54140DD02F00725E8F /* en */,
+			);
+			name = webglstandalone_ipadViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		06D32A56140DD02F00725E8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		06D32A57140DD02F00725E8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		06D32A59140DD02F00725E8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "webglstandalone-ipad/webglstandalone-ipad-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../\"/**";
+				INFOPLIST_FILE = "webglstandalone-ipad/webglstandalone-ipad-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		06D32A5A140DD02F00725E8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "webglstandalone-ipad/webglstandalone-ipad-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../\"/**";
+				INFOPLIST_FILE = "webglstandalone-ipad/webglstandalone-ipad-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06D32A26140DD02F00725E8F /* Build configuration list for PBXProject "webglstandalone-ipad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06D32A56140DD02F00725E8F /* Debug */,
+				06D32A57140DD02F00725E8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06D32A58140DD02F00725E8F /* Build configuration list for PBXNativeTarget "webglstandalone-ipad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06D32A59140DD02F00725E8F /* Debug */,
+				06D32A5A140DD02F00725E8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06D32A23140DD02F00725E8F /* Project object */;
+}

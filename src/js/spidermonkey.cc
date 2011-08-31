@@ -1,6 +1,8 @@
 #include "spidermonkey.h"
 #include "../arch/wrapper.h"
 
+
+
 JSBool webgl_rendering_context_getContextAttributes(JSContext *cx, uintN argc, jsval *argv) {
   JS_ReportError(cx, "method not implemented");
   return JS_FALSE;
