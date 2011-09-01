@@ -212,7 +212,11 @@ JSBool webgl_rendering_context_clearDepth(JSContext *cx, uintN argc, jsval *argv
     return JS_FALSE;
   }
 
-  glClearDepth(clampd);
+  #ifdef GL_ES_VERSION_2_0
+    glClearDepthf((float)clampd);
+  #else
+    glClearDepth(clampd);
+  #endif
 
   return JS_TRUE;
 }
@@ -456,7 +460,9 @@ JSBool webgl_rendering_context_finish(JSContext *cx, uintN argc, jsval *argv) {
 JSBool webgl_rendering_context_flush(JSContext *cx, uintN argc, jsval *argv) {
   // TODO: make this more flexible?
   // Swap front and back rendering buffers
-  glfwSwapBuffers();
+  #ifdef TARGET_DESKTOP  
+    glfwSwapBuffers();
+  #endif
   return JS_TRUE;
 }
 
@@ -852,7 +858,6 @@ JSBool webgl_rendering_context_texImage2D(JSContext *cx, uintN argc, jsval *argv
 
 
 JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval *argv) {
-  cout << "gere" << endl;
   GLenum target;
   GLint level;
   GLint internalFormat;
@@ -878,12 +883,6 @@ JSBool webgl_rendering_context_texImage2D_Image(JSContext *cx, uintN argc, jsval
     return JS_FALSE;
   }
   int height = JSVAL_TO_INT(js_height);
-
-  jsval js_bytesPerPixel;
-  if (!JS_GetProperty(cx, image, "bytesPerPixel", &js_bytesPerPixel)) {
-    return JS_FALSE;
-  }
-  int bytesPerPixel = JSVAL_TO_INT(js_bytesPerPixel);
 
   jsval js_data;
   if (!JS_GetProperty(cx, image, "data", &js_data)) {

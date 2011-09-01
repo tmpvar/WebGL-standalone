@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06CE7169140F1AC400E78953 /* spidermonkey.cc in Sources */ = {isa = PBXBuildFile; fileRef = 06CE7167140F1AC400E78953 /* spidermonkey.cc */; };
+		06CE716B140F21B200E78953 /* libiMonkey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CE716A140F21B200E78953 /* libiMonkey.a */; };
 		06D32A31140DD02F00725E8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A30140DD02F00725E8F /* UIKit.framework */; };
 		06D32A33140DD02F00725E8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A32140DD02F00725E8F /* Foundation.framework */; };
 		06D32A35140DD02F00725E8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A34140DD02F00725E8F /* CoreGraphics.framework */; };
@@ -21,10 +23,24 @@
 		06D32A4F140DD02F00725E8F /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D32A4E140DD02F00725E8F /* EAGLView.m */; };
 		06D32A52140DD02F00725E8F /* webglstandalone_ipadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D32A51140DD02F00725E8F /* webglstandalone_ipadViewController.m */; };
 		06D32A55140DD02F00725E8F /* webglstandalone_ipadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D32A53140DD02F00725E8F /* webglstandalone_ipadViewController.xib */; };
-		06D32A5C140DD0D700725E8F /* libWebGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D32A5B140DD0D700725E8F /* libWebGL.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		06CE7163140F1A2000E78953 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06CE715C140F1A1F00E78953 /* iMonkey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27167EB413C4E4D3001CC5B6;
+			remoteInfo = iMonkey;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		06CE715C140F1A1F00E78953 /* iMonkey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iMonkey.xcodeproj; path = ../../../iMonkey/iMonkey.xcodeproj; sourceTree = "<group>"; };
+		06CE7166140F1AC400E78953 /* wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wrapper.h; path = ../../src/arch/wrapper.h; sourceTree = "<group>"; };
+		06CE7167140F1AC400E78953 /* spidermonkey.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spidermonkey.cc; path = ../../src/js/spidermonkey.cc; sourceTree = "<group>"; };
+		06CE7168140F1AC400E78953 /* spidermonkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spidermonkey.h; path = ../../src/js/spidermonkey.h; sourceTree = "<group>"; };
+		06CE716A140F21B200E78953 /* libiMonkey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libiMonkey.a; sourceTree = SOURCE_ROOT; };
 		06D32A2C140DD02F00725E8F /* webglstandalone-ipad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "webglstandalone-ipad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06D32A30140DD02F00725E8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		06D32A32140DD02F00725E8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,7 +61,6 @@
 		06D32A50140DD02F00725E8F /* webglstandalone_ipadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webglstandalone_ipadViewController.h; sourceTree = "<group>"; };
 		06D32A51140DD02F00725E8F /* webglstandalone_ipadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webglstandalone_ipadViewController.m; sourceTree = "<group>"; };
 		06D32A54140DD02F00725E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/webglstandalone_ipadViewController.xib; sourceTree = "<group>"; };
-		06D32A5B140DD0D700725E8F /* libWebGL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWebGL.a; path = ../../build/libWebGL.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06D32A5C140DD0D700725E8F /* libWebGL.a in Frameworks */,
+				06CE716B140F21B200E78953 /* libiMonkey.a in Frameworks */,
 				06D32A31140DD02F00725E8F /* UIKit.framework in Frameworks */,
 				06D32A33140DD02F00725E8F /* Foundation.framework in Frameworks */,
 				06D32A35140DD02F00725E8F /* CoreGraphics.framework in Frameworks */,
@@ -65,13 +80,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06CE715D140F1A1F00E78953 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06CE7164140F1A2000E78953 /* libiMonkey.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06CE7165140F1A9200E78953 /* webgl */ = {
+			isa = PBXGroup;
+			children = (
+				06CE7166140F1AC400E78953 /* wrapper.h */,
+				06CE7167140F1AC400E78953 /* spidermonkey.cc */,
+				06CE7168140F1AC400E78953 /* spidermonkey.h */,
+			);
+			name = webgl;
+			sourceTree = "<group>";
+		};
 		06D32A21140DD02F00725E8F = {
 			isa = PBXGroup;
 			children = (
-				06D32A5B140DD0D700725E8F /* libWebGL.a */,
+				06CE716A140F21B200E78953 /* libiMonkey.a */,
+				06CE7165140F1A9200E78953 /* webgl */,
 				06D32A3A140DD02F00725E8F /* webglstandalone-ipad */,
 				06D32A2F140DD02F00725E8F /* Frameworks */,
 				06D32A2D140DD02F00725E8F /* Products */,
+				06CE715C140F1A1F00E78953 /* iMonkey.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +140,8 @@
 				06D32A4B140DD02F00725E8F /* Shader.vsh */,
 				06D32A4D140DD02F00725E8F /* EAGLView.h */,
 				06D32A4E140DD02F00725E8F /* EAGLView.m */,
-				06D32A50140DD02F00725E8F /* webglstandalone_ipadViewController.h */,
 				06D32A51140DD02F00725E8F /* webglstandalone_ipadViewController.m */,
+				06D32A50140DD02F00725E8F /* webglstandalone_ipadViewController.h */,
 				06D32A53140DD02F00725E8F /* webglstandalone_ipadViewController.xib */,
 				06D32A3B140DD02F00725E8F /* Supporting Files */,
 			);
@@ -159,12 +194,28 @@
 			mainGroup = 06D32A21140DD02F00725E8F;
 			productRefGroup = 06D32A2D140DD02F00725E8F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 06CE715D140F1A1F00E78953 /* Products */;
+					ProjectRef = 06CE715C140F1A1F00E78953 /* iMonkey.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				06D32A2B140DD02F00725E8F /* webglstandalone-ipad */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		06CE7164140F1A2000E78953 /* libiMonkey.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libiMonkey.a;
+			remoteRef = 06CE7163140F1A2000E78953 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		06D32A2A140DD02F00725E8F /* Resources */ = {
@@ -190,6 +241,7 @@
 				06D32A45140DD02F00725E8F /* webglstandalone_ipadAppDelegate.m in Sources */,
 				06D32A4F140DD02F00725E8F /* EAGLView.m in Sources */,
 				06D32A52140DD02F00725E8F /* webglstandalone_ipadViewController.m in Sources */,
+				06CE7169140F1AC400E78953 /* spidermonkey.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +321,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../\"/**";
 				INFOPLIST_FILE = "webglstandalone-ipad/webglstandalone-ipad-Info.plist";
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = BUILD_FOR_IOS;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../build\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -288,9 +341,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../\"/**";
 				INFOPLIST_FILE = "webglstandalone-ipad/webglstandalone-ipad-Info.plist";
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = BUILD_FOR_IOS;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../build\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -317,6 +371,7 @@
 				06D32A5A140DD02F00725E8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
